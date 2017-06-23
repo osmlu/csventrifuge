@@ -168,14 +168,14 @@ for row in data:
 
 # After substitutions and additions done, spit out new csv.
 
-csv_out = args.output
-# extrasaction='ignore' ignores extra fields
-# http://www.lucainvernizzi.net/blog/2015/08/03/8x-speed-up-for-python-s-csv-dictwriter/
-writer = csv.DictWriter(csv_out, fieldnames=keys, extrasaction='ignore')
+with open (args.output, 'w', encoding='utf-8') as csv_out:
+    # extrasaction='ignore' ignores extra fields
+    # http://www.lucainvernizzi.net/blog/2015/08/03/8x-speed-up-for-python-s-csv-dictwriter/
+    writer = csv.DictWriter(csv_out, fieldnames=keys, extrasaction='ignore')
 
-writer.writeheader()
-writer.writerows(data)
-print('{} values out of {} dropped, {:.2%}'.format(
-    filtered, len_data, filtered / len_data))
-print('{} values out of {} replaced, {:.2%}'.format(
-    substitutions, len(data), substitutions / len(data)))
+    writer.writeheader()
+    writer.writerows(data)
+    print('{} values out of {} dropped, {:.2%}'.format(
+        filtered, len_data, filtered / len_data))
+    print('{} values out of {} replaced, {:.2%}'.format(
+        substitutions, len(data), substitutions / len(data)))
