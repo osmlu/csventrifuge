@@ -1,7 +1,14 @@
+csventrifuge
+=====
+
+A flexible csv filter/rewriter, built for Luxembourg's addresses and street lists, but should be adaptable for others.
+
+sources -> obtain the values from anywhere you want
 rules -> modify values
 enhance -> add values
 filter -> drop values
 
+See `run.sh` for an example of how to use this.
 
 To convert addresses csv to osm, open it with josm and save to csventrifuge-out.osm. Then run
 
