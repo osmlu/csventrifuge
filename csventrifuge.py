@@ -89,7 +89,7 @@ for key in keys:
     # Throw the rules in a dict, e.g. rules['localite'] - according to
     # key->filename
     try:
-        with open('rules/' + args.source + '/' + key + '.csv', 'r') as rulecsv:
+        with open('rules/' + args.source + '/' + key + '.csv', 'r', encoding='utf-8') as rulecsv:
             rulebook[key] = {}
             for row in csv.reader(rulecsv, delimiter='\t'):
                 try:
@@ -108,7 +108,7 @@ for key in keys:
         if enhancements:
             enhancebook[key] = {}
             for filename in os.listdir('enhance/' + args.source + '/' + key):
-                with open('enhance/' + args.source + '/' + key + '/' + filename, 'r') as enhancecsv:
+                with open('enhance/' + args.source + '/' + key + '/' + filename, 'r', encoding='utf-8') as enhancecsv:
                     # Target is file name without .csv at end
                     target = filename[:-4]
                     keys.append(target)
@@ -128,9 +128,9 @@ for key in keys:
     # Throw the rules in a dict, e.g. rules['localite'] - according to
     # key->filename
     try:
-        with open('filters/' + args.source + '/' + key + '.csv', 'r') as rulecsv:
+        with open('filters/' + args.source + '/' + key + '.csv', 'r', encoding='utf-8') as filtercsv:
             filterbook[key] = []
-            for row in csv.reader(rulecsv, delimiter='\t'):
+            for row in csv.reader(filtercsv, delimiter='\t'):
                 if not row[0].startswith('#'):
                     filterbook[key].append(row[0])
     except IOError:
