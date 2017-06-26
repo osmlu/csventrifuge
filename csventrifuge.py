@@ -8,6 +8,10 @@ import argparse
 import os
 import re
 import importlib
+import logging
+
+logging.basicConfig(level=logging.WARNING)
+log = logging.getLogger(__name__)
 
 
 def load_module(wanted_module, origin):
@@ -95,13 +99,14 @@ for key in keys:
                 try:
                     rulebook[key][row[0]] = row[1]
                 except IndexError:
-                    print('Could not import rule: {}'.format(row))
+                    log.error('Could not import rule: {}'.format(row))
     except IOError:
         # no rules for this column
         pass
 
 # Build the enhancement book
 enhancebook = {}
+enhanced = set()
 for key in keys:
     try:
         enhancements = os.listdir('enhance/' + args.source + '/' + key)
@@ -112,12 +117,13 @@ for key in keys:
                     # Target is file name without .csv at end
                     target = filename[:-4]
                     keys.append(target)
+                    enhanced.add(target)
                     enhancebook[key][target] = {}
                     for erow in csv.reader(enhancecsv, delimiter='\t'):
                         try:
                             enhancebook[key][target][erow[0]] = erow[1]
                         except IndexError:
-                            print('erow: ' + str(erow))
+                            log.error('erow: ' + str(erow))
     except OSError:
         # no enhancements for this column
         pass
@@ -154,17 +160,25 @@ for key in list(filterbook.keys()):
     data = filtered_data
 
 for row in data:
-    for key in list(row.keys()):
+    for key in keys:
+        # apply rules
         try:
             row[key] = rulebook[key][row[key]]
             substitutions += 1
         except KeyError:
             pass
+        # apply enhancement
         try:
             for enhancement in enhancebook[key].keys():
                 row[enhancement] = enhancebook[key][enhancement][row[key]]
         except KeyError:
             pass
+    # Check if all rows got enhanced
+    for enhanced_column in enhanced:
+        if not enhanced_column in row:
+            log.error("No enhancement found for {} in row {}".format(enhanced_column, row))
+
+
 
 # After substitutions and additions done, spit out new csv.
 
@@ -175,7 +189,7 @@ writer = csv.DictWriter(csv_out, fieldnames=keys, extrasaction='ignore')
 
 writer.writeheader()
 writer.writerows(data)
-print('{} values out of {} dropped, {:.2%}'.format(
+log.info('{} values out of {} dropped, {:.2%}'.format(
     filtered, len_data, filtered / len_data))
-print('{} values out of {} replaced, {:.2%}'.format(
+log.info('{} values out of {} replaced, {:.2%}'.format(
     substitutions, len(data), substitutions / len(data)))
