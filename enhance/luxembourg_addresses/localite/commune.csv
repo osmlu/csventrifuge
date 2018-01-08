@@ -30,7 +30,7 @@ Bascharage	Käerjeng
 Graulinster	Junglinster
 Rodange	Pétange
 Reuler	Clervaux
-Simmerschmelz	Septfontaines
+Simmerschmelz	Habscht
 Machtum	Wormeldange
 Eltz	Redange-sur-Attert
 Michelau	Bourscheid
@@ -52,7 +52,7 @@ Landscheid	Tandel
 Wiltz	Wiltz
 Rollingen	Mersch
 Stolzembourg	Putscheid
-Herborn	Mompach
+Herborn	Rosport-Mompach
 Wincrange	Wincrange
 Scheidgen	Consdorf
 Niederkorn	Differdange
@@ -67,12 +67,12 @@ Hupperdange	Clervaux
 Selscheid	Wiltz
 Breidweiler	Consdorf
 Bilsdorf	Rambrouch
-Hinkel	Rosport
+Hinkel	Rosport-Mompach
 Roder	Clervaux
 Burmerange	Schengen
 Schuttrange	Schuttrange
 Holtz	Rambrouch
-Givenich	Mompach
+Givenich	Rosport-Mompach
 Goebelsmühle	Bourscheid
 Dirbach (Goesdorf)	Goesdorf
 Limpach	Reckange-sur-Mess
@@ -92,13 +92,13 @@ Lieler	Clervaux
 Hierheck	Esch-sur-Sûre
 Bous	Bous
 Kockelscheuer	Roeser
-Born	Mompach
+Born	Rosport-Mompach
 Munshausen	Clervaux
 Hassel	Weiler-la-Tour
 Platen	Préizerdaul
 Michelbouch	Vichten
 Ell	Ell
-Boursdorf	Mompach
+Boursdorf	Rosport-Mompach
 Brandenbourg	Tandel
 Helmsange	Walferdange
 Sandweiler	Sandweiler
@@ -106,7 +106,7 @@ Kaundorf	Lac de la Haute-Sûre
 Pratz	Préizerdaul
 Altwies	Mondorf-les-Bains
 Grevels	Wahl
-Eischen	Hobscheid
+Eischen	Habscht
 Meysembourg	Larochette
 Walsdorf	Tandel
 Goedange	Troisvierges
@@ -148,14 +148,14 @@ Lausdorn	Weiswampach
 Drauffelt	Clervaux
 Betzdorf	Betzdorf
 Livange	Roeser
-Greisch	Septfontaines
+Greisch	Habscht
 Lentzweiler	Wincrange
 Olm	Kehlen
 Wahlhausen	Parc Hosingen
 Boxhorn	Wincrange
 Oetrange	Contern
 Bockholtz	Parc Hosingen
-Ansembourg	Tuntange
+Ansembourg	Helperknapp
 Baschleiden	Boulaide
 Fischbach (Clervaux)	Clervaux
 Harlange	Lac de la Haute-Sûre
@@ -170,7 +170,7 @@ Bonnal	Esch-sur-Sûre
 Grentzingen	Ettelbruck
 Schengen	Schengen
 Waldbredimus	Waldbredimus
-Grevenknapp	Boevange-sur-Attert
+Grevenknapp	Helperknapp
 Rameldange	Niederanven
 Esch-sur-Alzette	Esch-sur-Alzette
 Breidfeld	Weiswampach
@@ -217,10 +217,10 @@ Nospelt	Kehlen
 Trintange	Waldbredimus
 Remerschen	Schengen
 Larochette	Larochette
-Lilien	Mompach
+Lilien	Rosport-Mompach
 Linger	Käerjeng
 Freckeisen	Waldbillig
-Claushof	Tuntange
+Claushof	Helperknapp
 Asselborn	Wincrange
 Fennange	Bettembourg
 Blumenthal (Bech)	Bech
@@ -228,7 +228,7 @@ Kalborn-Moulin	Clervaux
 Kuborn	Wahl
 Beiler	Weiswampach
 Rodenbourg	Junglinster
-Steinheim	Rosport
+Steinheim	Rosport-Mompach
 Roullingen	Wiltz
 Ospern	Redange-sur-Attert
 Lamadelaine	Pétange
@@ -254,8 +254,8 @@ Medernach	Vallée de l'Ernz
 Rambrouch	Rambrouch
 Kopstal	Kopstal
 Eschette	Rambrouch
-Dickweiler	Rosport
-Finsterthal	Boevange-sur-Attert
+Dickweiler	Rosport-Mompach
+Finsterthal	Helperknapp
 Bivange	Roeser
 Walferdange	Walferdange
 Doncols	Winseler
@@ -275,7 +275,7 @@ Steinfort	Steinfort
 Consthum	Parc Hosingen
 Nocher-Route	Goesdorf
 Roeser	Roeser
-Openthalt	Boevange-sur-Attert
+Openthalt	Helperknapp
 Schiltzberg	Fischbach
 Schoos	Fischbach
 Moestroff	Bettendorf
@@ -302,7 +302,7 @@ Crendal	Wincrange
 Wecker	Biwer
 Koedange	Fischbach
 Strassen	Strassen
-Tuntange	Tuntange
+Tuntange	Helperknapp
 Gosseldange	Lintgen
 Heiderscheidergrund	Esch-sur-Sûre
 Mullendorf	Steinsel
@@ -329,13 +329,13 @@ Hoscheid-Dickt	Parc Hosingen
 Berchem	Roeser
 Reuland	Heffingen
 Gilsdorf	Bettendorf
-Rosport	Rosport
+Rosport	Rosport-Mompach
 Liefrange	Lac de la Haute-Sûre
 Bettel	Tandel
 Peppange	Roeser
 Troisvierges	Troisvierges
 Roost (Bissen)	Bissen
-Moersdorf	Mompach
+Moersdorf	Rosport-Mompach
 Grundhof (Beaufort)	Beaufort
 Brouch (Wecker)	Biwer
 Weiler	Putscheid
@@ -371,7 +371,7 @@ Schrondweiler	Nommern
 Longsdorf	Tandel
 Clemency	Käerjeng
 Rippweiler	Useldange
-Simmerfarm	Septfontaines
+Simmerfarm	Habscht
 Münschecker	Manternach
 Frisange	Frisange
 Eschweiler	Junglinster
@@ -413,7 +413,7 @@ Uebersyren	Schuttrange
 Haut-Martelange	Rambrouch
 Hoffelt	Wincrange
 Colmar-Pont	Schieren
-Buschdorf	Boevange-sur-Attert
+Buschdorf	Helperknapp
 Brattert	Wahl
 Weilerbach	Berdorf
 Closdelt	Bourscheid
@@ -449,19 +449,19 @@ Grevels (Grosbous)	Grosbous
 Oberpallen	Beckerich
 Bofferdange	Lorentzweiler
 Urspelt	Clervaux
-Brouch (Mersch)	Boevange-sur-Attert
-Bour	Tuntange
+Brouch (Mersch)	Helperknapp
+Bour	Helperknapp
 Koetschette	Rambrouch
 Abweiler	Bettembourg
 Dorscheid	Parc Hosingen
 Fentange	Hesperange
-Girst	Rosport
+Girst	Rosport-Mompach
 Kapweiler	Saeul
 Aspelt	Frisange
 Pettingen	Mersch
 Scheidel	Bourscheid
 Lintgen	Lintgen
-Bill	Boevange-sur-Attert
+Bill	Helperknapp
 Kalkesbach (Consdorf)	Consdorf
 Oberglabach	Nommern
 Reckange-sur-Mess	Reckange-sur-Mess
@@ -476,12 +476,12 @@ Helmdange	Lorentzweiler
 Nachtmanderscheid	Putscheid
 Schleif	Winseler
 Doennange	Wincrange
-Osweiler	Rosport
+Osweiler	Rosport-Mompach
 Wickrange	Reckange-sur-Mess
 Weiler-la-Tour	Weiler-la-Tour
 Savelborn	Vallée de l'Ernz
 Ehlerange	Sanem
-Hobscheid	Hobscheid
+Hobscheid	Habscht
 Filsdorf	Dalheim
 Pintsch	Kiischpelt
 Rumlange	Wincrange
@@ -489,9 +489,9 @@ Eppeldorf	Vallée de l'Ernz
 Bettange-sur-Mess	Dippach
 Ehlange	Reckange-sur-Mess
 Berg	Betzdorf
-Leesbach	Septfontaines
+Leesbach	Habscht
 Grass	Steinfort
-Mompach	Mompach
+Mompach	Rosport-Mompach
 Bettendorf	Bettendorf
 Dippach	Dippach
 Eselborn	Clervaux
@@ -503,11 +503,11 @@ Kleinbettingen	Steinfort
 Brachtenbach	Wincrange
 Gostingen	Flaxweiler
 Allerborn	Wincrange
-Boevange-sur-Attert	Boevange-sur-Attert
+Boevange-sur-Attert	Helperknapp
 Winseler	Winseler
 Assel	Bous
 Enteschbach	Bourscheid
-Hollenfels	Tuntange
+Hollenfels	Helperknapp
 Beidweiler	Junglinster
 Weidingen	Wiltz
 Alzingen	Hesperange
@@ -515,7 +515,7 @@ Bourscheid	Bourscheid
 Godbrange	Junglinster
 Luxembourg	Luxembourg
 Elvange (Schengen)	Schengen
-Septfontaines	Septfontaines
+Septfontaines	Habscht
 Syren	Weiler-la-Tour
 Saeul	Saeul
 Hersberg	Bech
@@ -537,8 +537,8 @@ Ringel	Esch-sur-Sûre
 Hemstal	Bech
 Eisenbach	Parc Hosingen
 Flaxweiler	Flaxweiler
-Marienthal	Tuntange
-Kuelbecherhaff	Tuntange
+Marienthal	Helperknapp
+Kuelbecherhaff	Helperknapp
 Lellig	Manternach
 Kayl	Kayl
 Levelange	Beckerich
@@ -548,9 +548,9 @@ Roodt (Ell)	Ell
 Wolper	Consdorf
 Bertrange	Bertrange
 Bigonville	Rambrouch
-Girsterklaus	Rosport
+Girsterklaus	Rosport-Mompach
 Kalkesbach (Berdorf)	Berdorf
-Roodt (Septfontaines)	Septfontaines
+Roodt (Septfontaines)	Habscht
 Basbellain	Troisvierges
 Hamiville	Wincrange
 Canach	Lenningen
@@ -558,7 +558,7 @@ Bollendorf-Pont	Berdorf
 Kaaspelterhof	Clervaux
 Kirelshof	Clervaux
 Wirtgensmühle	Clervaux
-Roodt-sur-Eisch	Septfontaines
+Roodt-sur-Eisch	Habscht
 Weyer	Fischbach
 Mecher	Lac de la Haute-Sûre
-Brouch	Boevange-sur-Attert
+Brouch	Helperknapp
