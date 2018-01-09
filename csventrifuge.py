@@ -116,7 +116,8 @@ for key in keys:
                 with open('enhance/' + args.source + '/' + key + '/' + filename, 'r', encoding='utf-8') as enhancecsv:
                     # Target is file name without .csv at end
                     target = filename[:-4]
-                    keys.append(target)
+                    if key not in keys:
+                        keys.append(target)
                     enhanced.add(target)
                     enhancebook[key][target] = {}
                     for erow in csv.reader(enhancecsv, delimiter='\t'):
