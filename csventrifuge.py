@@ -116,7 +116,7 @@ for key in keys:
                 with open('enhance/' + args.source + '/' + key + '/' + filename, 'r', encoding='utf-8') as enhancecsv:
                     # Target is file name without .csv at end
                     target = filename[:-4]
-                    if key not in keys:
+                    if target not in keys:
                         keys.append(target)
                     enhanced.add(target)
                     enhancebook[key][target] = {}
