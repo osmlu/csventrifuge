@@ -22,6 +22,7 @@ an den Aessen	An den Aessen
 An den Jenken	An de Jenken
 An den Längten	An de Längten
 Ancien Chemin D'Osweiler	Ancien Chemin d'Osweiler
+Av. Grand-Duc Jean	Avenue Grand-Duc Jean
 Avenue Dr Ernest Feltgen	Avenue Docteur Ernest Feltgen
 Avenue Dr Gaasch	Avenue Docteur Gaasch
 Avenue Dr Klein	Avenue Docteur Klein
@@ -30,6 +31,7 @@ Avenue Emile Reuter	Avenue Émile Reuter
 Avenue J-F Kennedy	Avenue John F. Kennedy
 Avenue Marie-Adelaide	Avenue Marie-Adélaïde
 Bd Grande-Duchesse Joséphine-Charlotte	Boulevard Grande-Duchesse Joséphine-Charlotte
+Bd Robert Schuman	Boulevard Robert Schuman
 Bei den 5 Buchen	Bei de 5 Buchen
 Belle-Etoile	Belle-Étoile
 Boulevard Dr Charles Marx	Boulevard Docteur Charles Marx
@@ -58,14 +60,15 @@ Cité Emile Tibessart	Cité Émile Tibessart
 Cité Francois Nemers	Cité François Nemers
 Cité J.F.L. Alexandre de Colnet	Cité Jean François Léonard Alexandre de Colnet
 Cité P. Braun	Cité Pierre Braun
+Cité St Jean	Cité Saint-Jean
 Cité St. Blaise	Cité Saint-Blaise
-Cité St. Jean	Cité Saint-Jean
 Dosberbreck	Dosberbréck
 Draikantongsstrooss	Dräikantongsstrooss
 Ennerem Besch	Ennerem Bësch
 Esp. de la Moselle	Esplanade de la Moselle
 Fond St Martin	Fond Saint-Martin
 Fondation Emile Mayrisch	Fondation Émile Mayrisch
+Hl. Vinzenz Gaass	Hellege Vinzenz-CGaass
 Hoenerwee	Hoënerwee
 Imp. Aloyse Kayser	Impasse Aloyse Kayser
 Imp. Av. Lucien Salentiny	Impasse Avenue Lucien Salentiny
@@ -83,6 +86,7 @@ Impasse St Dominique	Impasse Saint-Dominique
 Impasse St François	Impasse Saint-François
 Impasse St. Antoine	Impasse Saint-Antoine
 J. B. Zewenstrooss	Jean-Baptiste Zewenstrooss
+J.-P. Hentzenstrooss	Jean-Pierre Hentzenstrooss
 Kengert	Op Kengert
 Maison de Soins de l'Etat	Maison de Soins de l'État
 Meecherwee	Mecherwee
@@ -143,6 +147,7 @@ Rond-point Raemerich	Rond-Point Raemerich
 Rond-point Terres-Rouges	Rond-Point Terres-Rouges
 Rond-point Um Däich	Rond-Point Um Däich
 route du Vin	Route du Vin
+Rte de Luxembourg	Route de Luxembourg
 Rue A. Lincoln	Rue Abraham Lincoln
 Rue A.T. Schmitz	Rue August Theodor Schmitz
 Rue Abbe Guill	Rue Abbé Guill
@@ -171,8 +176,8 @@ Rue d'Epernay	Rue d'Épernay
 Rue d'Etalle	Rue d'Étalle
 Rue d'Oradour-Sur-Glane	Rue d'Oradour-sur-Glane
 Rue D. Eisenhower	Rue Dwight D. Eisenhower
-Rue Dangé-St-Romain	Rue Dangé-Saint-Romain
 rue de Beyren	Rue de Beyren
+Rue de Dangé St Romain	Rue de Dangé-Saint-Romain
 rue de Donven	Rue de Donven
 rue de Dreiborn	Rue de Dreiborn
 Rue de Feulen, Imp. I	Rue de Feulen, Impasse I
@@ -198,6 +203,7 @@ rue de la Résistance	Rue de la Résistance
 Rue de la Toison D'Or	Rue de la Toison d'Or
 Rue de la Vieille Eglise	Rue de la Vieille Église
 Rue de Macon	Rue de Mâcon
+rue de Mondorf	Rue de Mondorf
 Rue de Montmedy	Rue de Montmédy
 rue de Niederdonven	Rue de Niederdonven
 rue de Wormeldange-Haut	Rue de Wormeldange-Haut
@@ -221,7 +227,7 @@ rue des Vignes	Rue des Vignes
 Rue Dr Albert Mambourg	Rue Docteur Albert Mambourg
 Rue Dr Albert Schweitzer	Rue Docteur Albert Schweitzer
 Rue Dr Auguste Schumacher	Rue Docteur Auguste Schumacher
-Rue Dr Conzemius	Rue Docteur Conzemius
+Rue Dr Conzémius	Rue Docteur Conzémius
 Rue Dr Elvire Engel	Rue Docteur Elvire Engel
 Rue Dr Emile Colling	Rue Docteur Émile Colling
 Rue Dr Emile Pauly	Rue Docteur Émile Pauly
@@ -326,10 +332,10 @@ Rue Henri Vannerus	Rue Henri Vannérus
 Rue Hireknapp	Rue Hiereknapp
 Rue Ignac Semmelweis	Rue Ignaz Semmelweis
 rue Isidore Comes	Rue Isidore Comes
-Rue J-B Scharle	Rue Jean-Baptiste Scharle
 Rue J-B Scharlé	Rue Jean-Baptiste Scharlé
 Rue J-F Kennedy	Rue John F. Kennedy
 Rue J-F. Kennedy	Rue John F. Kennedy
+Rue J.-B. Scharlé	Rue Jean-Baptiste Scharlé
 Rue J.-F. Kennedy	Rue John F. Kennedy
 Rue J.A. Muller	Rue Joseph-Alexandre Müller
 Rue J.A. Zinnen	Rue Jean-Antoine Zinnen
