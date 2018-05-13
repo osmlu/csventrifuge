@@ -4,29 +4,9 @@ import requests
 import csv
 
 def get():
-    # The API endpoint that contains the link to the most recent version of the
-    # addresses in all available formats (geojson, but also shp).
-    UDATA_ADDRESSES = 'https://data.public.lu/api/1/datasets/adresses-georeferencees-bd-adresses/'
-
-    # Eugh, magic numbers.
-    # This is just the uuid for the addresses in csv format.
-    UDATA_ADDRESSES_ID = '5cadc5b8-6a7d-4283-87bc-f9e58dd771f7'
-
-    # Udata has no permalink. Parse the API to get the latest geojson.
-    udata_json = requests.get(UDATA_ADDRESSES).json()
-
-    # Find the resource with that ID in the udata json
-    # i.e. our addresses
-    for resource in udata_json['resources']:
-        if resource['id'] == UDATA_ADDRESSES_ID:
-            ADDRESSES_CSV = resource['url']
-            break
-    else:
-        # Oops, the for loop didn't find anything!
-        raise IOError("Could not find resource id {} in {}".format(
-            UDATA_ADDRESSES_ID, UDATA_ADDRESSES
-        ))
-
+    # The endpoint that redirects to the most recent version of the
+    # addresses in csv.
+    ADDRESSES_CSV = 'https://data.public.lu/fr/datasets/r/5cadc5b8-6a7d-4283-87bc-f9e58dd771f7'
     # Downloading the addresses might take ~15 seconds.
     # In the meanwile, shake your wrists and correct your posture.
     r = requests.get(ADDRESSES_CSV)
