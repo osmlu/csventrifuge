@@ -48,7 +48,7 @@ def is_valid_source(parser, arg):
 
 def is_valid_output(parser, arg):
     try:
-        output = open(arg, 'w', encoding='utf-8')
+        output = open(arg, 'w', encoding='utf-8', newline='')
     except IOError:
         parser.error('Unable to write to file {}'.format(arg))
     else:
