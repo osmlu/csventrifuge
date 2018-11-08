@@ -4,16 +4,16 @@ a Pietert	A Pietert
 Aline an Emile Mayrischstrooss	Aline an Émile Mayrischstrooss
 Allée Dwight David Eisenhower	Allée Dwight D. Eisenhower
 Allée John W. Léonard	Allée John W. Leonard
-Allée St. Hubert	Allée Saint-Hubert
 Allée Saint Hubert	Allée Saint-Hubert
+Allée St. Hubert	Allée Saint-Hubert
 Am Buurgbierg - Rés. Laurentides	Am Buurgbierg - Résidence Laurentides
 Am enneschten Eck	Am ënneschten Eck
 am Gaa	Am Gaa
 Am Hueschterterboesch	Am Hueschterterbësch
 am Kalk	Am Kalk
 am Pull	Am Pull
-am Reisselt	Am Reisselt
 Am Reimergaard	Am Réimergaart
+am Reisselt	Am Reisselt
 Am Rousegaertchen	Am Rousegärtchen
 am Schank	Am Schank
 am Stach	Am Stach
@@ -26,13 +26,11 @@ An den Jenken	An de Jenken
 An den Längten	An de Längten
 Ancien Chemin D'Osweiler	Ancien Chemin d'Osweiler
 Av. Grand-Duc Jean	Avenue Grand-Duc Jean
+Avenue des Villes Jumelees	Avenue des Villes Jumelées
 Avenue Dr Ernest Feltgen	Avenue Docteur Ernest Feltgen
-Rue Dr Fernand Schwachtgen	Rue Docteur Fernand Schwachtgen
-Rue Renaudin	Rue Jean Renaudin
 Avenue Dr Gaasch	Avenue Docteur Gaasch
 Avenue Dr Klein	Avenue Docteur Klein
 Avenue du 31 août 1942	Avenue du 31 Août 1942
-Avenue des Villes Jumelees	Avenue des Villes Jumelées
 Avenue Emile Reuter	Avenue Émile Reuter
 Avenue J-F Kennedy	Avenue John F. Kennedy
 Avenue Marie-Adelaide	Avenue Marie-Adélaïde
@@ -67,6 +65,7 @@ Cité Emile Tibessart	Cité Émile Tibessart
 Cité Francois Nemers	Cité François Nemers
 Cité J.F.L. Alexandre de Colnet	Cité Jean François Léonard Alexandre de Colnet
 Cité P. Braun	Cité Pierre Braun
+Cité Paerchen	Am Paerchen
 Cité St Jean	Cité Saint-Jean
 Cité St. Blaise	Cité Saint-Blaise
 Dosberbreck	Dosberbréck
@@ -94,6 +93,7 @@ Impasse St François	Impasse Saint-François
 Impasse St. Antoine	Impasse Saint-Antoine
 J. B. Zewenstrooss	Jean-Baptiste Zewenstrooss
 J.-P. Hentzenstrooss	Jean-Pierre Hentzenstrooss
+Jaansmillen	Jansmille
 Kengert	Op Kengert
 Maison de Soins de l'Etat	Maison de Soins de l'État
 Meecherwee	Mecherwee
@@ -103,11 +103,11 @@ Montagne de l'Ecole	Montagne de l'École
 Montée de l'Ecole	Montée de l'École
 Montée de l'Eglise	Montée de l'Église
 Montée des Ecoles	Montée des Écoles
+Montée Saint Nicolas	Montée Saint-Nicolas
 Montée St Crépin	Montée Saint-Crépin
 Montée St Urbain	Montée Saint-Urbain
 Montée St. Hubert	Montée Saint-Hubert
 Montée St. Nicolas	Montée Saint-Nicolas
-Montée Saint Nicolas	Montée Saint-Nicolas
 Nic. Schildermans	Nicolas Schildermans
 Nonnesees	Oam Nonnesees
 om Wandhof	Om Wandhof
@@ -209,6 +209,7 @@ Rue de la 87E Division	Rue de la 87e division
 Rue de la Barriere	Rue de la Barrière
 Rue de la Carriere	Rue de la Carrière
 rue de la Cité	Rue de la Cité
+Rue de la Fonte	Avenue de la Fonte
 rue de la Forêt	Rue de la Forêt
 rue de la Résistance	Rue de la Résistance
 Rue de la Toison D'Or	Rue de la Toison d'Or
@@ -245,6 +246,7 @@ Rue Dr Emile Colling	Rue Docteur Émile Colling
 Rue Dr Emile Pauly	Rue Docteur Émile Pauly
 Rue Dr Ernest Feltgen	Rue Docteur Ernest Feltgen
 Rue Dr Ferdinand Frieden	Rue Docteur Ferdinand Frieden
+Rue Dr Fernand Schwachtgen	Rue Docteur Fernand Schwachtgen
 Rue Dr Flesch	Rue Docteur Flesch
 Rue Dr François Baclesse	Rue Docteur François Baclesse
 Rue Dr Henri Clees	Rue Docteur Henri Clees
@@ -400,6 +402,7 @@ Rue Pessendall	Rue Pëssendall
 Rue Pierre D'Osbourg	Rue Pierre d'Osbourg
 Rue Pierre Eloi Schoué	Rue Pierre-Éloi Schoué
 rue Principale	Rue Principale
+Rue Renaudin	Rue Jean Renaudin
 Rue Rene de Geysen	Rue René de Geysen
 Rue S. G. Thomas	Rue Sidney Gilchrist Thomas
 Rue Sainte Thérèse d'Avila	Rue Sainte-Thérèse-d'Ávila
@@ -458,6 +461,7 @@ Rue Würth-Paquet	Rue Wurth-Paquet
 Ruelle Soeur Flavia	Ruelle Sœur Flavia
 Schefflengerbierg	Schëffléngerbierg
 Schleiwegaass	Schléiwegaass
+Schmitzbongert	A Schmitzbongert
 Sentier de l'Eglise	Sentier de l'Église
 Sq. General Patton	Square General George S. Patton
 Sq. Marie-Astrid	Square Marie-Astrid
@@ -471,13 +475,14 @@ Val Sainte Croix	Val Sainte-Croix
 Val St André	Val Saint-André
 Val Ste Croix	Val Sainte-Croix
 Z. A. C. Jauschwis	Zone Artisanale et Commerciale Jauschwis
-Z. A. C. Kléngbusbierg	Zone Artisanale et Commerciale Kléngbusbierg
 Z. A. R. E. EST	Zone d'Activité Régionale Économique EST
 Z. A. R. E. OUEST	Zone d'Activité Régionale Économique OUEST
+Z.A.C. Hahneboesch II	Zone Artisanale et Commerciale Hahneboesch II
 Z.A.E. Krakelshaff	Zone d'Activité Économique Krakelshaff
 Z.A.I. Bourmicht	Zone d'Activité Industrielle Bourmicht
 ZAC Hahneboesch II	Zone Artisanale et Commerciale Hahneboesch II
 ZAC Haneboesch II	Zone Artisanale et Commerciale Haneboesch II
+ZAC Klengbusbierg	Zone Artisanale et Commerciale Klengbousbierg
 Zaer Op der Héi	Zone d'Activité Régionale Économique Op der Héi
 ZARE Sommet	Zone d'Activité Régionale Économique Sommet
 Zone artisanale et commerciale Z. A. C.	Zone Artisanale et Commerciale
