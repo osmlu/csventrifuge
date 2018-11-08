@@ -2,6 +2,7 @@
 
 # TODO use a generator instead of loading everything in ram
 # TODO count how many times a rule is used, and show unused rules
+# DONE deal with rules that apply only in one city, e.g. Rue Churchill which becomes Bd Churchill in Esch only - use an enhancement
 
 import csv
 import argparse
