@@ -155,6 +155,7 @@ substitutions = 0
 filtered = 0
 len_data = len(data)
 
+# filter data
 for key in list(filterbook.keys()):
     # We don't replace in place because we want a count
     filtered_data = [row for row in data if row[key] not in filterbook[key]]
