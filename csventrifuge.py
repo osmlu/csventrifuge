@@ -28,6 +28,7 @@ def load_module(wanted_module, origin):
     for module in modules:
         if module == '.' + wanted_module:
             return importlib.import_module(module, package="sources")
+            log.debug("Loaded module "+module)
             break
     # If we reach this point, we haven't found anything
     else:
@@ -88,6 +89,8 @@ if get_data is None:
 # Load it all up in memory
 data, keys = get_data()
 
+log.debug("Keys are "+', '.join(keys))
+
 # Build the rulebook
 rulebook = {}
 for key in keys:
@@ -121,14 +124,17 @@ for key in keys:
                         keys.append(target)
                     enhanced.add(target)
                     enhancebook[key][target] = {}
+                    log.debug("Adding enhance target "+target+" key "+key)
                     for erow in csv.reader(enhancecsv, delimiter='\t'):
                         try:
                             enhancebook[key][target][erow[0]] = erow[1]
                         except IndexError:
                             log.error('erow: ' + str(erow))
+            log.debug("Enhance book for "+key+": "+', '.join(enhancebook[key].keys()))
     except OSError:
         # no enhancements for this column
         pass
+
 
 # Build the filter book
 filterbook = {}
