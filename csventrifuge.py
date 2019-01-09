@@ -101,7 +101,8 @@ for key in keys:
             rulebook[key] = {}
             for row in csv.reader(rulecsv, delimiter='\t'):
                 try:
-                    rulebook[key][row[0]] = row[1]
+                    if not row[0].startswith('#'):
+                        rulebook[key][row[0]] = row[1]
                 except IndexError:
                     log.error('Could not import rule: {}'.format(row))
     except IOError:
@@ -127,7 +128,8 @@ for key in keys:
                     log.debug("Adding enhance target "+target+" key "+key)
                     for erow in csv.reader(enhancecsv, delimiter='\t'):
                         try:
-                            enhancebook[key][target][erow[0]] = erow[1]
+                            if not erow[0].startswith('#'):
+                                enhancebook[key][target][erow[0]] = erow[1]
                         except IndexError:
                             log.error('erow: ' + str(erow))
             log.debug("Enhance book for "+key+": "+', '.join(enhancebook[key].keys()))
@@ -147,8 +149,10 @@ for key in keys:
             for row in csv.reader(filtercsv, delimiter='\t'):
                 if not row[0].startswith('#'):
                     filterbook[key].append(row[0])
+        log.debug(f"Filter book for {key} is {len(filterbook[key])} entries big.")
     except IOError:
         # no rules for this column
+        log.debug(f"No filters for {key} at {'filters/' + args.source + '/' + key + '.csv'}")
         pass
 
 # For each row, for each column, if there's a corresponding rule, replace.
@@ -162,9 +166,12 @@ filtered = 0
 len_data = len(data)
 
 # filter data
-for key in list(filterbook.keys()):
+for key in filterbook.keys():
     # We don't replace in place because we want a count
     filtered_data = [row for row in data if row[key] not in filterbook[key]]
+    if log.getEffectiveLevel() == logging.DEBUG:
+        for deleted in [row for row in data if row[key] in filterbook[key]]:
+            log.debug(f"Filter deleted {deleted}")
     filtered += len(data) - len(filtered_data)
     data = filtered_data
 
@@ -179,10 +186,14 @@ for row in data:
         # apply enhancement
         try:
             for enhancement in enhancebook[key].keys():
-                row[enhancement] = enhancebook[key][enhancement][row[key]]
+                try:
+                    row[enhancement] = enhancebook[key][enhancement][row[key]]
+                    log.debug(f"Enhancing {key} {row[key]} with {enhancement} {enhancebook[key][enhancement][row[key]]}")
+                except KeyError:
+                    pass
         except KeyError:
             pass
-    # Check if all rows got enhanced
+    # Check if all enhanced columns in the row got added
     for enhanced_column in enhanced:
         if not enhanced_column in row:
             log.error("No enhancement found for {} in row {}".format(enhanced_column, row))
