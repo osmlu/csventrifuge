@@ -1,5 +1,10 @@
 # Rue du Glacis is a trap street. Maison means there's no street name.
 # remove lieux dits that contain no real address, streets that are gone, and name:lb's that slipped through the cracks.
+#
+# v-- remove for addresses
+Maison
+#
+#
 A Wëllems
 Am Kalk
 Am Pull
@@ -120,7 +125,6 @@ Leudelange Gare
 Loeftgermuehle
 Lopert
 Luerenzscheierhaff
-Maison
 Maison de garde
 Manertchen
 Marienthalerhof
@@ -156,7 +160,6 @@ Riesenhof
 Rippweiler Barrière
 Rodenhof (Echternach)
 Roudebierg
-Rue de Chiny
 Rue du Fort Berlaimont
 Rue du Glacis
 Scheedhaff
