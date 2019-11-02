@@ -93,7 +93,7 @@ Impasse St François	Impasse Saint-François
 Impasse St. Antoine	Impasse Saint-Antoine
 J. B. Zewenstrooss	Jean-Baptiste Zewenstrooss
 J.-P. Hentzenstrooss	Jean-Pierre Hentzenstrooss
-Jaansmillen	Jansmille
+Jaansmillen	Jansmillen
 Kengert	Op Kengert
 Maison de Soins de l'Etat	Maison de Soins de l'État
 Meecherwee	Mecherwee
@@ -181,9 +181,9 @@ Rue Ch. W. Gluck	Rue Christoph Willibald Gluck
 Rue Charles-Frederic Mersch	Rue Charles-Frédéric Mersch
 Rue Charles-Quint	Rue Charles Quint
 rue Clas von Ehnen	Rue Clas von Ehnen
+Rue Comte J.-F. d'Autel	Rue Comte Jean-Frédéric d'Autel
 Rue Comte Jean-Frederic D'Autel	Rue Comte Jean-Frederic d'Autel
 Rue Comte Jean-Frederic d'Autel	Rue Comte Jean-Frédéric d'Autel
-Rue Comte J.-F. d'Autel	Rue Comte Jean-Frédéric d'Autel
 Rue Cunegonde	Rue Cunégonde
 Rue d'Epernay	Rue d'Épernay
 Rue d'Etalle	Rue d'Étalle
@@ -345,6 +345,7 @@ Rue Général Major Lunsford E. Oliver	Rue General Major Lunsford E. Oliver
 Rue Général Omar N. Bradley	Rue General Omar N. Bradley
 Rue Général Patton	Rue General George S. Patton
 Rue Henri Bessemer	Rue Henry Bessemer
+Rue Henri Moore	Rue Henry Moore
 Rue Henri Vannerus	Rue Henri Vannérus
 Rue Hireknapp	Rue Hiereknapp
 Rue Hubert Clement	Rue Hubert Clément
@@ -445,11 +446,11 @@ Rue St. Sébastien	Rue Saint-Sébastien
 Rue St. Willibrord	Rue Saint-Willibrord
 Rue Ste Barbe	Rue Sainte-Barbe
 Rue Ste Catherine	Rue Sainte-Catherine
+Rue Ste Irmine	Rue Sainte-Irmine
 Rue Ste Zithe	Rue Sainte-Zithe
 Rue Ste. Barbe	Rue Sainte-Barbe
 Rue Ste. Claire	Rue Sainte-Claire
 Rue Ste. Croix	Rue Sainte-Croix
-Rue Ste Irmine	Rue Sainte-Irmine
 Rue Ste. Irmine	Rue Sainte-Irmine
 Rue Theodor Mergen	Rue Théodore Mergen
 Rue Theodore Bassing	Rue Théodore Bassing
@@ -468,10 +469,10 @@ Schleiwegaass	Schléiwegaass
 Schmitzbongert	A Schmitzbongert
 Sentier de l'Eglise	Sentier de l'Église
 Sq. General Patton	Square General George S. Patton
-Square General Patton	Square General George S. Patton
 Sq. Marie-Astrid	Square Marie-Astrid
 Square Edouard André	Square Édouard André
 Square Emile Mayrisch	Square Émile Mayrisch
+Square General Patton	Square General George S. Patton
 Um Beil	Um Béil
 um Kécker	Um Kécker
 um Stuedt	Um Stuedt
@@ -484,17 +485,16 @@ Z. A. R. E. EST	Zone d'Activité Régionale Économique EST
 Z. A. R. E. OUEST	Zone d'Activité Régionale Économique OUEST
 Z.A.C. Hahneboesch II	Zone Artisanale et Commerciale Hahneboesch II
 Z.A.E. Krakelshaff	Zone d'Activité Économique Krakelshaff
+Z.A.E. Le Triangle Vert	Zone d'Activité Économique Le Triangle Vert
 Z.A.I. Bourmicht	Zone d'Activité Industrielle Bourmicht
 ZAC Hahneboesch II	Zone Artisanale et Commerciale Hahneboesch II
 ZAC Haneboesch II	Zone Artisanale et Commerciale Haneboesch II
-ZAC Klengbusbierg	Zone Artisanale et Commerciale Klengbousbierg
 ZAC Klengbousbierg	Zone Artisanale et Commerciale Klengbousbierg
+ZAC Klengbusbierg	Zone Artisanale et Commerciale Klengbousbierg
 Zaer Op der Héi	Zone d'Activité Régionale Économique Op der Héi
 ZARE Sommet	Zone d'Activité Régionale Économique Sommet
 Zone artisanale et commerciale Z. A. C.	Zone Artisanale et Commerciale
 Zone d'Act. Eco. Z.A.R.E., îlot ouest	Zone d'Activité Régionale Économique, îlot ouest
 Zone d'act. économ. "Le Triangle Vert"	Zone d'Activité Économique Le Triangle Vert
-Z.A.E. Le Triangle Vert	Zone d'Activité Économique Le Triangle Vert
 Zone d'activités économique Solupla	Zone d'Activité Économique Solupla
 Zone Industrielle ZARE	Zone d'Activité Régionale Économique
-Jansmille	Jansmillen
