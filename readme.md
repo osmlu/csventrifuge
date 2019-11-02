@@ -16,7 +16,7 @@ A flexible csv filter/rewriter, built for Luxembourg's addresses and street list
 * Open `luxembourg-addresses.csv` in [JOSM](https://josm.openstreetmap.de/), right-click the layer, select `Save As...` and save it as `csventrifuge-out.osm`. Make sure to install the [OpenData](https://wiki.openstreetmap.org/wiki/JOSM/Plugins/OpenData) plugin in JOSM first.
 * Run the following command:
 ```
-grep -vE "(luref|id_caclr_rue|commune|id_geoportail)" csventrifuge-out.osm | sed -e "s/localite/addr:city/; s/id_caclr_bat/ref:caclr/; s/'rue/'addr:street/; s/numero/addr:housenumber/; s/code_postal/addr:postcode/; s/action='modify' //;" >| 2018-09-10-addresses.osm
+grep -vE "(luref|id_caclr_rue|commune|id_geoportail)" csventrifuge-out.osm | sed -e "s/localite/addr:city/; s/id_caclr_bat/ref:caclr/; s/'rue/'addr:street/; s/numero/addr:housenumber/; s/code_postal/addr:postcode/; s/action='modify' //;" >| $(date +%Y-%m-%d)-addresses.osm
 ```
 * That's it! You can now open `2018-09-10-addresses.osm` in JOSM.
 
