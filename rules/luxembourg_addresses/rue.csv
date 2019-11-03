@@ -32,6 +32,7 @@ Avenue Dr Gaasch	Avenue Docteur Gaasch
 Avenue Dr Klein	Avenue Docteur Klein
 Avenue du 31 août 1942	Avenue du 31 Août 1942
 Avenue Emile Reuter	Avenue Émile Reuter
+Avenue Gordon Smith	Avenue Gordon T. Smith
 Avenue J-F Kennedy	Avenue John F. Kennedy
 Avenue Marie-Adelaide	Avenue Marie-Adélaïde
 Bd Grande-Duchesse Joséphine-Charlotte	Boulevard Grande-Duchesse Joséphine-Charlotte
@@ -120,6 +121,7 @@ Op Feileschterkeppchen	Op Feileschter
 Op Feileschterkeppchen	Op Féilëschterkëppchen
 Op Kraeizheck	Op Kräizheck
 op Tomm	Op Tomm
+Parc d'Activités Eco. Gadderscheier	Parc d'Activités Économiques Gadderscheier
 Park Drai Eechelen	Park Dräi Eechelen
 Parvis De La Basilique	Parvis de la Basilique
 Passage des Bâteliers	Passage des Bateliers
@@ -142,6 +144,7 @@ Place St. Michel	Place Saint-Michel
 Place Ste Cunégonde	Place Sainte-Cunégonde
 Place Sts Pierre et Paul	Place Saints-Pierre-et-Paul
 Plateau du St Esprit	Plateau du Saint-Esprit
+Porte St Willibrord	Porte Saint-Willibrord
 Porte St. Willibrord	Porte Saint-Willibrord
 Pénetrante de Lallange	Pénétrante de Lallange
 Qua. de l'Eglise	Quartier de l'Église
@@ -355,10 +358,10 @@ rue Isidore Comes	Rue Isidore Comes
 Rue J-B Scharlé	Rue Jean-Baptiste Scharlé
 Rue J-F Kennedy	Rue John F. Kennedy
 Rue J-F. Kennedy	Rue John F. Kennedy
+Rue J. F. Kennedy	Rue John F. Kennedy
 Rue J.-B. Neuens	Rue Jean-Baptiste Neuens
 Rue J.-B. Scharlé	Rue Jean-Baptiste Scharlé
 Rue J.-F. Kennedy	Rue John F. Kennedy
-Rue J. F. Kennedy	Rue John F. Kennedy
 Rue J.A. Muller	Rue Joseph-Alexandre Müller
 Rue J.A. Zinnen	Rue Jean-Antoine Zinnen
 Rue J.B. Determe	Rue Jean-Baptiste Determe
@@ -426,6 +429,7 @@ Rue St Martin	Rue Saint-Martin
 Rue St Mathieu	Rue Saint-Mathieu
 Rue St Nicolas	Rue Saint-Nicolas
 Rue St Quirin	Rue Saint-Quirin
+Rue St Roch	Rue Saint-Roch
 Rue St Ulric	Rue Saint-Ulric
 Rue St Vincent	Rue Saint-Vincent
 Rue St Willibrord	Rue Saint-Willibrord
@@ -477,6 +481,7 @@ Square Emile Mayrisch	Square Émile Mayrisch
 Square General Patton	Square General George S. Patton
 Um Beil	Um Béil
 um Kécker	Um Kécker
+Um Railand	Um Räiland
 um Stuedt	Um Stuedt
 Um Weisse Steen	Um weisse Steen
 Val Sainte Croix	Val Sainte-Croix
@@ -485,10 +490,12 @@ Val Ste Croix	Val Sainte-Croix
 Z. A. C. Jauschwis	Zone Artisanale et Commerciale Jauschwis
 Z. A. R. E. EST	Zone d'Activité Régionale Économique EST
 Z. A. R. E. OUEST	Zone d'Activité Régionale Économique OUEST
+Z.A. Gadderscheier	Zone Artisanale Gadderscheier
 Z.A.C. Hahneboesch II	Zone Artisanale et Commerciale Hahneboesch II
 Z.A.E. Krakelshaff	Zone d'Activité Économique Krakelshaff
 Z.A.E. Le Triangle Vert	Zone d'Activité Économique Le Triangle Vert
 Z.A.I. Bourmicht	Zone d'Activité Industrielle Bourmicht
+Z.I. Hahneboesch	Zone Industrielle Hahneboesch
 ZAC Hahneboesch II	Zone Artisanale et Commerciale Hahneboesch II
 ZAC Haneboesch II	Zone Artisanale et Commerciale Haneboesch II
 ZAC Klengbousbierg	Zone Artisanale et Commerciale Klengbousbierg
@@ -500,6 +507,3 @@ Zone d'Act. Eco. Z.A.R.E., îlot ouest	Zone d'Activité Régionale Économique, 
 Zone d'act. économ. "Le Triangle Vert"	Zone d'Activité Économique Le Triangle Vert
 Zone d'activités économique Solupla	Zone d'Activité Économique Solupla
 Zone Industrielle ZARE	Zone d'Activité Régionale Économique
-Z.A. Gadderscheier	Zone Artisanale Gadderscheier
-Parc d'Activités Eco. Gadderscheier	Parc d'Activités Économiques Gadderscheier
-Z.I. Hahneboesch	Zone Industrielle Hahneboesch
