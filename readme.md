@@ -20,6 +20,12 @@ grep -vE "(luref|id_caclr_rue|commune|id_geoportail)" csventrifuge-out.osm | sed
 ```
 * That's it! You can now open `2018-09-10-addresses.osm` in JOSM.
 
+Another way of doing it if you don't need action=modify:
+
+echo addr:street,addr:housenumber,addr:city,addr:postcode,ref:caclr,lat_wgs84,lon_wgs84,commune > $(date +%Y-%m-%d)-addresses.csv
+cut -d , -f 1-4,6-8 luxembourg-addresses.csv | tail -n +2 >> $(date +%Y-%m-%d)-addresses.csv
+open -a JOSM.app $(date +%Y-%m-%d)-addresses.csv
+
 ### Notes
 
 Unfortunately https://github.com/pnorman/ogr2osm has https://github.com/pnorman/ogr2osm/issues/31. Pnorman recommends pre-processing in postgis.
