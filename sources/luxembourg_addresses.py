@@ -18,5 +18,5 @@ def get():
         for row in csvreader]
     for row in addresses:
         row['code_commune'] = row['id_geoportail'][:3]
-        fieldnames.insert(0, 'code_commune')
+    fieldnames.insert(0, 'code_commune')
     return addresses, fieldnames
