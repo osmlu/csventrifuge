@@ -15,4 +15,7 @@ def get():
     csvreader = csv.DictReader(req_addresses, delimiter=';')
     addresses = [{k: v for k, v in row.items()}
         for row in csvreader]
+    for row in addresses:
+        row['code_commune'] = row['id_geoportail'][:3]
+        fieldnames.insert(0, 'code_commune')
     return addresses, csvreader.fieldnames
