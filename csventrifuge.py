@@ -2,7 +2,8 @@
 
 # TODO use a generator instead of loading everything in ram
 # TODO count how many times a rule is used, and show unused rules
-# DONE deal with rules that apply only in one city, e.g. Rue Churchill which becomes Bd Churchill in Esch only - use an enhancement
+# DONE deal with rules that apply only in one city, e.g. Rue Churchill
+#  which becomes Bd Churchill in Esch only - use an enhancement
 
 import csv
 import argparse
@@ -10,6 +11,7 @@ import os
 import re
 import importlib
 import logging
+from typing import Dict
 
 logging.basicConfig(level=logging.WARNING)
 log = logging.getLogger(__name__)
@@ -20,19 +22,16 @@ def load_module(wanted_module, origin):
     modulefiles = filter(
         pysearchre.search, os.listdir(os.path.join(os.path.dirname(__file__), origin))
     )
-    # form_module = lambda fp: '.' + os.path.splitext(fp)[0]
     modules = map(form_module, modulefiles)
     # import parent module / namespace
     importlib.import_module(origin)
     # modules = {}
     for module in modules:
         if module == "." + wanted_module:
+            log.debug("Loading module %s", module)
             return importlib.import_module(module, package="sources")
-            log.debug("Loaded module " + module)
-            break
     # If we reach this point, we haven't found anything
-    else:
-        raise ImportError('module not found "{}" ({})'.format(wanted_module, origin))
+    raise ImportError('module not found "{}" ({})'.format(wanted_module, origin))
 
 
 def form_module(fp):
@@ -44,8 +43,8 @@ def is_valid_source(parser, arg):
         parser.error(
             "The input source definition sources/{}.py does not exist".format(arg)
         )
-    else:
-        return arg
+        return False
+    return arg
 
 
 def is_valid_output(parser, arg):
@@ -87,10 +86,10 @@ if get_data is None:
 # Load it all up in memory
 data, keys = get_data()
 
-log.debug("Keys are " + ", ".join(keys))
+log.debug("Keys are %s", ", ".join(keys))
 
 # Build the rulebook
-rulebook = {}
+rulebook: Dict[str, dict] = {}
 for key in keys:
     # Throw the rules in a dict, e.g. rules['localite'] - according to
     # key->filename
@@ -104,13 +103,13 @@ for key in keys:
                     if not row[0].startswith("#"):
                         rulebook[key][row[0]] = row[1]
                 except IndexError:
-                    log.error("Could not import rule: {}".format(row))
+                    log.error("Could not import rule: %s", row)
     except IOError:
         # no rules for this column
         pass
 
 # Build the enhancement book
-enhancebook = {}
+enhancebook: Dict[str, dict] = {}
 enhanced = set()
 for key in keys:
     try:
@@ -135,9 +134,9 @@ for key in keys:
                             if not erow[0].startswith("#"):
                                 enhancebook[key][target][erow[0]] = erow[1]
                         except IndexError:
-                            log.error("erow: " + str(erow))
+                            log.error("erow: %s", str(erow))
             log.debug(
-                "Enhance book for " + key + ": " + ", ".join(enhancebook[key].keys())
+                "Enhance book for %s: %s", key, ", ".join(enhancebook[key].keys())
             )
     except OSError:
         # no enhancements for this column
@@ -145,7 +144,7 @@ for key in keys:
 
 
 # Build the filter book
-filterbook = {}
+filterbook: Dict[str, list] = {}
 for key in keys:
     # Throw the rules in a dict, e.g. rules['localite'] - according to
     # key->filename
@@ -157,16 +156,16 @@ for key in keys:
             for row in csv.reader(filtercsv, delimiter="\t"):
                 if not row[0].startswith("#"):
                     filterbook[key].append(row[0])
-        log.debug(f"Filter book for {key} is {len(filterbook[key])} entries big.")
+        log.debug("Filter book for %s is %i entries big.", key, len(filterbook[key]))
     except IOError:
         # no rules for this column
         log.debug(
-            f"No filters for {key} at {'filters/' + args.source + '/' + key + '.csv'}"
+            "No filter file %s.csv in directory filters/%s/}", key, args.source
         )
-        pass
 
 # For each row, for each column, if there's a corresponding rule, replace.
-# if rules['localite'][address['localite']: address['localite'] = rules['localite'][address['localite']
+# if rules['localite'][address['localite']:
+#     address['localite'] = rules['localite'][address['localite']
 # If there's an enhancement, add that column in the same way.
 # Is there a more pythonic way to write this? Lambda function? Dict
 # comprehension?
@@ -176,12 +175,12 @@ filtered = 0
 len_data = len(data)
 
 # filter data
-for key in filterbook.keys():
+for key in filterbook:
     # We don't replace in place because we want a count
     filtered_data = [row for row in data if row[key] not in filterbook[key]]
     if log.getEffectiveLevel() == logging.DEBUG:
         for deleted in [row for row in data if row[key] in filterbook[key]]:
-            log.debug(f"Filter deleted {deleted}")
+            log.debug("Filter deleted %s", deleted)
     filtered += len(data) - len(filtered_data)
     data = filtered_data
 
@@ -199,7 +198,8 @@ for row in data:
                 try:
                     row[enhancement] = enhancebook[key][enhancement][row[key]]
                     log.debug(
-                        f"Enhancing {key} {row[key]} with {enhancement} {enhancebook[key][enhancement][row[key]]}"
+                        "Enhancing %s %s with %s %s",
+                        key, row[key], enhancement, enhancebook[key][enhancement][row[key]]
                     )
                 except KeyError:
                     pass
@@ -207,10 +207,8 @@ for row in data:
             pass
     # Check if all enhanced columns in the row got added
     for enhanced_column in enhanced:
-        if not enhanced_column in row:
-            log.error(
-                "No enhancement found for {} in row {}".format(enhanced_column, row)
-            )
+        if enhanced_column not in row:
+            log.error("No enhancement found for %s in row %s", enhanced_column, row)
 
 
 # After substitutions and additions done, spit out new csv.
@@ -232,4 +230,3 @@ log.info(
         substitutions, len(data), substitutions / len(data)
     )
 )
-
