@@ -8,6 +8,7 @@ import logging
 logging.basicConfig(level=logging.DEBUG)
 log = logging.getLogger(__name__)
 
+
 def get():
     # The endpoint that redirects to the most recent version of the
     # addresses in csv.
