@@ -16,80 +16,78 @@ log = logging.getLogger(__name__)
 
 
 def load_module(wanted_module, origin):
-    pysearchre = re.compile('.py$', re.IGNORECASE)
-    modulefiles = filter(pysearchre.search,
-                         os.listdir(os.path.join(os.path.dirname(__file__),
-                                                 origin)))
+    pysearchre = re.compile(".py$", re.IGNORECASE)
+    modulefiles = filter(
+        pysearchre.search, os.listdir(os.path.join(os.path.dirname(__file__), origin))
+    )
     # form_module = lambda fp: '.' + os.path.splitext(fp)[0]
     modules = map(form_module, modulefiles)
     # import parent module / namespace
     importlib.import_module(origin)
     # modules = {}
     for module in modules:
-        if module == '.' + wanted_module:
+        if module == "." + wanted_module:
             return importlib.import_module(module, package="sources")
-            log.debug("Loaded module "+module)
+            log.debug("Loaded module " + module)
             break
     # If we reach this point, we haven't found anything
     else:
-        raise ImportError(
-            'module not found "{}" ({})'.format(
-                wanted_module, origin))
+        raise ImportError('module not found "{}" ({})'.format(wanted_module, origin))
 
 
-def form_module(fp): return '.' + os.path.splitext(fp)[0]
+def form_module(fp):
+    return "." + os.path.splitext(fp)[0]
 
 
 def is_valid_source(parser, arg):
-    if not os.path.exists('sources/' + arg + '.py'):
+    if not os.path.exists("sources/" + arg + ".py"):
         parser.error(
-            "The input source definition sources/{}.py does not exist".format(arg))
+            "The input source definition sources/{}.py does not exist".format(arg)
+        )
     else:
         return arg
 
 
 def is_valid_output(parser, arg):
     try:
-        output = open(arg, 'w', encoding='utf-8', newline='')
+        output = open(arg, "w", encoding="utf-8", newline="")
     except IOError:
-        parser.error('Unable to write to file {}'.format(arg))
+        parser.error("Unable to write to file {}".format(arg))
     else:
         return output
 
+
 parser = argparse.ArgumentParser(
-    description='Rewrite [source] csv, and output to [output]')
+    description="Rewrite [source] csv, and output to [output]"
+)
 parser.add_argument(
-    'source',
-    metavar='source',
-    type=lambda x: is_valid_source(
-        parser,
-        x),
-    help='Input source definition')
+    "source",
+    metavar="source",
+    type=lambda x: is_valid_source(parser, x),
+    help="Input source definition",
+)
 parser.add_argument(
-    'output',
-    metavar='output',
-    default='csventrifuge-out.csv',
-    type=lambda x: is_valid_output(
-        parser,
-        x),
-    help='Output file',
-    nargs='?')
+    "output",
+    metavar="output",
+    default="csventrifuge-out.csv",
+    type=lambda x: is_valid_output(parser, x),
+    help="Output file",
+    nargs="?",
+)
 args = parser.parse_args()
 
 
-source = load_module(args.source, 'sources')
+source = load_module(args.source, "sources")
 
-get_data = getattr(source, 'get', None)
+get_data = getattr(source, "get", None)
 
 if get_data is None:
-    raise ImportError(
-        'function not found "{}" ({})'.format(
-            'get', args.source))
+    raise ImportError('function not found "{}" ({})'.format("get", args.source))
 
 # Load it all up in memory
 data, keys = get_data()
 
-log.debug("Keys are "+', '.join(keys))
+log.debug("Keys are " + ", ".join(keys))
 
 # Build the rulebook
 rulebook = {}
@@ -97,14 +95,16 @@ for key in keys:
     # Throw the rules in a dict, e.g. rules['localite'] - according to
     # key->filename
     try:
-        with open('rules/' + args.source + '/' + key + '.csv', 'r', encoding='utf-8') as rulecsv:
+        with open(
+            "rules/" + args.source + "/" + key + ".csv", "r", encoding="utf-8"
+        ) as rulecsv:
             rulebook[key] = {}
-            for row in csv.reader(rulecsv, delimiter='\t'):
+            for row in csv.reader(rulecsv, delimiter="\t"):
                 try:
-                    if not row[0].startswith('#'):
+                    if not row[0].startswith("#"):
                         rulebook[key][row[0]] = row[1]
                 except IndexError:
-                    log.error('Could not import rule: {}'.format(row))
+                    log.error("Could not import rule: {}".format(row))
     except IOError:
         # no rules for this column
         pass
@@ -114,25 +114,31 @@ enhancebook = {}
 enhanced = set()
 for key in keys:
     try:
-        enhancements = os.listdir('enhance/' + args.source + '/' + key)
+        enhancements = os.listdir("enhance/" + args.source + "/" + key)
         if enhancements:
             enhancebook[key] = {}
-            for filename in os.listdir('enhance/' + args.source + '/' + key):
-                with open('enhance/' + args.source + '/' + key + '/' + filename, 'r', encoding='utf-8') as enhancecsv:
+            for filename in os.listdir("enhance/" + args.source + "/" + key):
+                with open(
+                    "enhance/" + args.source + "/" + key + "/" + filename,
+                    "r",
+                    encoding="utf-8",
+                ) as enhancecsv:
                     # Target is file name without .csv at end
                     target = filename[:-4]
                     if target not in keys:
                         keys.append(target)
                     enhanced.add(target)
                     enhancebook[key][target] = {}
-                    log.debug("Adding enhance target "+target+" key "+key)
-                    for erow in csv.reader(enhancecsv, delimiter='\t'):
+                    log.debug("Adding enhance target " + target + " key " + key)
+                    for erow in csv.reader(enhancecsv, delimiter="\t"):
                         try:
-                            if not erow[0].startswith('#'):
+                            if not erow[0].startswith("#"):
                                 enhancebook[key][target][erow[0]] = erow[1]
                         except IndexError:
-                            log.error('erow: ' + str(erow))
-            log.debug("Enhance book for "+key+": "+', '.join(enhancebook[key].keys()))
+                            log.error("erow: " + str(erow))
+            log.debug(
+                "Enhance book for " + key + ": " + ", ".join(enhancebook[key].keys())
+            )
     except OSError:
         # no enhancements for this column
         pass
@@ -144,15 +150,19 @@ for key in keys:
     # Throw the rules in a dict, e.g. rules['localite'] - according to
     # key->filename
     try:
-        with open('filters/' + args.source + '/' + key + '.csv', 'r', encoding='utf-8') as filtercsv:
+        with open(
+            "filters/" + args.source + "/" + key + ".csv", "r", encoding="utf-8"
+        ) as filtercsv:
             filterbook[key] = []
-            for row in csv.reader(filtercsv, delimiter='\t'):
-                if not row[0].startswith('#'):
+            for row in csv.reader(filtercsv, delimiter="\t"):
+                if not row[0].startswith("#"):
                     filterbook[key].append(row[0])
         log.debug(f"Filter book for {key} is {len(filterbook[key])} entries big.")
     except IOError:
         # no rules for this column
-        log.debug(f"No filters for {key} at {'filters/' + args.source + '/' + key + '.csv'}")
+        log.debug(
+            f"No filters for {key} at {'filters/' + args.source + '/' + key + '.csv'}"
+        )
         pass
 
 # For each row, for each column, if there's a corresponding rule, replace.
@@ -188,7 +198,9 @@ for row in data:
             for enhancement in enhancebook[key].keys():
                 try:
                     row[enhancement] = enhancebook[key][enhancement][row[key]]
-                    log.debug(f"Enhancing {key} {row[key]} with {enhancement} {enhancebook[key][enhancement][row[key]]}")
+                    log.debug(
+                        f"Enhancing {key} {row[key]} with {enhancement} {enhancebook[key][enhancement][row[key]]}"
+                    )
                 except KeyError:
                     pass
         except KeyError:
@@ -196,8 +208,9 @@ for row in data:
     # Check if all enhanced columns in the row got added
     for enhanced_column in enhanced:
         if not enhanced_column in row:
-            log.error("No enhancement found for {} in row {}".format(enhanced_column, row))
-
+            log.error(
+                "No enhancement found for {} in row {}".format(enhanced_column, row)
+            )
 
 
 # After substitutions and additions done, spit out new csv.
@@ -205,11 +218,18 @@ for row in data:
 csv_out = args.output
 # extrasaction='ignore' ignores extra fields
 # http://www.lucainvernizzi.net/blog/2015/08/03/8x-speed-up-for-python-s-csv-dictwriter/
-writer = csv.DictWriter(csv_out, fieldnames=keys, extrasaction='ignore')
+writer = csv.DictWriter(csv_out, fieldnames=keys, extrasaction="ignore")
 
 writer.writeheader()
 writer.writerows(data)
-log.info('{} values out of {} dropped, {:.2%}'.format(
-    filtered, len_data, filtered / len_data))
-log.info('{} values out of {} replaced, {:.2%}'.format(
-    substitutions, len(data), substitutions / len(data)))
+log.info(
+    "{} values out of {} dropped, {:.2%}".format(
+        filtered, len_data, filtered / len_data
+    )
+)
+log.info(
+    "{} values out of {} replaced, {:.2%}".format(
+        substitutions, len(data), substitutions / len(data)
+    )
+)
+
