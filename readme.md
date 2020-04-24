@@ -25,7 +25,7 @@ Another way of doing it if you don't need action=modify:
 
 ``` shell
 echo addr:street,addr:housenumber,addr:city,addr:postcode,ref:caclr,lat_wgs84,lon_wgs84,commune > $(date +%Y-%m-%d)-addresses.csv
-cut -d , -f 1-4,6-8 luxembourg-addresses.csv | tail -n +2 >> $(date +%Y-%m-%d)-addresses.csv
+cut -d , -f 2-5,7-9 luxembourg-addresses.csv | tail -n +2 >> $(date +%Y-%m-%d)-addresses.csv
 open -a JOSM.app $(date +%Y-%m-%d)-addresses.csv
 ```
 
