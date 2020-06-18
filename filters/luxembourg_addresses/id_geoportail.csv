@@ -1,5 +1,35 @@
-114B00029002136_548_5
-114B00115002529_394_6
-114B00115002528_394_8
-031A03104008013_2393_203
-008B01334004750_5196_23
+id_geoportail,why
+114B00029002136_548_5,doublon sur division
+114B00115002529_394_6,doublon sur division
+114B00115002528_394_8,doublon sur division
+031A03104008013_2393_203,doublon division
+061F00060006229_548_2A,doublon sur division
+061F00060006230_548_2A,doublon sur division
+130C01569010112_5946_4,doublon sur division
+010A01339007230_8235_41,doublon sur division
+010A01339007230_8235_39,snafu Atrium Strassen-Bertrange; doublon sur division
+010A01339007230_8235_37,snafu Atrium Strassen-Bertrange; doublon sur division
+010A01339007230_8235_35,snafu Atrium Strassen-Bertrange; doublon sur division
+010A01339007230_8235_33,snafu Atrium Strassen-Bertrange; doublon sur division
+010A01339007230_8235_31,snafu Atrium Strassen-Bertrange; doublon sur division
+010A01339007230_8235_29,snafu Atrium Strassen-Bertrange; doublon sur division
+010A01339007230_8235_27,snafu Atrium Strassen-Bertrange; doublon sur division
+010A01339007230_8235_25,snafu Atrium Strassen-Bertrange; doublon sur division
+010A01339007230_8235_23,snafu Atrium Strassen-Bertrange; doublon sur division
+010A01339007230_8235_21,snafu Atrium Strassen-Bertrange; doublon sur division
+010A01339007230_8235_19,snafu Atrium Strassen-Bertrange; doublon sur division
+010A01365007231_8235_19,snafu Atrium Strassen-Bertrange; n'existe pas à Bertrange
+010A01365007231_8235_25,snafu Atrium Strassen-Bertrange; n'existe pas à Bertrange
+010A01365007231_8235_27,snafu Atrium Strassen-Bertrange; n'existe pas à Bertrange
+010A01365007231_8235_29,snafu Atrium Strassen-Bertrange; n'existe pas à Bertrange
+010A01365007231_8235_31,snafu Atrium Strassen-Bertrange; n'existe pas à Bertrange
+010A01365007231_8235_33,snafu Atrium Strassen-Bertrange; n'existe pas à Bertrange
+010A01365007231_8235_35,snafu Atrium Strassen-Bertrange; n'existe pas à Bertrange
+010A01365007231_8235_37,snafu Atrium Strassen-Bertrange; n'existe pas à Bertrange
+010A01365007231_8235_39,snafu Atrium Strassen-Bertrange; n'existe pas à Bertrange
+114A01126004108_8140_21,snafu Atrium Strassen-Bertrange; n'existe pas à Strassen
+114A01126004108_8140_23,snafu Atrium Strassen-Bertrange; n'existe pas à Strassen
+114A01126004108_8140_41,snafu Atrium Strassen-Bertrange; n'existe pas à Strassen
+008B01334004750_5196_23,erreur; le vrai 23 est plus loin
+008B01334004751_5196_25,n'existe pas et induit en erreur avec le 23 beaucoup plus loin
+008B01334004752_5196_27,n'existe pas et induit en erreur avec le 23 beaucoup plus loin
