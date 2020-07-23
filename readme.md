@@ -7,7 +7,7 @@ A flexible csv filter/rewriter, built for Luxembourg's addresses and street list
 
 * sources -> obtain the values from anywhere you want
 * rules -> modify values
-* enhance -> add values
+* enhance -> add values, or replace based on another key
 * filter -> drop values
 
 ### How to use
