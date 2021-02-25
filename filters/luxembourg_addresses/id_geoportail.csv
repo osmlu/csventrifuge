@@ -52,3 +52,12 @@ id_geoportail,why
 008B01334004750_5196_23,erreur; le vrai 23 est plus loin
 008B01334004751_5196_25,n'existe pas et induit en erreur avec le 23 beaucoup plus loin
 008B01334004752_5196_27,n'existe pas et induit en erreur avec le 23 beaucoup plus loin
+004D00638004113_3849_12A,collé au 12B qui du coup est 12A-12B
+037D00935001090_4039_3,doublon sur division
+030A00424000000_3990_23,doublon erreur bizarre.
+036E00206005779_4425_36-.., bizarre vieux truc et 36 existe
+074C00764002695_3412_0,1 Asselscheierhaff existe
+009C00017000152_3200_0,1 et 3 Lellingerhaff existent et ce batiment est une étable
+088C01786006596_2785_0,n'existe pas - terrain vague
+034B00088005925_9416_4,parking
+118B00332001680_5080_22,doublon à cause décalage
