@@ -5,8 +5,9 @@ echo "Addresses..."
 ./csventrifuge.py luxembourg_addresses luxembourg-addresses.csv
 echo "Streets..."
 ./csventrifuge.py luxembourg-caclr-dicacolo luxembourg-streets.csv
-if ! command -v psql &> /dev/null
+if command -v psql &> /dev/null
 then
+    # TODO https://stackoverflow.com/questions/41696675/how-to-copy-a-csv-file-from-a-url-to-postgresql
     echo "Importing addresses into postgres..."
     psql -d gis -f ../addresses/import_addresses.sql
     psql -d gis -f ../import_cadastre.sql
