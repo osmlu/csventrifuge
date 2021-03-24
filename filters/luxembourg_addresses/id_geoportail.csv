@@ -1,63 +1,63 @@
-id_geoportail,why
-114B00029002136_548_5,doublon sur division
-114B00115002529_394_6,doublon sur division
-114B00115002528_394_8,doublon sur division
-031A03104008013_2393_203,doublon division
-061F00060006229_548_2A,doublon sur division
-061F00060006230_548_2A,doublon sur division
-130C01569010112_5946_4,doublon sur division
-076B00741007769_1092_107,doublon sur division
-021C00620004287_3913_39,doublon sur division
-021C00620003636_3913_39,doublon sur division
-085B00731005932_6131_5,doublon sur division
-092B00960004718_8328_6,doublon sur division
-034B00758005677_5297_2,doublon sur division
-007A00018002351_4354_5,doublon sur division
-010A00345005168_2552_23,doublon sur division
-009D00183001177_3194_24,doublon sur division
-072A01132006409_1967_25,doublon sur division
-010A00651004853_2564_17B,doublon sur division
-034A00436005271_5325_29-31,combiné 29-31 superflu; on a 29 et 31
-072A00754007892_8039_9-13,combiné 9-13 superflu; on a 9 11 et 13
-072A00968007437_1962_14-16,combiné 14-16 superflu; on a 14 et 16
-066A01273008784_1914_28-..,vieux combiné cassé superflu
-066A00023009486_1904_1-..,vieux combiné cassé superflu
-010A00866007255_2554_59,démoli
-114A00152000343_3055_82,démoli
-114A00153001815_3055_84,démoli
-010A01339007230_8235_19,snafu Atrium Strassen-Bertrange; doublon sur division
-010A01339007230_8235_21,snafu Atrium Strassen-Bertrange; doublon sur division
-010A01339007230_8235_23,snafu Atrium Strassen-Bertrange; doublon sur division
-010A01339007230_8235_25,snafu Atrium Strassen-Bertrange; doublon sur division
-010A01339007230_8235_27,snafu Atrium Strassen-Bertrange; doublon sur division
-010A01339007230_8235_29,snafu Atrium Strassen-Bertrange; doublon sur division
-010A01339007230_8235_31,snafu Atrium Strassen-Bertrange; doublon sur division
-010A01339007230_8235_33,snafu Atrium Strassen-Bertrange; doublon sur division
-010A01339007230_8235_35,snafu Atrium Strassen-Bertrange; doublon sur division
-010A01339007230_8235_37,snafu Atrium Strassen-Bertrange; doublon sur division
-010A01339007230_8235_39,snafu Atrium Strassen-Bertrange; doublon sur division
-010A01339007230_8235_41,snafu Atrium Strassen-Bertrange; doublon sur division
-010A01365007231_8235_19,snafu Atrium Strassen-Bertrange; n'existe pas à Bertrange
-010A01365007231_8235_25,snafu Atrium Strassen-Bertrange; n'existe pas à Bertrange
-010A01365007231_8235_27,snafu Atrium Strassen-Bertrange; n'existe pas à Bertrange
-010A01365007231_8235_29,snafu Atrium Strassen-Bertrange; n'existe pas à Bertrange
-010A01365007231_8235_31,snafu Atrium Strassen-Bertrange; n'existe pas à Bertrange
-010A01365007231_8235_33,snafu Atrium Strassen-Bertrange; n'existe pas à Bertrange
-010A01365007231_8235_35,snafu Atrium Strassen-Bertrange; n'existe pas à Bertrange
-010A01365007231_8235_37,snafu Atrium Strassen-Bertrange; n'existe pas à Bertrange
-010A01365007231_8235_39,snafu Atrium Strassen-Bertrange; n'existe pas à Bertrange
-114A01126004108_8140_21,snafu Atrium Strassen-Bertrange; n'existe pas à Strassen
-114A01126004108_8140_23,snafu Atrium Strassen-Bertrange; n'existe pas à Strassen
-114A01126004108_8140_41,snafu Atrium Strassen-Bertrange; n'existe pas à Strassen
-008B01334004750_5196_23,erreur; le vrai 23 est plus loin
-008B01334004751_5196_25,n'existe pas et induit en erreur avec le 23 beaucoup plus loin
-008B01334004752_5196_27,n'existe pas et induit en erreur avec le 23 beaucoup plus loin
-004D00638004113_3849_12A,collé au 12B qui du coup est 12A-12B
-037D00935001090_4039_3,doublon sur division
-030A00424000000_3990_23,doublon erreur bizarre.
-036E00206005779_4425_36-.., bizarre vieux truc et 36 existe
-074C00764002695_3412_0,1 Asselscheierhaff existe
-009C00017000152_3200_0,1 et 3 Lellingerhaff existent et ce batiment est une étable
-088C01786006596_2785_0,n'existe pas - terrain vague
-034B00088005925_9416_4,parking
-118B00332001680_5080_22,doublon à cause décalage
+id_geoportail	why
+114B00029002136_548_5	doublon sur division
+114B00115002529_394_6	doublon sur division
+114B00115002528_394_8	doublon sur division
+031A03104008013_2393_203	doublon division
+061F00060006229_548_2A	doublon sur division
+061F00060006230_548_2A	doublon sur division
+130C01569010112_5946_4	doublon sur division
+076B00741007769_1092_107	doublon sur division
+021C00620004287_3913_39	doublon sur division
+021C00620003636_3913_39	doublon sur division
+085B00731005932_6131_5	doublon sur division
+092B00960004718_8328_6	doublon sur division
+034B00758005677_5297_2	doublon sur division
+007A00018002351_4354_5	doublon sur division
+010A00345005168_2552_23	doublon sur division
+009D00183001177_3194_24	doublon sur division
+072A01132006409_1967_25	doublon sur division
+010A00651004853_2564_17B	doublon sur division
+034A00436005271_5325_29-31	combiné 29-31 superflu; on a 29 et 31
+072A00754007892_8039_9-13	combiné 9-13 superflu; on a 9 11 et 13
+072A00968007437_1962_14-16	combiné 14-16 superflu; on a 14 et 16
+066A01273008784_1914_28-..	vieux combiné cassé superflu
+066A00023009486_1904_1-..	vieux combiné cassé superflu
+010A00866007255_2554_59	démoli
+114A00152000343_3055_82	démoli
+114A00153001815_3055_84	démoli
+010A01339007230_8235_19	snafu Atrium Strassen-Bertrange; doublon sur division
+010A01339007230_8235_21	snafu Atrium Strassen-Bertrange; doublon sur division
+010A01339007230_8235_23	snafu Atrium Strassen-Bertrange; doublon sur division
+010A01339007230_8235_25	snafu Atrium Strassen-Bertrange; doublon sur division
+010A01339007230_8235_27	snafu Atrium Strassen-Bertrange; doublon sur division
+010A01339007230_8235_29	snafu Atrium Strassen-Bertrange; doublon sur division
+010A01339007230_8235_31	snafu Atrium Strassen-Bertrange; doublon sur division
+010A01339007230_8235_33	snafu Atrium Strassen-Bertrange; doublon sur division
+010A01339007230_8235_35	snafu Atrium Strassen-Bertrange; doublon sur division
+010A01339007230_8235_37	snafu Atrium Strassen-Bertrange; doublon sur division
+010A01339007230_8235_39	snafu Atrium Strassen-Bertrange; doublon sur division
+010A01339007230_8235_41	snafu Atrium Strassen-Bertrange; doublon sur division
+010A01365007231_8235_19	snafu Atrium Strassen-Bertrange; n'existe pas à Bertrange
+010A01365007231_8235_25	snafu Atrium Strassen-Bertrange; n'existe pas à Bertrange
+010A01365007231_8235_27	snafu Atrium Strassen-Bertrange; n'existe pas à Bertrange
+010A01365007231_8235_29	snafu Atrium Strassen-Bertrange; n'existe pas à Bertrange
+010A01365007231_8235_31	snafu Atrium Strassen-Bertrange; n'existe pas à Bertrange
+010A01365007231_8235_33	snafu Atrium Strassen-Bertrange; n'existe pas à Bertrange
+010A01365007231_8235_35	snafu Atrium Strassen-Bertrange; n'existe pas à Bertrange
+010A01365007231_8235_37	snafu Atrium Strassen-Bertrange; n'existe pas à Bertrange
+010A01365007231_8235_39	snafu Atrium Strassen-Bertrange; n'existe pas à Bertrange
+114A01126004108_8140_21	snafu Atrium Strassen-Bertrange; n'existe pas à Strassen
+114A01126004108_8140_23	snafu Atrium Strassen-Bertrange; n'existe pas à Strassen
+114A01126004108_8140_41	snafu Atrium Strassen-Bertrange; n'existe pas à Strassen
+008B01334004750_5196_23	erreur; le vrai 23 est plus loin
+008B01334004751_5196_25	n'existe pas et induit en erreur avec le 23 beaucoup plus loin
+008B01334004752_5196_27	n'existe pas et induit en erreur avec le 23 beaucoup plus loin
+004D00638004113_3849_12A	collé au 12B qui du coup est 12A-12B
+037D00935001090_4039_3	doublon sur division
+030A00424000000_3990_23	doublon erreur bizarre.
+036E00206005779_4425_36-..	 bizarre vieux truc et 36 existe
+074C00764002695_3412_0	1 Asselscheierhaff existe
+009C00017000152_3200_0	1 et 3 Lellingerhaff existent et ce batiment est une étable
+088C01786006596_2785_0	n'existe pas - terrain vague
+034B00088005925_9416_4	parking
+118B00332001680_5080_22	doublon à cause décalage
