@@ -31,4 +31,4 @@ open -a JOSM.app $(date +%Y-%m-%d)-addresses.csv
 
 ### Notes
 
-Unfortunately https://github.com/pnorman/ogr2osm has https://github.com/pnorman/ogr2osm/issues/31. Pnorman recommends pre-processing in postgis.
+https://github.com/roelderickx/ogr2osm could be used to translate from csv to osm too.
