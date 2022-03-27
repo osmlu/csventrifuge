@@ -1,0 +1,5 @@
+# This is quite a rare bug in the source: addresses that have the correct address, but the wrong id_caclr_rue. *smh*
+# 34 rue de la gare Eischen: 852, not 52
+32795	852
+# 162 rue principale Platen: 4391, not 3491
+221039	4391
