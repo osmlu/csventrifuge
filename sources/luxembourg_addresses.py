@@ -25,7 +25,9 @@ def get():
     addresses = [{k: v for k, v in row.items()} for row in csvreader]
     for row in addresses:
         row["code_commune"] = row["id_geoportail"][:3]
+        row["rue_orig"] = row["rue"]
     fieldnames.insert(0, "code_commune")
+    fieldnames.insert(0, "rue_orig")
     localites = list(set(x["localite"] for x in addresses))
     log.debug("Localites found: %s. Expecting 542.", str(len(localites)))
     # if len(localites) != 542:
