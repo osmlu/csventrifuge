@@ -13,7 +13,7 @@ import importlib
 import logging
 from typing import Dict
 
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.WARNING)
 log = logging.getLogger(__name__)
 
 
@@ -256,7 +256,7 @@ for key in rulebook:
     for rule in rulebook[key]:
         if rulebook[key][rule][1] == 0:
             log.info(
-                "Did not use [{}] rule «{}» -> «{}»".format(key, rule, rulebook[key][rule][0])
+                "Did not use [{}] rule \"{}\" -> \"{}\"".format(key, rule, rulebook[key][rule][0])
             )
         else:
             log.debug(
@@ -267,7 +267,7 @@ for key in enhancebook:
     for enhancement in enhancebook[key].keys():
         for tkey in enhancebook[key][enhancement]:
             if enhancebook[key][enhancement][tkey][1] == 0:
-                log.info("Did not use enhancement [{}] «{}» -> [{}] «{}»".format(key, tkey, enhancement, enhancebook[key][enhancement][tkey][0]))
+                log.info("Did not use enhancement [{}] \"{}\" -> [{}] \"{}\"".format(key, tkey, enhancement, enhancebook[key][enhancement][tkey][0]))
 
 for key in filterbook:
     for filter in filterbook[key].keys():
