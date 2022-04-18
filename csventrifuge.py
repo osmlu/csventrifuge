@@ -252,16 +252,16 @@ log.info(
     )
 )
 
-# for key in rulebook:
-#     for rule in rulebook[key]:
-#         if rulebook[key][rule][1] == 0:
-#             log.info(
-#                 "Did not use [{}] rule «{}» -> «{}»".format(key, rule, rulebook[key][rule][0])
-#             )
-#         else:
-#             log.debug(
-#                 "Used [{}] rule {} {} times".format(key, rule, rulebook[key][rule][1])
-#             )
+for key in rulebook:
+    for rule in rulebook[key]:
+        if rulebook[key][rule][1] == 0:
+            log.info(
+                "Did not use [{}] rule «{}» -> «{}»".format(key, rule, rulebook[key][rule][0])
+            )
+        else:
+            log.debug(
+                "Used [{}] rule {} {} times".format(key, rule, rulebook[key][rule][1])
+            )
 
 for key in enhancebook:
     for enhancement in enhancebook[key].keys():
