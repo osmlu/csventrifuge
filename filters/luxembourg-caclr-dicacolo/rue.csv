@@ -1,5 +1,5 @@
 # Rue du Glacis is a trap street. Maison means there's no street name.
-# remove lieux dits that contain no real address, streets that are gone, and name:lb's that slipped through the cracks.
+# remove lieux dits that contain no real address, streets that are gone, and name
 #
 # v-- remove for addresses
 Maison
@@ -211,3 +211,10 @@ Rue Alphonse Backes
 Op der Foorzel
 Camping Nicolas Brandenburger
 Schüttbuerger Schlass
+Knupp
+Bei der Kiirch
+Gaardegässel
+Mueresgässel
+Um Bruch
+Kokebierg
+Laaschteschwee
