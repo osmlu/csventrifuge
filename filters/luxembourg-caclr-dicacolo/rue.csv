@@ -31,14 +31,10 @@ Bettange Moulin
 Bigonville-Moulin
 Bigonville-Poteau
 Birel
-Birkenhaff
 Bohmillen
 Bricherhaff
 Briesenhof
-Buchholzerhaff
-Buchhëlzerwisen
 Burgfried
-Bücherhof
 Café Halte
 Camping
 Camping Résidentiel Sannert
@@ -46,7 +42,6 @@ Camping et Auberge Fuussekaul
 Capellen gare
 Centre Douanier Croix de Gasperich
 Centre de l'Oseraie
-Chaux de Contern
 Château
 Château Weymerisch
 Château de Wiltz
@@ -57,7 +52,6 @@ Deysermühle
 Dippach Barrière
 Dippach Gare
 Dippach-Berg
-Dirbach-Plage
 Duderhaff
 Déieregaart
 Eecherfeld
@@ -82,7 +76,6 @@ Finsterhof
 Follmillen
 Forge
 Fuhrels
-Gaaschtgrund
 Gantenbeensmillen
 Geessekneppchen
 Gellebuer
@@ -94,14 +87,10 @@ Groussendraisch
 Haangebierg
 Hammerdelchen
 Heffingen Moulin
-Heiligenwies
 Helfent
 Helfenterbruck
 Holzem moulin
-Hubertushof
 Hëttermillen
-Im Rothfeldchen
-Itzigerstee
 Josefshof
 Juegdschlass
 Kaesfurt
@@ -111,17 +100,13 @@ Kalkfabrik
 Keibierg
 Kempemillen
 Kierelshof
-Kisfurt
-Klaus
 Kleck
 Kleinhoscheid
 Kleng Amerika
-Klimillen
 Kockeberreg
 Kockelscheier
 Koppesmillen
 Kundel
-Lannenhaff
 Leesbach
 Lehbusch
 Leudelange Gare
@@ -134,10 +119,6 @@ Marienthalerhof
 Melickshof
 Misèrehof
 Moalsbaach
-Moulin de Bigonville
-Moulin de Boulaide
-Neimillen
-Neiseshaff
 Neuhof
 Neuhäusgen Bas
 Neuhäusgen Haut
@@ -146,7 +127,6 @@ Niederwiltz
 Nossbaam
 Oligsmillen
 Om Dierchen
-Om Leempuddel
 Oseraie
 Papeierbierg
 Papiermühle
@@ -157,7 +137,6 @@ Pfaffenbrouch
 Place Émile Hamilius
 Pont-Misere
 Reckange-Barrière
-Reilandermillen
 Reisermillen
 Riesenhof
 Rippweiler Barrière
@@ -165,15 +144,11 @@ Rodenhof (Echternach)
 Roudebierg
 Rue du Fort Berlaimont
 Rue du Glacis
-Scheedhaff
 Scheiwisschen
-Schleifmillen
 Schleiwenhaff
 Schoettermarial
 Schouweiler Halte
 Schwaarzegronn
-Schwanenthal
-Simmerschmelz
 Sprinkange Ferme
 Steinborn
 Thillsmillen
@@ -192,8 +167,8 @@ Wiltzermühle
 Wollefshaff
 Woweg
 Wuetelbierg
+# Streets below don't exist or have completely different names
 Place Émile Hamilius
-Raashaff
 Aasselscheierhaff
 Square Robert Brasseur
 Scheerleck
@@ -212,7 +187,6 @@ Op der Foorzel
 Camping Nicolas Brandenburger
 Schüttbuerger Schlass
 Knupp
-Bei der Kiirch
 Gaardegässel
 Mueresgässel
 Um Bruch
