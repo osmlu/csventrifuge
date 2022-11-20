@@ -1,9 +1,9 @@
 # Call with get(), you get a collection containing dicts, and the field names list. That's the deal.
 
-import requests
 import csv
-
 import logging
+
+import requests
 
 logging.basicConfig(level=logging.DEBUG)
 log = logging.getLogger(__name__)

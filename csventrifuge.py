@@ -5,12 +5,12 @@
 # DONE deal with rules that apply only in one city, e.g. Rue Churchill
 #  which becomes Bd Churchill in Esch only - use an enhancement
 
-import csv
 import argparse
-import os
-import re
+import csv
 import importlib
 import logging
+import os
+import re
 from typing import Dict
 
 logging.basicConfig(level=logging.WARNING)
@@ -159,9 +159,7 @@ for key in keys:
         log.debug("Filter book for %s is %i entries big.", key, len(filterbook[key]))
     except IOError:
         # no rules for this column
-        log.debug(
-            "No filter file %s.csv in directory filters/%s/}", key, args.source
-        )
+        log.debug("No filter file %s.csv in directory filters/%s/}", key, args.source)
 
 # For each row, for each column, if there's a corresponding rule, replace.
 # if rules['localite'][address['localite']:
@@ -192,17 +190,11 @@ for row in data:
         try:
             orig = row[key]
             row[key] = rulebook[key][row[key]][0]
-            log.debug(
-                "Rule: replacing [%s] %s with %s",
-                key, orig, row[key]
-            )
+            log.debug("Rule: replacing [%s] %s with %s", key, orig, row[key])
             rulebook[key][orig][1] += 1
             substitutions += 1
         except KeyError:
-            log.debug(
-                "No rule for [%s] %s",
-                key, orig
-            )
+            log.debug("No rule for [%s] %s", key, orig)
 
         # apply enhancement
         try:
@@ -222,10 +214,7 @@ for row in data:
                     # )
                     pass
         except KeyError:
-            log.debug(
-                "No enhancements for [%s]",
-                key
-            )
+            log.debug("No enhancements for [%s]", key)
     # Check if all enhanced columns in the row got added
     for enhanced_column in enhanced:
         if enhanced_column not in row:
@@ -256,7 +245,9 @@ for key in rulebook:
     for rule in rulebook[key]:
         if rulebook[key][rule][1] == 0:
             log.info(
-                "Did not use [{}] rule \"{}\" -> \"{}\"".format(key, rule, rulebook[key][rule][0])
+                'Did not use [{}] rule "{}" -> "{}"'.format(
+                    key, rule, rulebook[key][rule][0]
+                )
             )
         else:
             log.debug(
@@ -267,7 +258,11 @@ for key in enhancebook:
     for enhancement in enhancebook[key].keys():
         for tkey in enhancebook[key][enhancement]:
             if enhancebook[key][enhancement][tkey][1] == 0:
-                log.info("Did not use enhancement [{}] \"{}\" -> [{}] \"{}\"".format(key, tkey, enhancement, enhancebook[key][enhancement][tkey][0]))
+                log.info(
+                    'Did not use enhancement [{}] "{}" -> [{}] "{}"'.format(
+                        key, tkey, enhancement, enhancebook[key][enhancement][tkey][0]
+                    )
+                )
 
 for key in filterbook:
     for filter in filterbook[key].keys():

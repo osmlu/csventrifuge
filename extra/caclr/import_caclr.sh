@@ -2,7 +2,7 @@
 
 dropdb caclr || exit 1
 
-cd $(dirname $0) || exit 2
+cd "$(dirname "$0")" || exit 2
 
 createdb -E UTF8 caclr
 
