@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 # Call with get(), you get a collection containing dicts, and the field names list. That's the deal.
 
-from io import TextIOWrapper
 import os
+from io import TextIOWrapper
+
 
 def trimget(data, startpos, length):
     return data[int(startpos) : int(startpos) + int(length)].rstrip(" ")
