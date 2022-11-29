@@ -2,7 +2,8 @@
 # Call with get(), you get a collection containing dicts, and the field names list. That's the deal.
 
 import os
-from io import TextIOWrapper
+
+# from io import TextIOWrapper
 
 
 def trimget(data, startpos, length):
@@ -11,8 +12,11 @@ def trimget(data, startpos, length):
 
 def get():
     caclr = []
-    with open(os.path.expanduser("~/caclr/TR.DICACOLO.RUCP"), "r") as extracted_file:
-        for data in TextIOWrapper(extracted_file, "latin-1"):
+    with open(
+        os.path.expanduser("~/caclr/TR.DICACOLO.RUCP"), "r", encoding="ISO-8859-1"
+    ) as extracted_file:
+        for data in extracted_file:
+            # for data in TextIOWrapper(extracted_file, "latin-1"):
             caclr.append(
                 {
                     "district": trimget(data, 0, 40),
