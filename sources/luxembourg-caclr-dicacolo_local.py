@@ -11,7 +11,7 @@ def trimget(data, startpos, length):
 
 def get():
     caclr = []
-    with open(os.path.expanduser("~/caclr/TR.DICACOLO.RUCP", "r")) as extracted_file:
+    with open(os.path.expanduser("~/caclr/TR.DICACOLO.RUCP"), "r") as extracted_file:
         for data in TextIOWrapper(extracted_file, "latin-1"):
             caclr.append(
                 {
