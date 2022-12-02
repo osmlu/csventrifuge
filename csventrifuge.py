@@ -11,6 +11,7 @@ import importlib
 import logging
 import os
 import re
+from contextlib import suppress
 from typing import Dict
 
 logging.basicConfig(level=logging.WARNING)
@@ -92,7 +93,8 @@ rulebook: Dict[str, dict] = {}
 for key in keys:
     # Throw the rules in a dict, e.g. rules['localite'] - according to
     # key->filename
-    try:
+    # Ignore IOError, means no rules for this column
+    with suppress(IOError):
         with open(
             "rules/" + args.source + "/" + key + ".csv", "r", encoding="utf-8"
         ) as rulecsv:
@@ -103,15 +105,13 @@ for key in keys:
                         rulebook[key][row[0]] = [row[1], 0]
                 except IndexError:
                     log.error("Could not import rule: %s", row)
-    except IOError:
-        # no rules for this column
-        pass
 
 # Build the enhancement book
 enhancebook: Dict[str, dict] = {}
 enhanced = set()
 for key in keys:
-    try:
+    # Ignore OSError, means no enhancements for this column
+    with suppress(OSError):
         enhancepath = "enhance/" + args.source + "/" + key
         enhancements = os.listdir(enhancepath)
         if enhancements:
@@ -138,9 +138,6 @@ for key in keys:
             log.debug(
                 "Enhance book for %s: %s", key, ", ".join(enhancebook[key].keys())
             )
-    except OSError:
-        # no enhancements for this column
-        pass
 
 
 # Build the filter book
@@ -148,7 +145,8 @@ filterbook: Dict[str, list] = {}
 for key in keys:
     # Throw the rules in a dict, e.g. rules['localite'] - according to
     # key->filename
-    try:
+    # Ignore IOError, means no filter for this column
+    with suppress(IOError):
         with open(
             "filters/" + args.source + "/" + key + ".csv", "r", encoding="utf-8"
         ) as filtercsv:
@@ -157,9 +155,6 @@ for key in keys:
                 if not row[0].startswith("#"):
                     filterbook[key][row[0]] = 0
         log.debug("Filter book for %s is %i entries big.", key, len(filterbook[key]))
-    except IOError:
-        # no rules for this column
-        log.debug("No filter file %s.csv in directory filters/%s/}", key, args.source)
 
 # For each row, for each column, if there's a corresponding rule, replace.
 # if rules['localite'][address['localite']:
@@ -199,20 +194,11 @@ for row in data:
         # apply enhancement
         try:
             for enhancement in enhancebook[key].keys():
-                try:
+                # Ignore when no enhancement
+                with suppress(KeyError):
                     orig = row[enhancement]
                     row[enhancement] = enhancebook[key][enhancement][row[key]][0]
                     enhancebook[key][enhancement][row[key]][1] += 1
-                    # log.info(
-                    #     "Enhancing [%s] %s with [%s] %s",
-                    #     key, row[key], enhancement, enhancebook[key][enhancement][row[key]]
-                    # )
-                except KeyError:
-                    # log.debug(
-                    #     "No enhancement for [%s] %s",
-                    # key, row[key]
-                    # )
-                    pass
         except KeyError:
             log.debug("No enhancements for [%s]", key)
     # Check if all enhanced columns in the row got added
