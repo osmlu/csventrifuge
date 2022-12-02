@@ -50,7 +50,7 @@ def is_valid_source(parser, arg):
 def is_valid_output(parser, arg):
     try:
         output = open(arg, "w", encoding="utf-8", newline="")
-    except IOError:
+    except OSError:
         parser.error("Unable to write to file {}".format(arg))
     else:
         return output
@@ -96,7 +96,7 @@ for key in keys:
     # Ignore IOError, means no rules for this column
     with suppress(IOError):
         with open(
-            "rules/" + args.source + "/" + key + ".csv", "r", encoding="utf-8"
+            "rules/" + args.source + "/" + key + ".csv", encoding="utf-8"
         ) as rulecsv:
             rulebook[key] = {}
             for row in csv.reader(rulecsv, delimiter="\t"):
@@ -119,7 +119,6 @@ for key in keys:
             for filename in os.listdir(enhancepath):
                 with open(
                     enhancepath + "/" + filename,
-                    "r",
                     encoding="utf-8",
                 ) as enhancecsv:
                     # Target is file name without .csv at end
@@ -148,7 +147,7 @@ for key in keys:
     # Ignore IOError, means no filter for this column
     with suppress(IOError):
         with open(
-            "filters/" + args.source + "/" + key + ".csv", "r", encoding="utf-8"
+            "filters/" + args.source + "/" + key + ".csv", encoding="utf-8"
         ) as filtercsv:
             filterbook[key] = {}
             for row in csv.reader(filtercsv, delimiter="\t"):
