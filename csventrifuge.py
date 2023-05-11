@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 
 # TODO use a generator instead of loading everything in ram
-# TODO count how many times a rule is used, and show unused rules
 # DONE deal with rules that apply only in one city, e.g. Rue Churchill
 #  which becomes Bd Churchill in Esch only - use an enhancement
 
+# Import necessary libraries
 import argparse
 import csv
 import importlib
@@ -14,48 +14,92 @@ import re
 from contextlib import suppress
 from typing import Dict
 
+# Set up logging
 logging.basicConfig(level=logging.WARNING)
 log = logging.getLogger(__name__)
 
-
 def load_module(wanted_module, origin):
+    """
+    Load the specified module from the given origin directory.
+
+    Args:
+        wanted_module (str): The desired module to load.
+        origin (str): The directory in which to search for the module.
+    Returns:
+        The loaded module.
+    Raises:
+        ImportError: If the desired module is not found in the origin directory.
+    """
+    # Compile regular expression to search for .py files
     pysearchre = re.compile(".py$", re.IGNORECASE)
+    # Filter module files using compiled regular expression
     modulefiles = filter(
         pysearchre.search, os.listdir(os.path.join(os.path.dirname(__file__), origin))
     )
+    # Create a list of modules by mapping form_module to modulefiles
     modules = map(form_module, modulefiles)
-    # import parent module / namespace
+    # Import parent module/namespace
     importlib.import_module(origin)
+    # Iterate through modules and find the desired module
     for module in modules:
         if module == "." + wanted_module:
-            log.debug("Loading module %s", module)
+            log.debug(f"Loading module {module}")
             return importlib.import_module(module, package="sources")
-    # If we reach this point, we haven't found anything
-    raise ImportError('module not found "{}" ({})'.format(wanted_module, origin))
-
+    # If the desired module is not found, raise an ImportError
+    raise ImportError(f'module not found "{wanted_module}" ({origin})')
 
 def form_module(fp):
+    """
+    Form a module name from a filepath.
+
+    Args:
+        fp (str): The filepath from which to form a module name.
+    Returns:
+        The formed module name.
+    """
     return "." + os.path.splitext(fp)[0]
 
-
 def is_valid_source(parser, arg):
-    if not os.path.exists("sources/" + arg + ".py"):
+    """
+    Check if the input source definition file exists.
+
+    Args:
+        parser: The argparse parser object.
+        arg (str): The input source definition file.
+    Returns:
+        The argument if the input source definition file exists.
+    """
+    # Check if the input source definition file exists
+    if not os.path.exists(f"sources/{arg}.py"):
         parser.error(
-            "The input source definition sources/{}.py does not exist".format(arg)
+            f"The input source definition sources/{arg}.py does not exist"
         )
         return False
+    # If the argument is a valid source definition file, return the argument
     return arg
 
-
+# Define function to check if output file is valid
 def is_valid_output(parser, arg):
+    """
+    Check if the output file can be written to.
+
+    Args:
+        parser: The argparse parser object.
+        arg (str): The output file.
+    Returns:
+        The output file if it can be written to.
+    """
+    # Try opening the output file for writing, encoding it in utf-8 and using a newline
     try:
         output = open(arg, "w", encoding="utf-8", newline="")
+    # If an OSError occurs, raise an error stating that the output file cannot be written to
     except OSError:
-        parser.error("Unable to write to file {}".format(arg))
+        parser.error(f"Unable to write to file {arg}")
+    # If no error occurs, return the output file
     else:
         return output
 
-
+# Set up argument parser to parse input source and output file
 parser = argparse.ArgumentParser(
     description="Rewrite [source] csv, and output to [output]"
 )
@@ -73,48 +117,64 @@ parser.add_argument(
     help="Output file",
     nargs="?",
 )
+
+# Parse arguments
 args = parser.parse_args()
 
-
+# Load the specified module
 source = load_module(args.source, "sources")
 
+# Get the "get" function from the source module
 get_data = getattr(source, "get", None)
 
+# If the "get" function does not exist, raise an ImportError
 if get_data is None:
     raise ImportError('function not found "{}" ({})'.format("get", args.source))
 
-# Load it all up in memory
+# Get the data and keys from the "get" function. Load it all up in memory.
 data, keys = get_data()
 
+# Print debug message with keys
 log.debug("Keys are %s", ", ".join(keys))
 
 # Build the rulebook
 rulebook: Dict[str, dict] = {}
+# Iterate through keys
 for key in keys:
     # Throw the rules in a dict, e.g. rules['localite'] - according to
     # key->filename
     # Ignore IOError, means no rules for this column
     with suppress(IOError):
         with open(
-            "rules/" + args.source + "/" + key + ".csv", encoding="utf-8"
+            f"rules/{args.source}/{key}.csv", encoding="utf-8"
         ) as rulecsv:
+            # Initialize empty dictionary for the current key in rulebook
             rulebook[key] = {}
+            # Iterate through rows in the rules file
             for row in csv.reader(rulecsv, delimiter="\t"):
                 try:
+                    # If the row does not start with "#", add it to the rulebook
                     if not row[0].startswith("#"):
                         rulebook[key][row[0]] = [row[1], 0]
+                # If an IndexError occurs, print an error message
                 except IndexError:
-                    log.error("Could not import rule: %s", row)
+                    log.error(f"Could not import rule: {row}")
 
 # Build the enhancement book
+# Initialize empty enhancement book dictionary
 enhancebook: Dict[str, dict] = {}
+# Initialize empty set of enhanced columns
 enhanced = set()
 for key in keys:
     # Ignore OSError, means no enhancements for this column
     with suppress(OSError):
+        # Get the path to the enhancements for the current key
         enhancepath = "enhance/" + args.source + "/" + key
+        # Get a list of enhancement names for the current key
         enhancements = os.listdir(enhancepath)
+        # If there are enhancements for the current key
         if enhancements:
+            # Initialize empty dictionary for the current key in enhancebook
             enhancebook[key] = {}
             for filename in os.listdir(enhancepath):
                 with open(
@@ -125,19 +185,22 @@ for key in keys:
                     target = filename[:-4]
                     if target not in keys:
                         keys.append(target)
+                    # Add the target key to the set of enhanced columns
                     enhanced.add(target)
                     enhancebook[key][target] = {}
                     log.debug("Adding enhance target " + target + " key " + key)
+                    # Add the current key to the set of enhanced columns
                     for erow in csv.reader(enhancecsv, delimiter="\t"):
                         try:
+                            # If the row does not start with "#", add it to the enhancebook
                             if not erow[0].startswith("#"):
                                 enhancebook[key][target][erow[0]] = [erow[1], 0]
+                        # If an IndexError occurs, print an error message
                         except IndexError:
-                            log.error("erow: %s", str(erow))
+                            log.error(f"Could not import enhancement, erow is: {erow}")
             log.debug(
                 "Enhance book for %s: %s", key, ", ".join(enhancebook[key].keys())
             )
-
 
 # Build the filter book
 filterbook: Dict[str, list] = {}
