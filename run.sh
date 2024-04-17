@@ -21,6 +21,6 @@ echo addr:street,addr:housenumber,addr:city,addr:postcode,ref:caclr,lat_wgs84,lo
 cut -d , -f 3-6,8-10 luxembourg-addresses.csv | tail -n +2 >> "$(date +%Y-%m-%d)-addresses.csv"
 cp $(date +%Y-%m-%d)-addresses.csv  ../public_html/csventrifuge/$(date +%Y-%m-%d)-addresses-josm.csv
 cd ../public_html/csventrifuge
-rm latest-addresses.csv
+rm latest-addresses.csv luxembourg-addresses.geojson
 ln -s "$(date +%Y-%m-%d)-addresses-josm.csv" latest-addresses.csv
 ogr2ogr -f geojson luxembourg-addresses.geojson luxembourg-addresses.vrt
