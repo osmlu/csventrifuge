@@ -14,16 +14,10 @@ def process_addresses(input_file: str, output_dir: str) -> None:
     # Read the CSV file using polars
     df = pl.read_csv(input_file)
 
-    # Process the data
+    # Transformations
     df = df.with_columns([
-        pl.when(pl.col("rue") == "Maison")
-          .then("")
-          .otherwise(pl.col("rue"))
-          .alias("addr:street"),
-        pl.when(pl.col("rue") == "Maison")
-          .then(pl.col("localite"))
-          .otherwise("")
-          .alias("addr:place"),
+        pl.when(pl.col("rue") == "Maison").then(pl.lit("")).otherwise(pl.col("rue")).alias("addr:street"),
+        pl.when(pl.col("rue") == "Maison").then(pl.col("localite")).otherwise(pl.lit("")).alias("addr:place"),
         pl.col("numero").alias("addr:housenumber"),
         pl.col("localite").alias("addr:city"),
         pl.col("code_postal").alias("addr:postcode"),
@@ -63,7 +57,8 @@ def process_addresses(input_file: str, output_dir: str) -> None:
     # Manage symlink
     if latest_csv_symlink.exists() or latest_csv_symlink.is_symlink():
         latest_csv_symlink.unlink()
-    latest_csv_symlink.symlink_to(output_csv_file)
+    latest_csv_symlink.symlink_to(output_csv_file.name)
+
 
     print("Conversion complete.")
 
@@ -71,3 +66,4 @@ if __name__ == "__main__":
     input_file = 'luxembourg-addresses.csv'
     output_dir = '../public_html/csventrifuge'
     process_addresses(input_file, output_dir)
+
