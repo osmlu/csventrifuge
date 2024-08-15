@@ -1,5 +1,5 @@
 # Rue du Glacis is a trap street. Maison means there's no street name.
-# remove lieux dits that contain no real address, streets that are gone, and name
+# remove lieux dits that contain no real address, streets that are gone, and name:lb
 #
 # v-- remove for addresses
 Maison
@@ -134,7 +134,6 @@ Parc Le'h
 Peitrus
 Petit Bevange
 Pfaffenbrouch
-Place Émile Hamilius
 Pont-Misere
 Reckange-Barrière
 Reisermillen
