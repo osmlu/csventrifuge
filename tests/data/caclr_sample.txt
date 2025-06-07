@@ -1,0 +1,101 @@
+001GIEWEL                                  GIEWEL                                  L18.04.200000025
+001GETZEN                                  GETZEN                                  L18.04.200000026
+001KAERCH                                  KAERCH                                  L18.04.200000027
+001WANDHAFF                                WANDHAFF                                L18.04.200000028
+002Windhof (Koerich)                       WINDHOF (KOERICH)                        18.04.201600028
+003Windhof                                 WINDHOF                                  19.04.201600028
+004Windhof (Windhof)                       WINDHOF (WINDHOF)                        19.04.201600028
+001CAP                                     CAP                                      21.04.200000031
+001Roodt (Septfontaines)                   ROODT (SEPTFONTAINES)                    04.01.201700037
+001OBELER                                  OBELER                                  L16.02.200100043
+001BEETEBUERG                              BEETEBUERG                              L12.06.200700044
+001FENNENG                                 FENNENG                                 L16.02.200100045
+001HUNCHERENG                              HUNCHERENG                              L16.02.200100046
+001NAERTZENG                               NAERTZENG                               L16.02.200100047
+001ESCH/ALZETTE                            ESCH/ALZETTE                             13.06.200700053
+001LEIDELENG                               LEIDELENG                               L19.04.200000059
+001Kockelscheuer (Roeser)                  KOCKELSCHEUER (ROESER)                   12.05.201600078
+001Bieles                                  BIELES                                  L28.07.200400081
+001ilerng                                EILERENG                                L28.07.200400082
+001Suessem                                 SUESSEM                                 L28.07.200400083
+001Zolver                                  ZOLVER                                  L28.07.200400084
+001Bartreng                                BARTRENG                                L09.02.200400086
+001Hostert (Niederanven)                   HOSTERT (NIEDERANVEN)                    09.07.201500099
+001Waldhof (Niederanven)                   WALDHOF (NIEDERANVEN)                    09.07.201500106
+001Mnsbach                                MUNSBACH                                 30.03.201600109
+001Stroossen                               STROOSSEN                               L20.03.200100117
+001Boevange/Attert                         BOEVANGE/ATTERT                          11.03.200400129
+001Brouch (Mersch)                         BROUCH (MERSCH)                          21.06.201700130
+001Fischbach (Mersch)                      FISCHBACH (MERSCH)                       11.11.201600136
+001Weyer (Junglinster)                     WEYER (JUNGLINSTER)                      11.11.201600141
+001Moesdorf (Mersch)                       MOESDORF (MERSCH)                        03.05.201600161
+001Reckange (Mersch)                       RECKANGE (MERSCH)                        03.05.201600163
+001Aansebuerg                              AANSEBUERG                              L10.03.200400171
+002Ansemburg                               ANSEMBURG                               A10.03.200400171
+001Bur                                     BUR                                     L10.03.200400172
+001Huelmes                                 HUELMES                                 L10.03.200400173
+001Mrjendall                              MARJENDALL                              L10.03.200400174
+001Tinten                                 TEINTEN                                 L10.03.200400175
+002Tntingen                               TUNTINGEN                               L10.03.200400175
+001HINTER-HASSEL                           HINTER-HASSEL                            23.05.200000190
+001Mecher (Clervaux)                       MECHER (CLERVAUX)                        23.05.201700206
+001Fschbich                               FESCHBICH                               L01.02.200100212
+002Fischbach (Clervaux)                    FISCHBACH (CLERVAUX)                     23.05.201700212
+001Granzen                                 GRANZEN                                 L01.02.200100213
+001Hengischt                               HENGISCHT                               L01.02.200100214
+002Hinescht                               HEINESCHT                               L01.02.200100214
+001Hpperdang                              HEPPERDANG                              L01.02.200100215
+001Kisfurt                                 KISFURT                                 L01.02.200100216
+002Kaesfurt (Heinerscheid)                 KAESFURT (HEINERSCHEID)                  30.03.201600216
+001Kaalber                                 KAALBER                                 L01.02.200100217
+001Lausdouaren                             LAUSDOUAREN                             L01.02.200100218
+002Lausdorn (Heinerscheid)                 LAUSDORN (HEINERSCHEID)                  23.05.201700218
+001Liler                                  LEILER                                  L01.02.200100219
+001Kaesfurt (Beiler)                       KAESFURT (BEILER)                        09.05.201600245
+001Lausdorn (Weiswampach)                  LAUSDORN (WEISWAMPACH)                   09.05.201600247
+001Maulusmhle (Weiswamp.)                 MAULUSMUHLE (WEISWAMP.)                  09.05.201600249
+001MOESTROFF (DIEKIRCH)                    MOESTROFF (DIEKIRCH)                     03.04.200000259
+001Bourscheid Moulin                       BOURSCHEID MOULIN                        09.05.201600261
+001Biirden                                 BIIRDEN                                 L01.03.200100277
+001Ierpeldeng                              IERPELDENG                              L01.03.200100278
+001Angelduerf                              ANGELDUERF                              L01.03.200100279
+001Biekerech                               BIEKERECH                               L13.09.200100297
+001Ielwen                                  IELWEN                                  L13.09.200100298
+001Huewel                                  HUEWEL                                  L13.09.200100299
+001Hitten                                  HITTEN                                  L13.09.200100300
+001Leewel                                  LEEWEL                                  L13.09.200100301
+001Nerden                                 NAERDEN                                 L13.09.200100302
+001Uewerpallen                             UEWERPALLEN                             L13.09.200100303
+001Schweech                                SCHWEECH                                L13.09.200100304
+001BIEBERICH                               BIEBERICH                               L17.03.200400305
+001PLATEN                                  PLATEN                                  L17.03.200400306
+001PROZ                                    PROZ                                    L17.03.200400307
+001REMMEREG                                REMMEREG                                L17.03.200400308
+001ROODT (REDANGE)                         ROODT (REDANGE)                          04.05.200000313
+001MARTELANGE-HAUT                         MARTELANGE-HAUT                          24.03.200000320
+001Hostert (Rambrouch)                     HOSTERT (RAMBROUCH)                      17.08.201600322
+001REDANGE-SUR-ATTERT                      REDANGE-SUR-ATTERT                       23.03.200000337
+001KAALMES                                 KAALMES                                 L27.03.200000339
+001IENER                                   IENER                                   L28.03.200000340
+001KAPWELLER                               KAPWELLER                               L27.03.200000341
+001SELL                                    SELL                                    L27.03.200000342
+001SCHWEBECH                               SCHWEBECH                               L27.03.200000343
+001Mchelbuch                              MECHELBUCH                               04.03.200400349
+001Viichten                                VIICHTEN                                 04.03.200400350
+001GREVELS (WAHL)                          GREVELS (WAHL)                           31.03.200000353
+001HEISPELT (WAHL)                         HEISPELT (WAHL)                          31.03.200000354
+001Baschelt                                BASCHELT                                L05.06.200300357
+001Bauschelt                               BAUSCHELT                               L05.06.200300358
+001Sir                                     SIR                                     L05.06.200300360
+001Erpeldange (Eschweiler)                 ERPELDANGE (ESCHWEILER)                  16.03.201700363
+001Eschweiler (Wiltz)                      ESCHWEILER (WILTZ)                       16.03.201700364
+001Goebelsmhle (Goesdorf)                 GOEBELSMUHLE (GOESDORF)                  26.05.201600370
+001Nocher Route                            NOCHER ROUTE                             30.03.201600374
+001Mecher (Haute-Sre)                     MECHER (HAUTE-SURE)                      11.11.201900379
+001DIRBACH (HEIDERSCHEID)                  DIRBACH (HEIDERSCHEID)                   12.04.200000383
+001FOND DE HEIDERSCHEID (H.)               FOND DE HEIDERSCHEID (H.)                12.04.200000385
+001MERSCHEID (HEIDERSCHEID)                MERSCHEID (HEIDERSCHEID)                 12.04.200000388
+002Mtscheed                               METSCHEED                                13.06.201700388
+001Ruljen                                  RULJEN                                  L01.02.200100397
+001Wegdichen                               WEGDICHEN                               L01.02.200100398
+001Wooltz                                  WOOLTZ                                  L01.02.200100399
