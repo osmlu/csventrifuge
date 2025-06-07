@@ -19,7 +19,7 @@ def get():
     )
 
     # Downloading the CACLR might take ~15 seconds.
-    # In the meanwile, shake your wrists and correct your posture.
+    # In the meanwhile, shake your wrists and correct your posture.
     r = requests.get(CACLR_ZIP)
     zipfile = ZipFile(BytesIO(r.content))
     # zip_names = zipfile.namelist()

@@ -16,7 +16,7 @@ def get():
         "https://data.public.lu/fr/datasets/r/5cadc5b8-6a7d-4283-87bc-f9e58dd771f7"
     )
     # Downloading the addresses might take ~15 seconds.
-    # In the meanwile, shake your wrists and correct your posture.
+    # In the meanwhile, shake your wrists and correct your posture.
     r = requests.get(ADDRESSES_CSV)
     r.encoding = "utf-8-sig"
     req_addresses = r.text.splitlines()
