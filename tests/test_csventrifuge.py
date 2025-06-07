@@ -3,6 +3,7 @@ import ast
 import os
 import types
 import tempfile
+import pytest
 
 
 def load_csventrifuge_partial():
@@ -45,3 +46,25 @@ def test_is_valid_source_with_tempfile():
         assert result == module_name
     finally:
         os.unlink(tf.name)
+
+
+def test_is_valid_output_opens_file():
+    parser = argparse.ArgumentParser()
+    tmp = tempfile.NamedTemporaryFile(delete=False)
+    tmp.close()
+    try:
+        handle = csventrifuge.is_valid_output(parser, tmp.name)
+        try:
+            assert not handle.closed
+            assert handle.name == tmp.name
+        finally:
+            handle.close()
+    finally:
+        os.unlink(tmp.name)
+
+
+def test_is_valid_output_error(monkeypatch):
+    parser = argparse.ArgumentParser()
+    monkeypatch.setattr("builtins.open", lambda *a, **kw: (_ for _ in ()).throw(OSError()))
+    with pytest.raises(SystemExit):
+        csventrifuge.is_valid_output(parser, "foo.csv")
