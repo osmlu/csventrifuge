@@ -1,1 +1,812 @@
-{"rows": [{"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Clervaux", "rue": "Grand-Rue", "code_postal": "9710"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Clervaux", "rue": "Grand-Rue", "code_postal": "9711"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Clervaux", "rue": "Klatzewee", "code_postal": "9714"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Clervaux", "rue": "Montée de l'Abbaye", "code_postal": "9713"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Clervaux", "rue": "Montée de l'Eglise", "code_postal": "9712"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Clervaux", "rue": "Montée du Château", "code_postal": "9712"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Clervaux", "rue": "Place de l'Abbaye", "code_postal": "9737"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Clervaux", "rue": "Place de la Gare", "code_postal": "9707"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Clervaux", "rue": "Place de la Libération", "code_postal": "9711"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Clervaux", "rue": "Place Benelux", "code_postal": "9711"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Clervaux", "rue": "Promenade de la Clerve", "code_postal": "9715"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Clervaux", "rue": "Route d'Eselborn", "code_postal": "9706"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Clervaux", "rue": "Route d'Urspelt", "code_postal": "9707"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Clervaux", "rue": "Route de Bastogne", "code_postal": "9706"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Clervaux", "rue": "Route de Marnach", "code_postal": "9709"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Clervaux", "rue": "Route de Mecher", "code_postal": "9709"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Clervaux", "rue": "Rue de la Gare", "code_postal": "9707"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Clervaux", "rue": "Rue de la Résidence", "code_postal": "9708"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Clervaux", "rue": "Rue du Parc", "code_postal": "9708"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Clervaux", "rue": "Rue Bongert", "code_postal": "9714"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Clervaux", "rue": "Rue Brooch", "code_postal": "9709"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Clervaux", "rue": "Rue Driicht", "code_postal": "9713"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Clervaux", "rue": "Rue Edward Steichen", "code_postal": "9707"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Clervaux", "rue": "Rue Hoh", "code_postal": "9709"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Clervaux", "rue": "Rue Ley", "code_postal": "9713"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Clervaux", "rue": "Rue Loretto", "code_postal": "9707"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Clervaux", "rue": "Rue Schloff", "code_postal": "9712"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Drauffelt", "rue": "A Gloden", "code_postal": "9746"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Drauffelt", "rue": "Duerefwee", "code_postal": "9746"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Drauffelt", "rue": "Eiseboonswee", "code_postal": "9746"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Drauffelt", "rue": "Millewee", "code_postal": "9746"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Drauffelt", "rue": "Op der Insel", "code_postal": "9746"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Drauffelt", "rue": "Op der Léi", "code_postal": "9746"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Drauffelt", "rue": "Schoulbireg", "code_postal": "9746"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Drauffelt", "rue": "Wëlzerstrooss", "code_postal": "9746"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Eselborn", "rue": "Abbaye de Clervaux", "code_postal": "9737"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Eselborn", "rue": "An Decker", "code_postal": "9738"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Eselborn", "rue": "Burewee", "code_postal": "9748"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Eselborn", "rue": "Cité Schleed", "code_postal": "9738"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Eselborn", "rue": "Mecherwee", "code_postal": "9748"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Eselborn", "rue": "Op der Sang", "code_postal": "9779"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Eselborn", "rue": "Op der Spraet", "code_postal": "9748"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Eselborn", "rue": "Route de Lentzweiler", "code_postal": "9748"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Eselborn", "rue": "Rue de l'Abbaye", "code_postal": "9748"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Eselborn", "rue": "Rue de l'Eglise", "code_postal": "9748"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Eselborn", "rue": "Rue du Village", "code_postal": "9748"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Eselborn", "rue": "Rue Kléck", "code_postal": "9748"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Eselborn", "rue": "Rue Knupp", "code_postal": "9748"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Fischbach", "rue": "Duarrefstrooss", "code_postal": "9749"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Fischbach", "rue": "Giällewee", "code_postal": "9749"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Fischbach", "rue": "Hauptstrooss", "code_postal": "9749"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Fischbach", "rue": "Hinnick", "code_postal": "9749"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Fischbach", "rue": "Kierfechtstrooss", "code_postal": "9749"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Fischbach", "rue": "Knupp", "code_postal": "9749"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Fossenhof", "rue": "Maison", "code_postal": "9968"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Grindhausen", "rue": "Driicht", "code_postal": "9751"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Grindhausen", "rue": "Hauptstrooss", "code_postal": "9751"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Grindhausen", "rue": "Wissgaart", "code_postal": "9751"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Heinerscheid", "rue": "Am Gängelchen", "code_postal": "9753"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Heinerscheid", "rue": "An de Stucken", "code_postal": "9753"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Heinerscheid", "rue": "Bei Hens", "code_postal": "9753"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Heinerscheid", "rue": "Beim Wasserturm", "code_postal": "9753"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Heinerscheid", "rue": "Buregaass", "code_postal": "9753"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Heinerscheid", "rue": "Hëpperdangerstrooss", "code_postal": "9753"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Heinerscheid", "rue": "Hauptstrooss", "code_postal": "9753"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Heinerscheid", "rue": "Hualgaass", "code_postal": "9753"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Heinerscheid", "rue": "Huserknapp", "code_postal": "9753"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Heinerscheid", "rue": "Kaalberstrooss", "code_postal": "9753"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Heinerscheid", "rue": "Kierchestrooss", "code_postal": "9753"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Heinerscheid", "rue": "Kierfechtstrooss", "code_postal": "9753"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Heinerscheid", "rue": "Um Knapp", "code_postal": "9753"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Hupperdange", "rue": "Am Kubischt", "code_postal": "9755"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Hupperdange", "rue": "Duarrefstrooss", "code_postal": "9755"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Hupperdange", "rue": "Grandserstrooss", "code_postal": "9755"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Hupperdange", "rue": "Hanefeld", "code_postal": "9755"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Hupperdange", "rue": "Hauptstrooss", "code_postal": "9755"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Hupperdange", "rue": "Heigaart", "code_postal": "9755"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Hupperdange", "rue": "Hualewee", "code_postal": "9755"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Hupperdange", "rue": "Kaesfurterstrooss", "code_postal": "9755"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Hupperdange", "rue": "Kierfechtstrooss", "code_postal": "9755"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Hupperdange", "rue": "Kléimillewee", "code_postal": "9755"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Hupperdange", "rue": "Om Buren", "code_postal": "9755"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Hupperdange", "rue": "Wissgaart", "code_postal": "9755"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Kaaspelterhof", "rue": "Maison", "code_postal": "9765"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Kaesfurt", "rue": "Maison", "code_postal": "9756"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Kalborn", "rue": "Am Eck", "code_postal": "9757"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Kalborn", "rue": "Bei Kitchen", "code_postal": "9757"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Kalborn", "rue": "Hauptstrooss", "code_postal": "9757"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Kalborn", "rue": "Scheierfeld", "code_postal": "9757"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Kalborn-Moulin", "rue": "Maison", "code_postal": "9757"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Kirelshof", "rue": "Maison", "code_postal": "9759"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Lausdorn", "rue": "Maison", "code_postal": "9968"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Lieler", "rue": "Am Päesch", "code_postal": "9972"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Lieler", "rue": "An der Baach", "code_postal": "9972"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Lieler", "rue": "An der Eech", "code_postal": "9972"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Lieler", "rue": "Beim Kräizchen", "code_postal": "9972"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Lieler", "rue": "Beim Weier", "code_postal": "9972"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Lieler", "rue": "Duarrefstrooss", "code_postal": "9972"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Lieler", "rue": "Hauptstrooss", "code_postal": "9972"}, {"district": "DIEKIRCH", "canton": "CLERVAUX", "commune": "Clervaux", "localite": "Lieler", "rue": "Hualgässchen", "code_postal": "9972"}], "fieldnames": ["district", "canton", "commune", "localite", "rue", "code_postal"]}
+{
+  "rows": [
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Clervaux",
+      "rue": "Grand-Rue",
+      "code_postal": "9710"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Clervaux",
+      "rue": "Grand-Rue",
+      "code_postal": "9711"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Clervaux",
+      "rue": "Klatzewee",
+      "code_postal": "9714"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Clervaux",
+      "rue": "Montée de l'Abbaye",
+      "code_postal": "9713"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Clervaux",
+      "rue": "Montée de l'Eglise",
+      "code_postal": "9712"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Clervaux",
+      "rue": "Montée du Château",
+      "code_postal": "9712"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Clervaux",
+      "rue": "Place de l'Abbaye",
+      "code_postal": "9737"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Clervaux",
+      "rue": "Place de la Gare",
+      "code_postal": "9707"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Clervaux",
+      "rue": "Place de la Libération",
+      "code_postal": "9711"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Clervaux",
+      "rue": "Place Benelux",
+      "code_postal": "9711"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Clervaux",
+      "rue": "Promenade de la Clerve",
+      "code_postal": "9715"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Clervaux",
+      "rue": "Route d'Eselborn",
+      "code_postal": "9706"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Clervaux",
+      "rue": "Route d'Urspelt",
+      "code_postal": "9707"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Clervaux",
+      "rue": "Route de Bastogne",
+      "code_postal": "9706"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Clervaux",
+      "rue": "Route de Marnach",
+      "code_postal": "9709"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Clervaux",
+      "rue": "Route de Mecher",
+      "code_postal": "9709"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Clervaux",
+      "rue": "Rue de la Gare",
+      "code_postal": "9707"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Clervaux",
+      "rue": "Rue de la Résidence",
+      "code_postal": "9708"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Clervaux",
+      "rue": "Rue du Parc",
+      "code_postal": "9708"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Clervaux",
+      "rue": "Rue Bongert",
+      "code_postal": "9714"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Clervaux",
+      "rue": "Rue Brooch",
+      "code_postal": "9709"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Clervaux",
+      "rue": "Rue Driicht",
+      "code_postal": "9713"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Clervaux",
+      "rue": "Rue Edward Steichen",
+      "code_postal": "9707"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Clervaux",
+      "rue": "Rue Hoh",
+      "code_postal": "9709"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Clervaux",
+      "rue": "Rue Ley",
+      "code_postal": "9713"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Clervaux",
+      "rue": "Rue Loretto",
+      "code_postal": "9707"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Clervaux",
+      "rue": "Rue Schloff",
+      "code_postal": "9712"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Drauffelt",
+      "rue": "A Gloden",
+      "code_postal": "9746"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Drauffelt",
+      "rue": "Duerefwee",
+      "code_postal": "9746"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Drauffelt",
+      "rue": "Eiseboonswee",
+      "code_postal": "9746"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Drauffelt",
+      "rue": "Millewee",
+      "code_postal": "9746"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Drauffelt",
+      "rue": "Op der Insel",
+      "code_postal": "9746"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Drauffelt",
+      "rue": "Op der Léi",
+      "code_postal": "9746"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Drauffelt",
+      "rue": "Schoulbireg",
+      "code_postal": "9746"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Drauffelt",
+      "rue": "Wëlzerstrooss",
+      "code_postal": "9746"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Eselborn",
+      "rue": "Abbaye de Clervaux",
+      "code_postal": "9737"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Eselborn",
+      "rue": "An Decker",
+      "code_postal": "9738"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Eselborn",
+      "rue": "Burewee",
+      "code_postal": "9748"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Eselborn",
+      "rue": "Cité Schleed",
+      "code_postal": "9738"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Eselborn",
+      "rue": "Mecherwee",
+      "code_postal": "9748"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Eselborn",
+      "rue": "Op der Sang",
+      "code_postal": "9779"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Eselborn",
+      "rue": "Op der Spraet",
+      "code_postal": "9748"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Eselborn",
+      "rue": "Route de Lentzweiler",
+      "code_postal": "9748"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Eselborn",
+      "rue": "Rue de l'Abbaye",
+      "code_postal": "9748"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Eselborn",
+      "rue": "Rue de l'Eglise",
+      "code_postal": "9748"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Eselborn",
+      "rue": "Rue du Village",
+      "code_postal": "9748"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Eselborn",
+      "rue": "Rue Kléck",
+      "code_postal": "9748"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Eselborn",
+      "rue": "Rue Knupp",
+      "code_postal": "9748"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Fischbach",
+      "rue": "Duarrefstrooss",
+      "code_postal": "9749"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Fischbach",
+      "rue": "Giällewee",
+      "code_postal": "9749"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Fischbach",
+      "rue": "Hauptstrooss",
+      "code_postal": "9749"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Fischbach",
+      "rue": "Hinnick",
+      "code_postal": "9749"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Fischbach",
+      "rue": "Kierfechtstrooss",
+      "code_postal": "9749"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Fischbach",
+      "rue": "Knupp",
+      "code_postal": "9749"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Fossenhof",
+      "rue": "Maison",
+      "code_postal": "9968"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Grindhausen",
+      "rue": "Driicht",
+      "code_postal": "9751"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Grindhausen",
+      "rue": "Hauptstrooss",
+      "code_postal": "9751"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Grindhausen",
+      "rue": "Wissgaart",
+      "code_postal": "9751"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Heinerscheid",
+      "rue": "Am Gängelchen",
+      "code_postal": "9753"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Heinerscheid",
+      "rue": "An de Stucken",
+      "code_postal": "9753"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Heinerscheid",
+      "rue": "Bei Hens",
+      "code_postal": "9753"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Heinerscheid",
+      "rue": "Beim Wasserturm",
+      "code_postal": "9753"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Heinerscheid",
+      "rue": "Buregaass",
+      "code_postal": "9753"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Heinerscheid",
+      "rue": "Hëpperdangerstrooss",
+      "code_postal": "9753"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Heinerscheid",
+      "rue": "Hauptstrooss",
+      "code_postal": "9753"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Heinerscheid",
+      "rue": "Hualgaass",
+      "code_postal": "9753"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Heinerscheid",
+      "rue": "Huserknapp",
+      "code_postal": "9753"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Heinerscheid",
+      "rue": "Kaalberstrooss",
+      "code_postal": "9753"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Heinerscheid",
+      "rue": "Kierchestrooss",
+      "code_postal": "9753"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Heinerscheid",
+      "rue": "Kierfechtstrooss",
+      "code_postal": "9753"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Heinerscheid",
+      "rue": "Um Knapp",
+      "code_postal": "9753"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Hupperdange",
+      "rue": "Am Kubischt",
+      "code_postal": "9755"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Hupperdange",
+      "rue": "Duarrefstrooss",
+      "code_postal": "9755"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Hupperdange",
+      "rue": "Grandserstrooss",
+      "code_postal": "9755"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Hupperdange",
+      "rue": "Hanefeld",
+      "code_postal": "9755"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Hupperdange",
+      "rue": "Hauptstrooss",
+      "code_postal": "9755"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Hupperdange",
+      "rue": "Heigaart",
+      "code_postal": "9755"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Hupperdange",
+      "rue": "Hualewee",
+      "code_postal": "9755"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Hupperdange",
+      "rue": "Kaesfurterstrooss",
+      "code_postal": "9755"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Hupperdange",
+      "rue": "Kierfechtstrooss",
+      "code_postal": "9755"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Hupperdange",
+      "rue": "Kléimillewee",
+      "code_postal": "9755"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Hupperdange",
+      "rue": "Om Buren",
+      "code_postal": "9755"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Hupperdange",
+      "rue": "Wissgaart",
+      "code_postal": "9755"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Kaaspelterhof",
+      "rue": "Maison",
+      "code_postal": "9765"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Kaesfurt",
+      "rue": "Maison",
+      "code_postal": "9756"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Kalborn",
+      "rue": "Am Eck",
+      "code_postal": "9757"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Kalborn",
+      "rue": "Bei Kitchen",
+      "code_postal": "9757"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Kalborn",
+      "rue": "Hauptstrooss",
+      "code_postal": "9757"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Kalborn",
+      "rue": "Scheierfeld",
+      "code_postal": "9757"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Kalborn-Moulin",
+      "rue": "Maison",
+      "code_postal": "9757"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Kirelshof",
+      "rue": "Maison",
+      "code_postal": "9759"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Lausdorn",
+      "rue": "Maison",
+      "code_postal": "9968"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Lieler",
+      "rue": "Am Päesch",
+      "code_postal": "9972"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Lieler",
+      "rue": "An der Baach",
+      "code_postal": "9972"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Lieler",
+      "rue": "An der Eech",
+      "code_postal": "9972"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Lieler",
+      "rue": "Beim Kräizchen",
+      "code_postal": "9972"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Lieler",
+      "rue": "Beim Weier",
+      "code_postal": "9972"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Lieler",
+      "rue": "Duarrefstrooss",
+      "code_postal": "9972"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Lieler",
+      "rue": "Hauptstrooss",
+      "code_postal": "9972"
+    },
+    {
+      "district": "DIEKIRCH",
+      "canton": "CLERVAUX",
+      "commune": "Clervaux",
+      "localite": "Lieler",
+      "rue": "Hualgässchen",
+      "code_postal": "9972"
+    }
+  ],
+  "fieldnames": [
+    "district",
+    "canton",
+    "commune",
+    "localite",
+    "rue",
+    "code_postal"
+  ]
+}
