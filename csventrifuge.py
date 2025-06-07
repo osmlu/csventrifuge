@@ -12,13 +12,20 @@ import logging
 import os
 import re
 from contextlib import suppress
-from typing import Dict
+from types import ModuleType
+from typing import Dict, Iterable, Tuple, IO
+from pathlib import Path
 
 # Set up logging
 logging.basicConfig(level=logging.WARNING)
 log = logging.getLogger(__name__)
 
-def load_module(wanted_module, origin):
+# Typed rulebooks used throughout processing
+Rulebook = Dict[str, Dict[str, Tuple[str, int]]]
+EnhanceBook = Dict[str, Dict[str, Dict[str, Tuple[str, int]]]]
+FilterBook = Dict[str, Dict[str, Tuple[str, int]]]
+
+def load_module(wanted_module: str, origin: str) -> ModuleType:
     """
     Load the specified module from the given origin directory.
 
@@ -48,7 +55,7 @@ def load_module(wanted_module, origin):
     # If the desired module is not found, raise an ImportError
     raise ImportError(f'module not found "{wanted_module}" ({origin})')
 
-def form_module(fp):
+def form_module(fp: str) -> str:
     """
     Form a module name from a filepath.
 
@@ -59,7 +66,7 @@ def form_module(fp):
     """
     return "." + os.path.splitext(fp)[0]
 
-def is_valid_source(parser, arg):
+def is_valid_source(parser: argparse.ArgumentParser, arg: str) -> str:
     """
     Check if the input source definition file exists.
 
@@ -79,7 +86,7 @@ def is_valid_source(parser, arg):
     return arg
 
 # Define function to check if output file is valid
-def is_valid_output(parser, arg):
+def is_valid_output(parser: argparse.ArgumentParser, arg: str) -> IO[str]:
     """
     Check if the output file can be written to.
 
@@ -98,6 +105,71 @@ def is_valid_output(parser, arg):
     # If no error occurs, return the output file
     else:
         return output
+
+
+def load_rules(keys: Iterable[str], source_name: str) -> Rulebook:
+    """Load the rules for ``source_name``."""
+    rulebook: Rulebook = {}
+    for key in keys:
+        path = Path("rules") / source_name / f"{key}.csv"
+        with suppress(IOError):
+            with path.open(encoding="utf-8") as rulecsv:
+                rulebook[key] = {}
+                for row in csv.reader(rulecsv, delimiter="\t"):
+                    try:
+                        if not row[0].startswith("#"):
+                            rulebook[key][row[0]] = (row[1], 0)
+                    except IndexError:
+                        log.error(f"Could not import rule: {row}")
+    return rulebook
+
+
+def load_enhancements(keys: list[str], source_name: str) -> Tuple[EnhanceBook, set[str]]:
+    """Load enhancements for ``source_name`` and update ``keys`` in place."""
+    enhancebook: EnhanceBook = {}
+    enhanced: set[str] = set()
+    for key in list(keys):
+        path = Path("enhance") / source_name / key
+        with suppress(OSError):
+            enhancements = os.listdir(path)
+            if enhancements:
+                enhancebook[key] = {}
+                for filename in enhancements:
+                    with (path / filename).open(encoding="utf-8") as enhancecsv:
+                        target = filename[:-4]
+                        if target not in keys:
+                            keys.append(target)
+                        enhanced.add(target)
+                        enhancebook[key].setdefault(target, {})
+                        for erow in csv.reader(enhancecsv, delimiter="\t"):
+                            try:
+                                if not erow[0].startswith("#"):
+                                    enhancebook[key][target][erow[0]] = (
+                                        erow[1],
+                                        0,
+                                    )
+                            except IndexError:
+                                log.error(
+                                    f"Could not import enhancement, erow is: {erow}"
+                                )
+                log.debug("Enhance book for %s: %s", key, ", ".join(enhancebook[key].keys()))
+    return enhancebook, enhanced
+
+
+def load_filters(keys: Iterable[str], source_name: str) -> FilterBook:
+    """Load filters for ``source_name``."""
+    filterbook: FilterBook = {}
+    for key in keys:
+        path = Path("filters") / source_name / f"{key}.csv"
+        with suppress(IOError):
+            with path.open(encoding="utf-8") as filtercsv:
+                filterbook[key] = {}
+                for row in csv.reader(filtercsv, delimiter="\t"):
+                    if not row[0].startswith("#"):
+                        comment = row[1] if len(row) > 1 else ""
+                        filterbook[key][row[0]] = (comment, 0)
+            log.debug("Filter book for %s is %i entries big.", key, len(filterbook[key]))
+    return filterbook
 
 # Set up argument parser to parse input source and output file
 parser = argparse.ArgumentParser(
@@ -118,207 +190,93 @@ parser.add_argument(
     nargs="?",
 )
 
-# Parse arguments
-args = parser.parse_args()
 
-# Load the specified module
-source = load_module(args.source, "sources")
+def main() -> None:
+    """Run the command line interface."""
+    args = parser.parse_args()
 
-# Get the "get" function from the source module
-get_data = getattr(source, "get", None)
+    source = load_module(args.source, "sources")
+    get_data = getattr(source, "get", None)
+    if get_data is None:
+        raise ImportError('function not found "{}" ({})'.format("get", args.source))
 
-# If the "get" function does not exist, raise an ImportError
-if get_data is None:
-    raise ImportError('function not found "{}" ({})'.format("get", args.source))
+    data, keys = get_data()
+    log.debug("Keys are %s", ", ".join(keys))
 
-# Get the data and keys from the "get" function. Load it all up in memory.
-data, keys = get_data()
+    rulebook = load_rules(keys, args.source)
+    enhancebook, enhanced = load_enhancements(keys, args.source)
+    filterbook = load_filters(keys, args.source)
 
-# Print debug message with keys
-log.debug("Keys are %s", ", ".join(keys))
+    substitutions = 0
+    filtered = 0
+    len_data = len(data)
 
-# Build the rulebook
-rulebook: Dict[str, dict] = {}
-# Iterate through keys
-for key in keys:
-    # Throw the rules in a dict, e.g. rules['localite'] - according to
-    # key->filename
-    # Ignore IOError, means no rules for this column
-    with suppress(IOError):
-        with open(
-            f"rules/{args.source}/{key}.csv", encoding="utf-8"
-        ) as rulecsv:
-            # Initialize empty dictionary for the current key in rulebook
-            rulebook[key] = {}
-            # Iterate through rows in the rules file
-            for row in csv.reader(rulecsv, delimiter="\t"):
-                try:
-                    # If the row does not start with "#", add it to the rulebook
-                    if not row[0].startswith("#"):
-                        rulebook[key][row[0]] = [row[1], 0]
-                # If an IndexError occurs, print an error message
-                except IndexError:
-                    log.error(f"Could not import rule: {row}")
+    for key in filterbook:
+        filtered_data = [row for row in data if row[key] not in filterbook[key]]
+        for deleted in [row for row in data if row[key] in filterbook[key]]:
+            comment, count = filterbook[key][deleted[key]]
+            filterbook[key][deleted[key]] = (comment, count + 1)
+        filtered += len(data) - len(filtered_data)
+        data = filtered_data
 
-# Build the enhancement book
-# Initialize empty enhancement book dictionary
-enhancebook: Dict[str, dict] = {}
-# Initialize empty set of enhanced columns
-enhanced = set()
-for key in keys:
-    # Ignore OSError, means no enhancements for this column
-    with suppress(OSError):
-        # Get the path to the enhancements for the current key
-        enhancepath = "enhance/" + args.source + "/" + key
-        # Get a list of enhancement names for the current key
-        enhancements = os.listdir(enhancepath)
-        # If there are enhancements for the current key
-        if enhancements:
-            # Initialize empty dictionary for the current key in enhancebook
-            enhancebook[key] = {}
-            for filename in os.listdir(enhancepath):
-                with open(
-                    enhancepath + "/" + filename,
-                    encoding="utf-8",
-                ) as enhancecsv:
-                    # Target is file name without .csv at end
-                    target = filename[:-4]
-                    if target not in keys:
-                        keys.append(target)
-                    # Add the target key to the set of enhanced columns
-                    enhanced.add(target)
-                    enhancebook[key][target] = {}
-                    log.debug("Adding enhance target " + target + " key " + key)
-                    # Add the current key to the set of enhanced columns
-                    for erow in csv.reader(enhancecsv, delimiter="\t"):
-                        try:
-                            # If the row does not start with "#", add it to the enhancebook
-                            if not erow[0].startswith("#"):
-                                enhancebook[key][target][erow[0]] = [erow[1], 0]
-                        # If an IndexError occurs, print an error message
-                        except IndexError:
-                            log.error(f"Could not import enhancement, erow is: {erow}")
-            log.debug(
-                "Enhance book for %s: %s", key, ", ".join(enhancebook[key].keys())
-            )
+    for row in data:
+        for key in keys:
+            orig = row.get(key)
+            if orig is not None and rulebook.get(key) and orig in rulebook[key]:
+                replacement, count = rulebook[key][orig]
+                row[key] = replacement
+                rulebook[key][orig] = (replacement, count + 1)
+                substitutions += 1
+            else:
+                if orig is not None:
+                    log.debug("No rule for [%s] %s", key, orig)
 
-# Build the filter book
-filterbook: Dict[str, list] = {}
-for key in keys:
-    # Throw the rules in a dict, e.g. rules['localite'] - according to
-    # key->filename
-    # Ignore IOError, means no filter for this column
-    with suppress(IOError):
-        with open(
-            "filters/" + args.source + "/" + key + ".csv", encoding="utf-8"
-        ) as filtercsv:
-            filterbook[key] = {}
-            for row in csv.reader(filtercsv, delimiter="\t"):
-                if not row[0].startswith("#"):
-                    filterbook[key][row[0]] = 0
-        log.debug("Filter book for %s is %i entries big.", key, len(filterbook[key]))
+            if key in enhancebook:
+                for enhancement, mapping in enhancebook[key].items():
+                    try:
+                        replacement, count = mapping[row[key]]
+                        row[enhancement] = replacement
+                        mapping[row[key]] = (replacement, count + 1)
+                    except KeyError:
+                        pass
+        for enhanced_column in enhanced:
+            if enhanced_column not in row:
+                log.error("No enhancement found for %s in row %s", enhanced_column, row)
 
-# For each row, for each column, if there's a corresponding rule, replace.
-# if rules['localite'][address['localite']:
-#     address['localite'] = rules['localite'][address['localite']
-# If there's an enhancement, add that column in the same way.
-# Is there a more pythonic way to write this? Lambda function? Dict
-# comprehension?
-
-substitutions = 0
-filtered = 0
-len_data = len(data)
-
-# apply filters using list comprehension (wheee)
-for key in filterbook:
-    # We don't replace in place because we want a count
-    filtered_data = [row for row in data if row[key] not in filterbook[key].keys()]
-    for deleted in [row for row in data if row[key] in filterbook[key].keys()]:
-        # print(deleted)
-        filterbook[key][deleted[key]] += 1
-        # log.debug("Filter deleted %s", deleted)
-    filtered += len(data) - len(filtered_data)
-    data = filtered_data
-
-for row in data:
-    for key in keys:
-
-        # apply rules
-        orig = row.get(key)
-        if (
-            orig is not None
-            and rulebook.get(key) is not None
-            and orig in rulebook[key]
-        ):
-            row[key] = rulebook[key][orig][0]
-            log.debug("Rule: replacing [%s] %s with %s", key, orig, row[key])
-            rulebook[key][orig][1] += 1
-            substitutions += 1
-        else:
-            if orig is not None:
-                log.debug("No rule for [%s] %s", key, orig)
-
-        # apply enhancement
-        try:
-            for enhancement in enhancebook[key]:
-                try:
-                    row[enhancement] = enhancebook[key][enhancement][row[key]][0]
-                    enhancebook[key][enhancement][row[key]][1] += 1
-                except KeyError:
-                    # No enhancement found for this value
-                    pass
-        except KeyError:
-            log.debug("No enhancements for [%s]", key)
-    # Check if all enhanced columns in the row got added
-    for enhanced_column in enhanced:
-        if enhanced_column not in row:
-            log.error("No enhancement found for %s in row %s", enhanced_column, row)
-
-
-# After substitutions and additions done, spit out new csv.
-
-csv_out = args.output
-# extrasaction='ignore' ignores extra fields
-# http://www.lucainvernizzi.net/blog/2015/08/03/8x-speed-up-for-python-s-csv-dictwriter/
-writer = csv.DictWriter(csv_out, fieldnames=keys, extrasaction="ignore")
-
-writer.writeheader()
-writer.writerows(data)
-log.info(
-    "{} values out of {} dropped, {:.2%}".format(
-        filtered, len_data, filtered / len_data
+    csv_out = args.output
+    writer = csv.DictWriter(csv_out, fieldnames=keys, extrasaction="ignore")
+    writer.writeheader()
+    writer.writerows(data)
+    csv_out.close()
+    log.info(
+        "{} values out of {} dropped, {:.2%}".format(filtered, len_data, filtered / len_data)
     )
-)
-log.info(
-    "{} values out of {} replaced, {:.2%}".format(
-        substitutions, len(data), substitutions / len(data)
+    log.info(
+        "{} values out of {} replaced, {:.2%}".format(substitutions, len(data), substitutions / len_data)
     )
-)
 
-for key in rulebook:
-    for rule in rulebook[key]:
-        if rulebook[key][rule][1] == 0:
-            log.info(
-                'Did not use [{}] rule "{}" -> "{}"'.format(
-                    key, rule, rulebook[key][rule][0]
-                )
-            )
-        else:
-            log.debug(
-                "Used [{}] rule {} {} times".format(key, rule, rulebook[key][rule][1])
-            )
+    for key in rulebook:
+        for rule, (replacement, count) in rulebook[key].items():
+            if count == 0:
+                log.info('Did not use [{}] rule "{}" -> "{}"'.format(key, rule, replacement))
+            else:
+                log.debug("Used [{}] rule {} {} times".format(key, rule, count))
 
-for key in enhancebook:
-    for enhancement in enhancebook[key].keys():
-        for tkey in enhancebook[key][enhancement]:
-            if enhancebook[key][enhancement][tkey][1] == 0:
-                log.info(
-                    'Did not use enhancement [{}] "{}" -> [{}] "{}"'.format(
-                        key, tkey, enhancement, enhancebook[key][enhancement][tkey][0]
+    for key in enhancebook:
+        for enhancement in enhancebook[key].keys():
+            for tkey, (val, count) in enhancebook[key][enhancement].items():
+                if count == 0:
+                    log.info(
+                        'Did not use enhancement [{}] "{}" -> [{}] "{}"'.format(
+                            key, tkey, enhancement, val
+                        )
                     )
-                )
 
-for key in filterbook:
-    for filter in filterbook[key].keys():
-        if filterbook[key][filter] == 0:
-            log.info("Did not use filter [{}] {}".format(key, filter))
+    for key in filterbook:
+        for filter_val, (_, count) in filterbook[key].items():
+            if count == 0:
+                log.info("Did not use filter [{}] {}".format(key, filter_val))
+
+
+if __name__ == "__main__":
+    main()
