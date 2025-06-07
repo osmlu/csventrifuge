@@ -13,7 +13,7 @@ import os
 import re
 from contextlib import suppress
 from typing import Dict
-
+import polars as pl
 # Set up logging
 logging.basicConfig(level=logging.WARNING)
 log = logging.getLogger(__name__)
@@ -118,207 +118,119 @@ parser.add_argument(
     nargs="?",
 )
 
-# Parse arguments
-args = parser.parse_args()
 
-# Load the specified module
-source = load_module(args.source, "sources")
+def main() -> None:
+    """Entry point executed by the CLI."""
+    args = parser.parse_args()
+    source = load_module(args.source, "sources")
+    get_data = getattr(source, "get", None)
+    if get_data is None:
+        raise ImportError(f'function not found "get" ({args.source})')
 
-# Get the "get" function from the source module
-get_data = getattr(source, "get", None)
+    data, keys = get_data()
+    log.debug("Keys are %s", ", ".join(keys))
+    df = pl.DataFrame(data)
 
-# If the "get" function does not exist, raise an ImportError
-if get_data is None:
-    raise ImportError('function not found "{}" ({})'.format("get", args.source))
-
-# Get the data and keys from the "get" function. Load it all up in memory.
-data, keys = get_data()
-
-# Print debug message with keys
-log.debug("Keys are %s", ", ".join(keys))
-
-# Build the rulebook
-rulebook: Dict[str, dict] = {}
-# Iterate through keys
-for key in keys:
-    # Throw the rules in a dict, e.g. rules['localite'] - according to
-    # key->filename
-    # Ignore IOError, means no rules for this column
-    with suppress(IOError):
-        with open(
-            f"rules/{args.source}/{key}.csv", encoding="utf-8"
-        ) as rulecsv:
-            # Initialize empty dictionary for the current key in rulebook
-            rulebook[key] = {}
-            # Iterate through rows in the rules file
-            for row in csv.reader(rulecsv, delimiter="\t"):
-                try:
-                    # If the row does not start with "#", add it to the rulebook
-                    if not row[0].startswith("#"):
-                        rulebook[key][row[0]] = [row[1], 0]
-                # If an IndexError occurs, print an error message
-                except IndexError:
-                    log.error(f"Could not import rule: {row}")
-
-# Build the enhancement book
-# Initialize empty enhancement book dictionary
-enhancebook: Dict[str, dict] = {}
-# Initialize empty set of enhanced columns
-enhanced = set()
-for key in keys:
-    # Ignore OSError, means no enhancements for this column
-    with suppress(OSError):
-        # Get the path to the enhancements for the current key
-        enhancepath = "enhance/" + args.source + "/" + key
-        # Get a list of enhancement names for the current key
-        enhancements = os.listdir(enhancepath)
-        # If there are enhancements for the current key
-        if enhancements:
-            # Initialize empty dictionary for the current key in enhancebook
-            enhancebook[key] = {}
-            for filename in os.listdir(enhancepath):
-                with open(
-                    enhancepath + "/" + filename,
-                    encoding="utf-8",
-                ) as enhancecsv:
-                    # Target is file name without .csv at end
-                    target = filename[:-4]
-                    if target not in keys:
-                        keys.append(target)
-                    # Add the target key to the set of enhanced columns
-                    enhanced.add(target)
-                    enhancebook[key][target] = {}
-                    log.debug("Adding enhance target " + target + " key " + key)
-                    # Add the current key to the set of enhanced columns
-                    for erow in csv.reader(enhancecsv, delimiter="\t"):
-                        try:
-                            # If the row does not start with "#", add it to the enhancebook
-                            if not erow[0].startswith("#"):
-                                enhancebook[key][target][erow[0]] = [erow[1], 0]
-                        # If an IndexError occurs, print an error message
-                        except IndexError:
-                            log.error(f"Could not import enhancement, erow is: {erow}")
-            log.debug(
-                "Enhance book for %s: %s", key, ", ".join(enhancebook[key].keys())
-            )
-
-# Build the filter book
-filterbook: Dict[str, list] = {}
-for key in keys:
-    # Throw the rules in a dict, e.g. rules['localite'] - according to
-    # key->filename
-    # Ignore IOError, means no filter for this column
-    with suppress(IOError):
-        with open(
-            "filters/" + args.source + "/" + key + ".csv", encoding="utf-8"
-        ) as filtercsv:
-            filterbook[key] = {}
-            for row in csv.reader(filtercsv, delimiter="\t"):
-                if not row[0].startswith("#"):
-                    filterbook[key][row[0]] = 0
-        log.debug("Filter book for %s is %i entries big.", key, len(filterbook[key]))
-
-# For each row, for each column, if there's a corresponding rule, replace.
-# if rules['localite'][address['localite']:
-#     address['localite'] = rules['localite'][address['localite']
-# If there's an enhancement, add that column in the same way.
-# Is there a more pythonic way to write this? Lambda function? Dict
-# comprehension?
-
-substitutions = 0
-filtered = 0
-len_data = len(data)
-
-# apply filters using list comprehension (wheee)
-for key in filterbook:
-    # We don't replace in place because we want a count
-    filtered_data = [row for row in data if row[key] not in filterbook[key].keys()]
-    for deleted in [row for row in data if row[key] in filterbook[key].keys()]:
-        # print(deleted)
-        filterbook[key][deleted[key]] += 1
-        # log.debug("Filter deleted %s", deleted)
-    filtered += len(data) - len(filtered_data)
-    data = filtered_data
-
-for row in data:
+    rulebook: Dict[str, dict] = {}
     for key in keys:
+        with suppress(IOError):
+            with open(f"rules/{args.source}/{key}.csv", encoding="utf-8") as rulecsv:
+                rulebook[key] = {}
+                for row in csv.reader(rulecsv, delimiter="\t"):
+                    if row and not row[0].startswith("#"):
+                        rulebook[key][row[0]] = [row[1], 0]
 
-        # apply rules
-        orig = row.get(key)
-        if (
-            orig is not None
-            and rulebook.get(key) is not None
-            and orig in rulebook[key]
-        ):
-            row[key] = rulebook[key][orig][0]
-            log.debug("Rule: replacing [%s] %s with %s", key, orig, row[key])
-            rulebook[key][orig][1] += 1
-            substitutions += 1
-        else:
-            if orig is not None:
-                log.debug("No rule for [%s] %s", key, orig)
+    enhancebook: Dict[str, dict] = {}
+    enhanced = set()
+    for key in keys:
+        with suppress(OSError):
+            enhancepath = f"enhance/{args.source}/{key}"
+            if os.path.isdir(enhancepath):
+                enhancebook[key] = {}
+                for filename in os.listdir(enhancepath):
+                    with open(os.path.join(enhancepath, filename), encoding="utf-8") as enhancecsv:
+                        target = filename[:-4]
+                        if target not in keys:
+                            keys.append(target)
+                        enhanced.add(target)
+                        enhancebook[key][target] = {}
+                        for erow in csv.reader(enhancecsv, delimiter="\t"):
+                            if erow and not erow[0].startswith("#"):
+                                enhancebook[key][target][erow[0]] = [erow[1], 0]
+                log.debug("Enhance book for %s: %s", key, ", ".join(enhancebook[key].keys()))
 
-        # apply enhancement
-        try:
-            for enhancement in enhancebook[key]:
-                try:
-                    row[enhancement] = enhancebook[key][enhancement][row[key]][0]
-                    enhancebook[key][enhancement][row[key]][1] += 1
-                except KeyError:
-                    # No enhancement found for this value
-                    pass
-        except KeyError:
-            log.debug("No enhancements for [%s]", key)
-    # Check if all enhanced columns in the row got added
-    for enhanced_column in enhanced:
-        if enhanced_column not in row:
-            log.error("No enhancement found for %s in row %s", enhanced_column, row)
+    filterbook: Dict[str, dict] = {}
+    for key in keys:
+        with suppress(IOError):
+            with open(f"filters/{args.source}/{key}.csv", encoding="utf-8") as filtercsv:
+                filterbook[key] = {}
+                for row in csv.reader(filtercsv, delimiter="\t"):
+                    if row and not row[0].startswith("#"):
+                        filterbook[key][row[0]] = 0
+            log.debug("Filter book for %s is %i entries big.", key, len(filterbook[key]))
 
+    filtered = 0
+    len_data = df.height
+    for key, filters in filterbook.items():
+        mask = ~pl.col(key).is_in(list(filters.keys()))
+        counts = df.filter(~mask).group_by(key).len()
+        for row in counts.rows():
+            filters[row[0]] = row[1]
+        filtered += df.height - df.filter(mask).height
+        df = df.filter(mask)
 
-# After substitutions and additions done, spit out new csv.
+    substitutions = 0
+    for key, mapping in rulebook.items():
+        if not mapping:
+            continue
+        replace_map = {k: v[0] for k, v in mapping.items()}
+        counts = df.filter(pl.col(key).is_in(list(replace_map.keys()))).group_by(key).len()
+        for row in counts.rows():
+            mapping[row[0]][1] = row[1]
+            substitutions += row[1]
+        df = df.with_columns(pl.col(key).replace(replace_map).alias(key))
 
-csv_out = args.output
-# extrasaction='ignore' ignores extra fields
-# http://www.lucainvernizzi.net/blog/2015/08/03/8x-speed-up-for-python-s-csv-dictwriter/
-writer = csv.DictWriter(csv_out, fieldnames=keys, extrasaction="ignore")
-
-writer.writeheader()
-writer.writerows(data)
-log.info(
-    "{} values out of {} dropped, {:.2%}".format(
-        filtered, len_data, filtered / len_data
-    )
-)
-log.info(
-    "{} values out of {} replaced, {:.2%}".format(
-        substitutions, len(data), substitutions / len(data)
-    )
-)
-
-for key in rulebook:
-    for rule in rulebook[key]:
-        if rulebook[key][rule][1] == 0:
-            log.info(
-                'Did not use [{}] rule "{}" -> "{}"'.format(
-                    key, rule, rulebook[key][rule][0]
-                )
+    for key, targets in enhancebook.items():
+        for target, mapping in targets.items():
+            replace_map = {k: v[0] for k, v in mapping.items()}
+            counts = df.filter(pl.col(key).is_in(list(replace_map.keys()))).group_by(key).len()
+            for row in counts.rows():
+                mapping[row[0]][1] = row[1]
+            df = df.with_columns(
+                pl.when(pl.col(key).is_in(list(replace_map.keys())))
+                .then(pl.col(key).replace(replace_map))
+                .otherwise(pl.col(target))
+                .alias(target)
             )
-        else:
-            log.debug(
-                "Used [{}] rule {} {} times".format(key, rule, rulebook[key][rule][1])
-            )
 
-for key in enhancebook:
-    for enhancement in enhancebook[key].keys():
-        for tkey in enhancebook[key][enhancement]:
-            if enhancebook[key][enhancement][tkey][1] == 0:
-                log.info(
-                    'Did not use enhancement [{}] "{}" -> [{}] "{}"'.format(
-                        key, tkey, enhancement, enhancebook[key][enhancement][tkey][0]
-                    )
-                )
+    for col in enhanced:
+        for row in df.filter(pl.col(col).is_null()).rows(named=True):
+            log.error("No enhancement found for %s in row %s", col, row)
 
-for key in filterbook:
-    for filter in filterbook[key].keys():
-        if filterbook[key][filter] == 0:
-            log.info("Did not use filter [{}] {}".format(key, filter))
+    df.write_csv(args.output)
+    args.output.close()
+
+    log.info("%d values out of %d dropped, %.2f%%", filtered, len_data, filtered / len_data)
+    log.info("%d values out of %d replaced, %.2f%%", substitutions, df.height, substitutions / df.height)
+
+    for key in rulebook:
+        for rule, (replacement, count) in rulebook[key].items():
+            if count == 0:
+                log.info('Did not use [{}] rule "{}" -> "{}"'.format(key, rule, replacement))
+            else:
+                log.debug("Used [{}] rule {} {} times".format(key, rule, count))
+
+    for key, targets in enhancebook.items():
+        for enhancement, mapping in targets.items():
+            for tkey, (value, count) in mapping.items():
+                if count == 0:
+                    log.info('Did not use enhancement [{}] "{}" -> [{}] "{}"'.format(key, tkey, enhancement, value))
+
+    for key, filters in filterbook.items():
+        for value, count in filters.items():
+            if count == 0:
+                log.info("Did not use filter [{}] {}".format(key, value))
+
+
+if __name__ == "__main__":
+    main()
