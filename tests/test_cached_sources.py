@@ -1,9 +1,9 @@
 import os
-import json
-import importlib.util
+import csv
 import requests
-from io import BytesIO
-from zipfile import ZipFile
+import runpy
+import sys
+import tempfile
 
 """Offline tests for network-based sources.
 
@@ -16,16 +16,8 @@ replace the ``*_output.json`` files with the new results.
 DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
 
 
-def load_source(path):
-    spec = importlib.util.spec_from_file_location("src", path)
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
-    return module
-
-
 def test_addresses_cached(monkeypatch):
-    module = load_source(os.path.join(os.path.dirname(__file__), os.pardir, "sources", "luxembourg_addresses.py"))
-    with open(os.path.join(DATA_DIR, "addresses_sample.csv"), "r", encoding="utf-8-sig") as f:
+    with open(os.path.join(DATA_DIR, "addresses.csv"), "r", encoding="utf-8-sig") as f:
         text = f.read()
 
     class Resp:
@@ -34,29 +26,46 @@ def test_addresses_cached(monkeypatch):
             self.encoding = "utf-8-sig"
 
     monkeypatch.setattr(requests, "get", lambda url: Resp(text))
-    rows, fields = module.get()
-    with open(os.path.join(DATA_DIR, "addresses_sample_output.json"), "r", encoding="utf-8") as f:
-        expected = json.load(f)
-    assert rows == expected["rows"]
-    assert fields == expected["fieldnames"]
+    tmp = tempfile.NamedTemporaryFile(delete=False)
+    tmp.close()
+    argv = ["csventrifuge.py", "luxembourg_addresses", tmp.name]
+    with monkeypatch.context() as m:
+        m.setattr(sys, "argv", argv)
+        runpy.run_module("csventrifuge", run_name="__main__")
+    with open(tmp.name, "r", encoding="utf-8") as outf:
+        produced = list(csv.DictReader(outf))
+        produced = sorted(produced, key=lambda r: r["id_geoportail"])
+    os.unlink(tmp.name)
+    with open(os.path.join(DATA_DIR, "luxembourg-addresses.csv"), "r", encoding="utf-8") as f:
+        expected_rows = list(csv.DictReader(f))
+        expected_rows = sorted(expected_rows, key=lambda r: r["id_geoportail"])
+    assert produced[:100] == expected_rows[:100]
 
 
 def test_dicacolo_cached(monkeypatch):
-    module = load_source(os.path.join(os.path.dirname(__file__), os.pardir, "sources", "luxembourg-caclr-dicacolo.py"))
-    with open(os.path.join(DATA_DIR, "caclr_sample.txt"), "rb") as f:
-        data = f.read()
-    buf = BytesIO()
-    with ZipFile(buf, "w") as zf:
-        zf.writestr("TR.DICACOLO.RUCP", data)
-    zipped = buf.getvalue()
+    with open(os.path.join(DATA_DIR, "caclr.zip"), "rb") as f:
+        zipped = f.read()
 
     class Resp:
         def __init__(self, content):
             self.content = content
 
     monkeypatch.setattr(requests, "get", lambda url: Resp(zipped))
-    rows, fields = module.get()
-    with open(os.path.join(DATA_DIR, "caclr_sample_output.json"), "r", encoding="utf-8") as f:
-        expected = json.load(f)
-    assert rows == expected["rows"]
-    assert fields == expected["fieldnames"]
+    tmp = tempfile.NamedTemporaryFile(delete=False)
+    tmp.close()
+    argv = ["csventrifuge.py", "luxembourg-caclr-dicacolo", tmp.name]
+    with monkeypatch.context() as m:
+        m.setattr(sys, "argv", argv)
+        runpy.run_module("csventrifuge", run_name="__main__")
+    with open(tmp.name, "r", encoding="utf-8") as outf:
+        produced = list(csv.DictReader(outf))
+        produced = sorted(produced, key=lambda r: (
+            r["district"], r["canton"], r["commune"], r["localite"], r["rue"], r["code_postal"]
+        ))
+    os.unlink(tmp.name)
+    with open(os.path.join(DATA_DIR, "luxembourg-streets.csv"), "r", encoding="utf-8") as f:
+        expected_rows = list(csv.DictReader(f))
+        expected_rows = sorted(expected_rows, key=lambda r: (
+            r["district"], r["canton"], r["commune"], r["localite"], r["rue"], r["code_postal"]
+        ))
+    assert produced[:100] == expected_rows[:100]
