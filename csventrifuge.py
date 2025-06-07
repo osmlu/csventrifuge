@@ -244,23 +244,27 @@ for row in data:
     for key in keys:
 
         # apply rules
+        orig = row.get(key)
         try:
-            orig = row[key]
-            row[key] = rulebook[key][row[key]][0]
-            log.debug("Rule: replacing [%s] %s with %s", key, orig, row[key])
-            rulebook[key][orig][1] += 1
-            substitutions += 1
+            if orig is not None:
+                row[key] = rulebook[key][orig][0]
+                log.debug("Rule: replacing [%s] %s with %s", key, orig, row[key])
+                rulebook[key][orig][1] += 1
+                substitutions += 1
+            else:
+                raise KeyError
         except KeyError:
             log.debug("No rule for [%s] %s", key, orig)
 
         # apply enhancement
         try:
-            for enhancement in enhancebook[key].keys():
-                # Ignore when no enhancement
-                with suppress(KeyError):
-                    orig = row[enhancement]
+            for enhancement in enhancebook[key]:
+                try:
                     row[enhancement] = enhancebook[key][enhancement][row[key]][0]
                     enhancebook[key][enhancement][row[key]][1] += 1
+                except KeyError:
+                    # No enhancement found for this value
+                    pass
         except KeyError:
             log.debug("No enhancements for [%s]", key)
     # Check if all enhanced columns in the row got added
