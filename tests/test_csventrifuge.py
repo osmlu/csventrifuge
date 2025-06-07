@@ -11,7 +11,7 @@ def load_csventrifuge_partial():
     path = os.path.join(os.path.dirname(__file__), os.pardir, "csventrifuge.py")
     with open(path, "r", encoding="utf-8") as f:
         mod_ast = ast.parse(f.read(), filename=path)
-    nodes = [n for n in mod_ast.body if getattr(n, "lineno", 0) <= 100]
+    nodes = [n for n in mod_ast.body if getattr(n, "lineno", 0) <= 150]
     module = types.ModuleType("csventrifuge_partial")
     module.__dict__["__file__"] = path
     compiled = compile(ast.Module(body=nodes, type_ignores=[]), path, "exec")

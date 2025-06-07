@@ -1,35 +1,36 @@
-# Call with get(), you get a collection containing dicts, and the field names list. That's the deal.
-
-import csv
+from dataclasses import dataclass
 import logging
+from io import BytesIO
 
-import requests
+import httpx
+import polars as pl
 
 logging.basicConfig(level=logging.DEBUG)
 log = logging.getLogger(__name__)
 
 
+@dataclass
+class LuxembourgAddresses:
+    url: str = "https://data.public.lu/fr/datasets/r/5cadc5b8-6a7d-4283-87bc-f9e58dd771f7"
+    delimiter: str = ";"
+
+    def get(self) -> pl.DataFrame:
+        r = httpx.get(self.url)
+        r.encoding = "utf-8-sig"
+        text = r.text
+        df = pl.read_csv(
+            BytesIO(text.encode("utf-8")),
+            separator=self.delimiter,
+            encoding="utf8",
+            infer_schema_length=0,
+        ).with_columns(pl.all().cast(pl.String))
+        df = df.with_columns(
+            pl.col("rue").alias("rue_orig"),
+            pl.col("id_geoportail").str.slice(0, 3).alias("code_commune"),
+        )
+        df = df.select(["rue_orig", "code_commune", *[c for c in df.columns if c not in {"rue_orig", "code_commune"}]])
+        return df
+
+
 def get():
-    # The endpoint that redirects to the most recent version of the
-    # addresses in csv.
-    ADDRESSES_CSV = (
-        "https://data.public.lu/fr/datasets/r/5cadc5b8-6a7d-4283-87bc-f9e58dd771f7"
-    )
-    # Downloading the addresses might take ~15 seconds.
-    # In the meanwhile, shake your wrists and correct your posture.
-    r = requests.get(ADDRESSES_CSV)
-    r.encoding = "utf-8-sig"
-    req_addresses = r.text.splitlines()
-    csvreader = csv.DictReader(req_addresses, delimiter=";")
-    fieldnames = csvreader.fieldnames
-    addresses = [{k: v for k, v in row.items()} for row in csvreader]
-    for row in addresses:
-        row["code_commune"] = row["id_geoportail"][:3]
-        row["rue_orig"] = row["rue"]
-    fieldnames.insert(0, "code_commune")
-    fieldnames.insert(0, "rue_orig")
-    localites = list(set(x["localite"] for x in addresses))
-    log.debug("Localites found: %s. Expecting 542.", str(len(localites)))
-    # if len(localites) != 542:
-    #     raise IOError(f"Localites found: {len(localites)}. Expected 542!")
-    return addresses, fieldnames
+    return LuxembourgAddresses().get()

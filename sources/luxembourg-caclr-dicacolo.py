@@ -1,44 +1,49 @@
-#!/usr/bin/env python
-# Call with get(), you get a collection containing dicts, and the field names list. That's the deal.
-
+from dataclasses import dataclass
 from io import BytesIO, TextIOWrapper
 from zipfile import ZipFile
 
-import requests
+import httpx
+import polars as pl
 
 
-def trimget(data, startpos, length):
+def trimget(data: str, startpos: int, length: int) -> str:
     return data[int(startpos) : int(startpos) + int(length)].rstrip(" ")
 
 
-def get():
-    # The endpoint that redirects to the most recent version of the
-    # CACLR in zip.
-    CACLR_ZIP = (
-        "https://data.public.lu/fr/datasets/r/af76a119-2bd1-462c-a5bf-23e11ccfd3ee"
-    )
+@dataclass
+class CaclrDicacolo:
+    url: str = "https://data.public.lu/fr/datasets/r/af76a119-2bd1-462c-a5bf-23e11ccfd3ee"
+    delimiter: str = ","
 
-    # Downloading the CACLR might take ~15 seconds.
-    # In the meanwhile, shake your wrists and correct your posture.
-    r = requests.get(CACLR_ZIP)
-    zipfile = ZipFile(BytesIO(r.content))
-    # zip_names = zipfile.namelist()
-    extracted_file = zipfile.open("TR.DICACOLO.RUCP")
-    caclr = []
-    # The CACLR files are encoded using ISO-8859-15. Using the correct
-    # encoding preserves accented characters that do not exist in Latin-1.
-    for data in TextIOWrapper(extracted_file, "iso-8859-15"):
-        caclr.append(
-            {
-                "district": trimget(data, 0, 40),
-                "canton": trimget(data, 40, 40),
-                "commune": trimget(data, 80, 40),
-                "localite": trimget(data, 120, 40),
-                "rue": trimget(data, 160, 40),
-                "code_postal": trimget(data, 200, 4),
-            }
-        )
-    return caclr, ["district", "canton", "commune", "localite", "rue", "code_postal"]
+    def get(self) -> pl.DataFrame:
+        r = httpx.get(self.url)
+        zipfile = ZipFile(BytesIO(r.content))
+        extracted_file = zipfile.open("TR.DICACOLO.RUCP")
+        rows = []
+        fieldnames = [
+            "district",
+            "canton",
+            "commune",
+            "localite",
+            "rue",
+            "code_postal",
+        ]
+        for data in TextIOWrapper(extracted_file, "iso-8859-15"):
+            rows.append([
+                trimget(data, 0, 40),
+                trimget(data, 40, 40),
+                trimget(data, 80, 40),
+                trimget(data, 120, 40),
+                trimget(data, 160, 40),
+                trimget(data, 200, 4),
+            ])
+        df = pl.DataFrame(rows, schema=fieldnames, orient="row")
+        df = df.with_columns(pl.all().cast(pl.String))
+        return df
+
+
+def get():
+    return CaclrDicacolo().get()
 
 
 if __name__ == "__main__":
