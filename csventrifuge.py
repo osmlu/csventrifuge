@@ -245,16 +245,18 @@ for row in data:
 
         # apply rules
         orig = row.get(key)
-        try:
+        if (
+            orig is not None
+            and rulebook.get(key) is not None
+            and orig in rulebook[key]
+        ):
+            row[key] = rulebook[key][orig][0]
+            log.debug("Rule: replacing [%s] %s with %s", key, orig, row[key])
+            rulebook[key][orig][1] += 1
+            substitutions += 1
+        else:
             if orig is not None:
-                row[key] = rulebook[key][orig][0]
-                log.debug("Rule: replacing [%s] %s with %s", key, orig, row[key])
-                rulebook[key][orig][1] += 1
-                substitutions += 1
-            else:
-                raise KeyError
-        except KeyError:
-            log.debug("No rule for [%s] %s", key, orig)
+                log.debug("No rule for [%s] %s", key, orig)
 
         # apply enhancement
         try:
