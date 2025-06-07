@@ -57,7 +57,7 @@ Fondation Emile Mayrisch	Fondation Émile Mayrisch
 Hl. Vinzenz Gaass	Hellege Vinzenz-Gaass
 Henneschtgaass	Hënneschtgaass
 Hoenerwee	Hoënerwee
-Impasse Emile Didderich	Impasse Émile Didderich
+Impasse Emile Diderrich	Impasse Émile Diderrich
 Impasse J-F Kennedy	Impasse John F. Kennedy
 Impasse St Dominique	Impasse Saint-Dominique
 Impasse St François	Impasse Saint-François
@@ -117,6 +117,7 @@ Rond-point Op der Goar	Rond-Point Op der Goar
 Rond-point Raemerich	Rond-Point Raemerich
 Rond-point Terres-Rouges	Rond-Point Terres-Rouges
 Rond-point Um Däich	Rond-Point Um Däich
+Rond-point Tinnesbruch	Rond-Point Tinnesbruch
 Rte de Luxembourg	Route de Luxembourg
 Rue A.T. Schmitz	Rue August Theodor Schmitz
 Rue Abbe Jos Keup	Rue Abbé Jos Keup
@@ -267,7 +268,7 @@ Rue Jos. Moscardo	Rue Joseph Moscardo
 Rue Klensch	Rue Émile Klensch
 Rue Lavoisier	Rue Antoine Lavoisier
 Rue le Relais	Le Relais
-Rue Lemire	Rue Abbé Lemire
+Rue Lemire	Rue Jules-Auguste Lemire
 Rue Leonardo Da Vinci	Rue Leonardo da Vinci
 Rue Léo Moulin	Rue Léon Moulin
 Rue Marie De Zorn	Rue Marie de Zorn
@@ -329,7 +330,7 @@ Rue Ste Catherine	Rue Sainte-Catherine
 Rue Ste-Catherine	Rue Sainte-Catherine
 Rue Ste Zithe	Rue Sainte-Zithe
 Rue Ste. Barbe	Rue Sainte-Barbe
-Rue Theodor Mergen	Rue Théodore Mergen
+Rue Theodor Mergen	Theodor-Mergen-Strooss
 Rue Theodore Bassing	Rue Théodore Bassing
 Rue Theodore de Wacquant	Rue Théodore de Wacquant
 Rue W.A. Mozart	Rue Wolfgang Amadeus Mozart
@@ -385,12 +386,10 @@ Munnerëferstrooss	Munnereferstrooss
 Doerfstrooss	Duerfstrooss
 Rue Driicht	Rue Driecht
 Klengreisdorf	Klengreisduerf
-Medernacherstrooss	Miedernacherstrooss
 Am Haupeschbierg	Haupeschbierg
 Rue Moenchkelterhaus	Mönchkelterhous
 Rue Neugarten	Am Neigord
 Rue um Boeschel	Um Bëchel
-Kiirfechtsstrooss	Kierfechtstrooss
 Eesberwée	Eesberwee
 An der Kepp	An der Këpp
 Rue Johan Bertels	Rue Jean Bertels
@@ -445,9 +444,13 @@ ZAE - route de Bettel	Zone d'Activité Économique route de Bettel
 Ernest Krier Wee	Ernest-Krier-Wee
 Beim Fetschebur	Beim Fetschebuer
 Rue du XI Novembre 1918	Rue du 11 novembre 1918
-Kierfichtstrooss	Kierfechtstrooss
-Kierfichsstrooss	Kierfechtstrooss
 Kierfechstrooss	Kierfechtstrooss
+Kierfichsstrooss	Kierfechtstrooss
+Kierfichtstrooss	Kierfechtstrooss
+Kiirfechstrooss	Kierfechtstrooss
+Kiirfechtsstrooss	Kierfechtstrooss
+Kiirfechtstrooss	Kierfechtstrooss
+Kiirfechtswee	Kierfechtswee
 Rue d'Ettebruck	Rue d'Ettelbruck
 Rue Siweneecken	Siweneecken
 Faerschthaff	Färschthaff
@@ -612,10 +615,22 @@ Um Enneschte Léi	Um Ënneschte Léi
 Um Ale Waasser	Um ale Waasser
 Rannerbaach	Rannerbach
 Rue Sainte Barbe	Rue Sainte-Barbe
-Am Këppbrill	Am Kepbrill
 Zone Industrielle Esch-Schifflange	Zone Industrielle Um Monkeler
 Chaux de Contern	Rue des Chaux
 Op den Wisen	Op de Wisen
 Rue Dr Henri Sinner	Rue Docteur Henri Sinner
 Anna Klemmer Strooss	Anna-Klemmer-Strooss
-Rue Fresbo	Frebsou
+Rue Frebso	Frebsou
+Place Emile Krieps	Place Émile Krieps
+Op der Haardt	Op der Haart
+Danzplaz	Op der Danzplaz
+Schaeferreder	Schäferreder
+Impasse Leon Roger	Impasse Léon Roger
+Am Saitert	Am Säitert
+Hof Ahl	Haff Ahl
+Op de Scheppen	Op de Schëppen
+Rue Edouard Legille	Rue Édouard Legille
+Kiirchewee	Kierchewee
+Route de Niederkorn	Rue de Niederkorn
+Croix Cassée / Gebrachent Kräiz	Croix Cassée
+

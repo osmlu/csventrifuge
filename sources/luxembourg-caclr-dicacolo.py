@@ -19,13 +19,15 @@ def get():
     )
 
     # Downloading the CACLR might take ~15 seconds.
-    # In the meanwile, shake your wrists and correct your posture.
+    # In the meanwhile, shake your wrists and correct your posture.
     r = requests.get(CACLR_ZIP)
     zipfile = ZipFile(BytesIO(r.content))
     # zip_names = zipfile.namelist()
     extracted_file = zipfile.open("TR.DICACOLO.RUCP")
     caclr = []
-    for data in TextIOWrapper(extracted_file, "latin-1"):
+    # The CACLR files are encoded using ISO-8859-15. Using the correct
+    # encoding preserves accented characters that do not exist in Latin-1.
+    for data in TextIOWrapper(extracted_file, "iso-8859-15"):
         caclr.append(
             {
                 "district": trimget(data, 0, 40),
