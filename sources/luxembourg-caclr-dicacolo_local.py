@@ -2,6 +2,7 @@
 # Call with get(), you get a collection containing dicts, and the field names list. That's the deal.
 
 import os
+import polars as pl
 
 # from io import TextIOWrapper
 
@@ -29,14 +30,8 @@ def get():
                     "code_postal": trimget(data, 200, 4),
                 }
             )
-        return caclr, [
-            "district",
-            "canton",
-            "commune",
-            "localite",
-            "rue",
-            "code_postal",
-        ]
+        df = pl.DataFrame(caclr).with_columns(pl.all().cast(pl.String))
+        return df
 
 
 if __name__ == "__main__":
