@@ -13,7 +13,9 @@ def trimget(data, startpos, length):
 def get():
     caclr = []
     with open(
-        os.path.expanduser("~/caclr/TR.DICACOLO.RUCP"), "r", encoding="ISO-8859-1"
+        os.path.expanduser("~/caclr/TR.DICACOLO.RUCP"),
+        "r",
+        encoding="ISO-8859-15",  # source file encoding
     ) as extracted_file:
         for data in extracted_file:
             # for data in TextIOWrapper(extracted_file, "latin-1"):

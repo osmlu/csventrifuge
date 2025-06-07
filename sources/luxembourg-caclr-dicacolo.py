@@ -25,7 +25,10 @@ def get():
     # zip_names = zipfile.namelist()
     extracted_file = zipfile.open("TR.DICACOLO.RUCP")
     caclr = []
-    for data in TextIOWrapper(extracted_file, "latin-1"):
+    # The file is encoded using ISO-8859-15. Using the correct encoding is
+    # important as it contains characters such as "œ" or the euro sign that do
+    # not exist in Latin-1.
+    for data in TextIOWrapper(extracted_file, "iso-8859-15"):
         caclr.append(
             {
                 "district": trimget(data, 0, 40),
