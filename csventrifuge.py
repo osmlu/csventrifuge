@@ -27,20 +27,16 @@ import polars as pl
 
 # Typed wrappers
 @dataclass
-class RuleEntry:
-    replacement: str
-    count: int = 0
+class Entry:
+    """Mapping or filter entry that tracks how often it is used."""
 
-
-@dataclass
-class FilterEntry:
     value: str
     count: int = 0
 
 
-Rulebook = Dict[str, Dict[str, RuleEntry]]
-EnhanceBook = Dict[str, Dict[str, Dict[str, RuleEntry]]]
-FilterBook = Dict[str, Dict[str, FilterEntry]]
+Rulebook = Dict[str, Dict[str, Entry]]
+EnhanceBook = Dict[str, Dict[str, Dict[str, Entry]]]
+FilterBook = Dict[str, Dict[str, Entry]]
 # Set up logging
 logging.basicConfig(level=logging.WARNING)
 log = logging.getLogger(__name__)
@@ -88,20 +84,20 @@ def form_module(fp: str) -> str:
     """
     return "." + os.path.splitext(fp)[0]
 
-def is_valid_source(parser: argparse.ArgumentParser, arg: str) -> str:
+
+def is_valid_source(arg_parser: argparse.ArgumentParser, arg: str) -> str:
     """
     Check if the input source definition file exists.
 
     Args:
-        parser: The argparse parser object.
+        arg_parser: The argparse parser object.
         arg (str): The input source definition file.
     Returns:
         The argument if the input source definition file exists.
     """
     # Check if the input source definition file exists
     if not os.path.exists(f"sources/{arg}.py"):
-        parser.error(f"The input source definition sources/{arg}.py does not exist")
-        return False
+        arg_parser.error(f"The input source definition sources/{arg}.py does not exist")
     # If the argument is a valid source definition file, return the argument
     return arg
 
@@ -166,13 +162,13 @@ def load_rules(source: str, keys: Iterable[str]) -> Rulebook:
             encoding="utf8",
         )
         for old, new in df.iter_rows():
-            book[key][old] = RuleEntry(new)
+            book[key][old] = Entry(new)
     return book
 
 
 def load_enhancements(source: str, keys: list[str]) -> Tuple[EnhanceBook, set[str]]:
     """Load enhancement CSV files for the given source."""
-    book: Dict[str, Dict[str, Dict[str, RuleEntry]]] = {}
+    book: Dict[str, Dict[str, Dict[str, Entry]]] = {}
     enhanced: set[str] = set()
     for key in list(keys):
         enhancepath = Path("enhance") / source / key
@@ -196,7 +192,7 @@ def load_enhancements(source: str, keys: list[str]) -> Tuple[EnhanceBook, set[st
                 encoding="utf8",
             )
             for old, new in df.iter_rows():
-                book[key][target][old] = RuleEntry(new)
+                book[key][target][old] = Entry(new)
         log.debug("Enhance book for %s: %s", key, ", ".join(book[key].keys()))
     return book, enhanced
 
@@ -219,7 +215,7 @@ def load_filters(source: str, keys: Iterable[str]) -> FilterBook:
             encoding="utf8",
         )
         for value, _ in df.iter_rows():
-            book[key][value] = FilterEntry(value)
+            book[key][value] = Entry(value)
         log.debug("Filter book for %s is %i entries big.", key, len(book[key]))
     return book
 
@@ -256,7 +252,7 @@ def main() -> None:
     for key, mapping in rulebook.items():
         if not mapping:
             continue
-        replace_map = {k: v.replacement for k, v in mapping.items()}
+        replace_map = {k: v.value for k, v in mapping.items()}
         vc = (
             df.filter(pl.col(key).is_in(list(replace_map.keys())))
             .get_column(key)
@@ -269,7 +265,7 @@ def main() -> None:
 
     for key, targets in enhancebook.items():
         for target, mapping in targets.items():
-            replace_map = {k: v.replacement for k, v in mapping.items()}
+            replace_map = {k: v.value for k, v in mapping.items()}
             vc = (
                 df.filter(pl.col(key).is_in(list(replace_map.keys())))
                 .get_column(key)
@@ -301,12 +297,10 @@ def main() -> None:
         substitutions / df.height,
     )
 
-    for key in rulebook:
-        for rule, entry in rulebook[key].items():
+    for key, mapping in rulebook.items():
+        for rule, entry in mapping.items():
             if entry.count == 0:
-                log.info(
-                    'Did not use [%s] rule "%s" -> "%s"', key, rule, entry.replacement
-                )
+                log.info('Did not use [%s] rule "%s" -> "%s"', key, rule, entry.value)
             else:
                 log.debug("Used [%s] rule %s %d times", key, rule, entry.count)
 
@@ -319,7 +313,7 @@ def main() -> None:
                         key,
                         tkey,
                         enhancement,
-                        entry.replacement,
+                        entry.value,
                     )
 
     for key, filters in filterbook.items():
