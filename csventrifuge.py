@@ -67,7 +67,7 @@ def load_module(wanted_module: str, origin: str) -> ModuleType:
     # Iterate through modules and find the desired module
     for module in modules:
         if module == "." + wanted_module:
-            log.debug(f"Loading module {module}")
+            log.debug("Loading module %s", module)
             return importlib.import_module(module, package="sources")
     # If the desired module is not found, raise an ImportError
     raise ImportError(f'module not found "{wanted_module}" ({origin})')
@@ -103,12 +103,12 @@ def is_valid_source(arg_parser: argparse.ArgumentParser, arg: str) -> str:
 
 
 # Define function to check if output file is valid
-def is_valid_output(parser: argparse.ArgumentParser, arg: str) -> TextIO:
+def is_valid_output(arg_parser: argparse.ArgumentParser, arg: str) -> TextIO:
     """
     Check if the output file can be written to.
 
     Args:
-        parser: The argparse parser object.
+        arg_parser: The argparse parser object.
         arg (str): The output file.
     Returns:
         The output file if it can be written to.
@@ -118,7 +118,7 @@ def is_valid_output(parser: argparse.ArgumentParser, arg: str) -> TextIO:
         output = open(arg, "w", encoding="utf-8", newline="")
     # If an OSError occurs, raise an error stating that the output file cannot be written to
     except OSError:
-        parser.error(f"Unable to write to file {arg}")
+        arg_parser.error(f"Unable to write to file {arg}")
     # If no error occurs, return the output file
     else:
         return output
