@@ -18,12 +18,12 @@ import importlib
 import logging
 import os
 import re
-from contextlib import suppress
 from dataclasses import dataclass
 from typing import Dict, Iterable, Tuple, TextIO
 from pathlib import Path
 from types import ModuleType
 import polars as pl
+
 
 # Typed wrappers
 @dataclass
@@ -44,6 +44,7 @@ FilterBook = Dict[str, Dict[str, FilterEntry]]
 # Set up logging
 logging.basicConfig(level=logging.WARNING)
 log = logging.getLogger(__name__)
+
 
 def load_module(wanted_module: str, origin: str) -> ModuleType:
     """
@@ -75,6 +76,7 @@ def load_module(wanted_module: str, origin: str) -> ModuleType:
     # If the desired module is not found, raise an ImportError
     raise ImportError(f'module not found "{wanted_module}" ({origin})')
 
+
 def form_module(fp: str) -> str:
     """
     Form a module name from a filepath.
@@ -98,12 +100,11 @@ def is_valid_source(parser: argparse.ArgumentParser, arg: str) -> str:
     """
     # Check if the input source definition file exists
     if not os.path.exists(f"sources/{arg}.py"):
-        parser.error(
-            f"The input source definition sources/{arg}.py does not exist"
-        )
+        parser.error(f"The input source definition sources/{arg}.py does not exist")
         return False
     # If the argument is a valid source definition file, return the argument
     return arg
+
 
 # Define function to check if output file is valid
 def is_valid_output(parser: argparse.ArgumentParser, arg: str) -> TextIO:
@@ -125,6 +126,7 @@ def is_valid_output(parser: argparse.ArgumentParser, arg: str) -> TextIO:
     # If no error occurs, return the output file
     else:
         return output
+
 
 # Set up argument parser to parse input source and output file
 parser = argparse.ArgumentParser(
@@ -231,10 +233,7 @@ def main() -> None:
         raise ImportError(f'function not found "get" ({args.source})')
 
     # All current sources expose a ``get`` function that returns a Polars
-    # DataFrame directly.  Previous versions returned the CSV path and the
-    # column list instead; the extra logic below handled both styles.  If new
-    # sources revive that convention we can reintroduce it, but for now the
-    # returned value is always a DataFrame.
+    # DataFrame directly.
     df = get_data()
     keys = list(df.columns)
     log.debug("Keys are %s", ", ".join(keys))
@@ -258,7 +257,11 @@ def main() -> None:
         if not mapping:
             continue
         replace_map = {k: v.replacement for k, v in mapping.items()}
-        vc = df.filter(pl.col(key).is_in(list(replace_map.keys()))).get_column(key).value_counts()
+        vc = (
+            df.filter(pl.col(key).is_in(list(replace_map.keys())))
+            .get_column(key)
+            .value_counts()
+        )
         for row in vc.rows():
             mapping[row[0]].count = row[1]
             substitutions += row[1]
@@ -267,7 +270,11 @@ def main() -> None:
     for key, targets in enhancebook.items():
         for target, mapping in targets.items():
             replace_map = {k: v.replacement for k, v in mapping.items()}
-            vc = df.filter(pl.col(key).is_in(list(replace_map.keys()))).get_column(key).value_counts()
+            vc = (
+                df.filter(pl.col(key).is_in(list(replace_map.keys())))
+                .get_column(key)
+                .value_counts()
+            )
             for row in vc.rows():
                 mapping[row[0]].count = row[1]
             df = df.with_columns(
@@ -284,26 +291,41 @@ def main() -> None:
     df.write_csv(args.output)
     args.output.close()
 
-    log.info("%d values out of %d dropped, %.2f%%", filtered, len_data, filtered / len_data)
-    log.info("%d values out of %d replaced, %.2f%%", substitutions, df.height, substitutions / df.height)
+    log.info(
+        "%d values out of %d dropped, %.2f%%", filtered, len_data, filtered / len_data
+    )
+    log.info(
+        "%d values out of %d replaced, %.2f%%",
+        substitutions,
+        df.height,
+        substitutions / df.height,
+    )
 
     for key in rulebook:
         for rule, entry in rulebook[key].items():
             if entry.count == 0:
-                log.info('Did not use [{}] rule "{}" -> "{}"'.format(key, rule, entry.replacement))
+                log.info(
+                    'Did not use [%s] rule "%s" -> "%s"', key, rule, entry.replacement
+                )
             else:
-                log.debug("Used [{}] rule {} {} times".format(key, rule, entry.count))
+                log.debug("Used [%s] rule %s %d times", key, rule, entry.count)
 
     for key, targets in enhancebook.items():
         for enhancement, mapping in targets.items():
             for tkey, entry in mapping.items():
                 if entry.count == 0:
-                    log.info('Did not use enhancement [{}] "{}" -> [{}] "{}"'.format(key, tkey, enhancement, entry.replacement))
+                    log.info(
+                        'Did not use enhancement [%s] "%s" -> [%s] "%s"',
+                        key,
+                        tkey,
+                        enhancement,
+                        entry.replacement,
+                    )
 
     for key, filters in filterbook.items():
         for value, entry in filters.items():
             if entry.count == 0:
-                log.info("Did not use filter [{}] {}".format(key, value))
+                log.info("Did not use filter [%s] %s", key, value)
 
 
 if __name__ == "__main__":
