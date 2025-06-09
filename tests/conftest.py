@@ -17,13 +17,17 @@ def run_source(monkeypatch):
             class Resp:
                 def __init__(self, content):
                     self.content = content
-            monkeypatch.setattr(httpx, "get", lambda url: Resp(response))
+                def raise_for_status(self):
+                    pass
+            monkeypatch.setattr(httpx, "get", lambda url, **kwargs: Resp(response))
         else:
             class Resp:
                 def __init__(self, text):
                     self.text = text
                     self.encoding = "utf-8-sig"
-            monkeypatch.setattr(httpx, "get", lambda url: Resp(response))
+                def raise_for_status(self):
+                    pass
+            monkeypatch.setattr(httpx, "get", lambda url, **kwargs: Resp(response))
         tmp = tempfile.NamedTemporaryFile(delete=False)
         tmp.close()
         argv = ["csventrifuge.py", module, tmp.name]

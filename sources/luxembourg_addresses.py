@@ -15,7 +15,8 @@ class LuxembourgAddresses:
     delimiter: str = ";"
 
     def get(self) -> pl.DataFrame:
-        r = httpx.get(self.url)
+        r = httpx.get(self.url, follow_redirects=True)
+        r.raise_for_status()
         r.encoding = "utf-8-sig"
         text = r.text
         df = pl.read_csv(
