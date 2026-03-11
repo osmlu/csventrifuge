@@ -27,9 +27,7 @@ class LuxembourgAddresses:
         ).with_columns(pl.all().cast(pl.String))
         df = df.with_columns(
             pl.col("rue").alias("rue_orig"),
-            pl.col("id_geoportail").str.slice(0, 3).alias("code_commune"),
         )
-        df = df.select(["rue_orig", "code_commune", *[c for c in df.columns if c not in {"rue_orig", "code_commune"}]])
         return df
 
 
