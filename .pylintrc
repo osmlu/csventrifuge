@@ -1,0 +1,13 @@
+[MASTER]
+disable=
+    missing-module-docstring,
+    missing-class-docstring,
+    missing-function-docstring,
+    no-member,
+    not-callable,
+    too-many-arguments,
+    too-many-positional-arguments,
+    inconsistent-return-statements,
+
+[DESIGN]
+max-positional-arguments=7
