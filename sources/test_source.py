@@ -2,6 +2,7 @@ from dataclasses import dataclass
 
 import polars as pl
 
+
 @dataclass
 class TestSource:
     delimiter: str = ","

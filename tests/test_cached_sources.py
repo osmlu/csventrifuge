@@ -1,5 +1,6 @@
-import os
 import csv
+import os
+
 from .conftest import DATA_DIR
 
 """Offline tests for network-based sources.

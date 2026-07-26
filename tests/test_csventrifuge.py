@@ -1,8 +1,9 @@
 import argparse
 import ast
 import os
-import types
 import tempfile
+import types
+
 import pytest
 
 
@@ -70,7 +71,7 @@ def test_is_valid_output_opens_file():
 def test_is_valid_output_error(monkeypatch):
     parser = argparse.ArgumentParser()
 
-    def raise_os_error(*args, **kwargs):  # noqa: ARG001
+    def raise_os_error(*args, **kwargs):
         raise OSError()
 
     monkeypatch.setattr("builtins.open", raise_os_error)

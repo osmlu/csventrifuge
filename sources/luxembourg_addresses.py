@@ -1,8 +1,7 @@
-from dataclasses import dataclass
 import logging
+from dataclasses import dataclass
 from io import BytesIO
 from pathlib import Path
-from typing import Optional
 
 import httpx
 import polars as pl
@@ -42,7 +41,7 @@ class LuxembourgAddresses:
             r.raise_for_status()
         return self.url
 
-    def _get_cached_url(self) -> Optional[str]:
+    def _get_cached_url(self) -> str | None:
         """Get the stored resolved URL."""
         if not self.cache_url_file.exists():
             return None

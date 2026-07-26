@@ -16,10 +16,12 @@
 import argparse
 import importlib.util
 import logging
+from collections.abc import Iterable
 from dataclasses import dataclass, field
-from typing import Dict, Iterable, Tuple, TextIO
 from pathlib import Path
 from types import ModuleType
+from typing import TextIO
+
 import polars as pl
 
 # Directory constants
@@ -54,10 +56,10 @@ class Transformation:
     """
 
     key: str  # Column name
-    mappings: Dict[str, str]  # old value -> new value
+    mappings: dict[str, str]  # old value -> new value
     stats: TransformStats = field(default_factory=TransformStats)
 
-    def apply_and_count(self, df: pl.DataFrame) -> Tuple[pl.DataFrame, TransformStats]:
+    def apply_and_count(self, df: pl.DataFrame) -> tuple[pl.DataFrame, TransformStats]:
         """Apply transformation and return updated DataFrame with statistics."""
         if not self.mappings:
             return df, self.stats
@@ -80,9 +82,9 @@ class Transformation:
         return df_transformed, self.stats
 
 
-Rulebook = Dict[str, Dict[str, Entry]]
-EnhanceBook = Dict[str, Dict[str, Dict[str, Entry]]]
-FilterBook = Dict[str, Dict[str, Entry]]
+Rulebook = dict[str, dict[str, Entry]]
+EnhanceBook = dict[str, dict[str, dict[str, Entry]]]
+FilterBook = dict[str, dict[str, Entry]]
 # Set up logging
 logging.basicConfig(level=logging.WARNING)
 log = logging.getLogger(__name__)
@@ -218,9 +220,9 @@ def load_rules(source: str, keys: Iterable[str]) -> Rulebook:
     return book
 
 
-def load_enhancements(source: str, keys: list[str]) -> Tuple[EnhanceBook, set[str]]:
+def load_enhancements(source: str, keys: list[str]) -> tuple[EnhanceBook, set[str]]:
     """Load enhancement CSV files for the given source."""
-    book: Dict[str, Dict[str, Dict[str, Entry]]] = {}
+    book: dict[str, dict[str, dict[str, Entry]]] = {}
     enhanced: set[str] = set()
     for key in list(keys):
         enhancepath = ENHANCE_DIR / source / key
@@ -274,8 +276,8 @@ def load_filters(source: str, keys: Iterable[str]) -> FilterBook:
 def _apply_filter_transformation(
     df: pl.DataFrame,
     key: str,
-    mapping: Dict[str, Entry],
-) -> Tuple[pl.DataFrame, int]:
+    mapping: dict[str, Entry],
+) -> tuple[pl.DataFrame, int]:
     """Apply filter transformation: count and remove matching rows."""
     values = list(mapping.keys())
     matches = df.filter(pl.col(key).is_in(values))
@@ -291,8 +293,8 @@ def _apply_filter_transformation(
 def _apply_replace_transformation(
     df: pl.DataFrame,
     key: str,
-    mapping: Dict[str, Entry],
-) -> Tuple[pl.DataFrame, int]:
+    mapping: dict[str, Entry],
+) -> tuple[pl.DataFrame, int]:
     """Apply replacement transformation: count and replace values."""
     replace_map = {k: v.value for k, v in mapping.items()}
     matches = df.filter(pl.col(key).is_in(list(replace_map.keys())))
@@ -310,9 +312,9 @@ def _apply_replace_transformation(
 
 def apply_transformations(
     df: pl.DataFrame,
-    book: Dict[str, Dict[str, Entry]],
+    book: dict[str, dict[str, Entry]],
     is_filter: bool = False,
-) -> Tuple[pl.DataFrame, int]:
+) -> tuple[pl.DataFrame, int]:
     """
     Apply a set of transformations (filters, rules, or enhancements) to a DataFrame.
 
@@ -340,8 +342,8 @@ def apply_transformations(
 
 def apply_enhancements(
     df: pl.DataFrame,
-    enhancebook: Dict[str, Dict[str, Dict[str, Entry]]],
-) -> Tuple[pl.DataFrame, int]:
+    enhancebook: dict[str, dict[str, dict[str, Entry]]],
+) -> tuple[pl.DataFrame, int]:
     """
     Apply enhancements to a DataFrame (add or replace columns based on another column).
 

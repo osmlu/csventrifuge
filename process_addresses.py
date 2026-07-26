@@ -1,9 +1,10 @@
 from datetime import datetime
 from pathlib import Path
-import polars as pl
+
 import geojson
+import polars as pl
 from geojson import Feature, FeatureCollection, Point
-from typing import List
+
 
 def process_addresses(input_file: str, output_dir: str) -> None:
     date_str = datetime.now().strftime("%Y-%m-%d")
@@ -36,7 +37,7 @@ def process_addresses(input_file: str, output_dir: str) -> None:
     df.write_csv(output_csv_file)
 
     # Generate GeoJSON
-    features: List[Feature] = [
+    features: list[Feature] = [
         Feature(
             geometry=Point((row["lon_wgs84"], row["lat_wgs84"])),
             properties={

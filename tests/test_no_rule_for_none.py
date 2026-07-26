@@ -1,8 +1,8 @@
+import logging
 import os
 import runpy
 import sys
 import tempfile
-import logging
 import unittest
 from unittest import mock
 
