@@ -1,3 +1,12 @@
+#!/usr/bin/env -S uv run --script
+# /// script
+# dependencies = [
+#     "polars>=0.20",
+#     "geojson"
+# ]
+# requires-python = ">=3.14"
+# ///
+
 from datetime import datetime
 from pathlib import Path
 
@@ -63,8 +72,8 @@ def process_addresses(input_file: str, output_dir: str) -> None:
 
     print("Conversion complete.")
 
+
 if __name__ == "__main__":
     input_file = 'luxembourg-addresses.csv'
     output_dir = '../public_html/csventrifuge'
     process_addresses(input_file, output_dir)
-
